@@ -5,7 +5,7 @@
 \usepackage{graphicx,url}
 
 %\usepackage[brazil]{babel}   
-\usepackage[latin1]{inputenc}  
+\usepackage[latin1]{inputenc}
 
 \newenvironment{myfont}{\fontsize{10}{10}\fontfamily{courier}\selectfont}{\par}
 
@@ -18,14 +18,6 @@
  Lucas A. Moura\inst{1}, Marcos S. Ramos\inst{1}, Maria Eugênia Santos\inst{1}, \\
  Matheus F. Pimenta\inst{1}, Pablo A. Urbizagastegui\inst{1}, Rodrigo S. Melo\inst{1}, \\
  Thaynara R. Santana\inst{1}, Tuane T. Fonseca\inst{1}, Vanessa O. Ribeiro\inst{1}}
-
-%joao_gml@hotmail.com, josearmando_neto@hotmail.com,
-%1jpsneto@gmail.com, lucas.moura128@gmail.com,
-%ms.ramos@outlook.com
-%mariaec46@gmail.com, matheuspimentao@gmail.com, pabloabur@gmail.com, @gmail.com, @gmail.com,
-%@hotmail.com, @hotmail.com
-
-%1jpsneto@gmail.com, lucas.moura128@gmail.com
 
 \address{Faculdade UnB Gama - Universidade de Brasília (UnB)\\
   CEP 72444-240 - Brasília - DF - Brasil \\
@@ -72,111 +64,120 @@
 \end{resumo}
 
 
-\section{General Information}
+\section{Introdução}
+Hoje em dia, a tecnologia está tornando as casas mais inteligentes e automatizadas. O que gera mais conveniência, e tempo para as pessoas. Com esta finalidade os robôs domésticos estão entrando cada dia mais na casa e na vida da população, mas infelizmente este mercado é relativamente novo, principalmente no Brasil, quer seja por falta de conhecimento ou, pelo alto custo do produto. Em um futuro próximo esta tecnologia estará mais presente no dia a dia das pessoas, o que tornará este produto mais requisitado. Baseado nisso, foi criado um protótipo com o objetivo de aspirar partículas pequenas do chão, tornando essa tarefa automatizada, realizando-a sem intervenção humana, agindo nas varias divisões da casa, ajudando na limpeza, e consequentemente facilitando a vida do usuário que necessita desse tipo de tecnologia por diversos motivos, como: falta de tempo, pouca disposição, falta de recurso financeiro para pagar alguém para realizar essa tarefa.
 
-All full papers and posters (short papers) submitted to some SBC conference,
-including any supporting documents, should be written in English or in
-Portuguese. The format paper should be A4 with single column, 3.5 cm for upper
-margin, 2.5 cm for bottom margin and 3.0 cm for lateral margins, without
-headers or footers. The main font must be Times, 12 point nominal size, with 6
-points of space before each paragraph. Page numbers must be suppressed.
+\subsection{Problematização}
+No último censo em 2010, segundo o IBGE cerca de 12,1\% da população é representada por pessoas que vivem sozinhas, sendo ainda que houve um aumento de aproximadamente 3\% desse índice desde 2000. Esta situação torna a vida do indivíduo um pouco mais estressante por não lhe dar tempo o suficiente para desfrutar dos momentos de descanso, uma vez que, além das responsabilidades profissionais, é necessário dedicar tempo para tarefas domésticas. A tabela da pesquisa \cite{rocha2001trabalho} seguinte quantifica o tempo destinado a essas atividades.
 
-Full papers must respect the page limits defined by the conference.
-Conferences that publish just abstracts ask for \textbf{one}-page texts.
-
-\section{First Page} \label{sec:firstpage}
-
-The first page must display the paper title, the name and address of the
-authors, the abstract in English and ``resumo'' in Portuguese (``resumos'' are
-required only for papers written in Portuguese). The title must be centered
-over the whole page, in 16 point boldface font and with 12 points of space
-before itself. Author names must be centered in 12 point font, bold, all of
-them disposed in the same line, separated by commas and with 12 points of
-space after the title. Addresses must be centered in 12 point font, also with
-12 points of space after the authors' names. E-mail addresses should be
-written using font Courier New, 10 point nominal size, with 6 points of space
-before and 6 points of space after.
-
-The abstract and ``resumo'' (if is the case) must be in 12 point Times font,
-indented 0.8cm on both sides. The word \textbf{Abstract} and \textbf{Resumo},
-should be written in boldface and must precede the text.
-
-\section{CD-ROMs and Printed Proceedings}
-
-In some conferences, the papers are published on CD-ROM while only the
-abstract is published in the printed Proceedings. In this case, authors are
-invited to prepare two final versions of the paper. One, complete, to be
-published on the CD and the other, containing only the first page, with
-abstract and ``resumo'' (for papers in Portuguese).
-
-\section{Sections and Paragraphs}
-
-Section titles must be in boldface, 13pt, flush left. There should be an extra
-12 pt of space before each title. Section numbering is optional. The first
-paragraph of each section should not be indented, while the first lines of
-subsequent paragraphs should be indented by 1.27 cm.
-
-\subsection{Subsections}
-
-The subsection titles must be in boldface, 12pt, flush left.
-
-\section{Figures and Captions}\label{sec:figs}
-
-
-Figure and table captions should be centered if less than one line
-(Figure~\ref{fig:exampleFig1}), otherwise justified and indented by 0.8cm on
-both margins, as shown in Figure~\ref{fig:exampleFig2}. The caption font must
-be Helvetica, 10 point, boldface, with 6 points of space before and after each
-caption.
-
-\begin{figure}[ht]
+\begin{table}[h]
 \centering
-\includegraphics[width=.5\textwidth]{fig1.jpg}
-\caption{A typical figure}
-\label{fig:exampleFig1}
-\end{figure}
-
-\begin{figure}[ht]
-\centering
-\includegraphics[width=.3\textwidth]{fig2.jpg}
-\caption{This figure is an example of a figure caption taking more than one
-  line and justified considering margins mentioned in Section~\ref{sec:figs}.}
-\label{fig:exampleFig2}
-\end{figure}
-
-In tables, try to avoid the use of colored or shaded backgrounds, and avoid
-thick, doubled, or unnecessary framing lines. When reporting empirical data,
-do not use more decimal digits than warranted by their precision and
-reproducibility. Table caption must be placed before the table (see Table 1)
-and the font used must also be Helvetica, 10 point, boldface, with 6 points of
-space before and after each caption.
-
-\begin{table}[ht]
-\centering
-\caption{Variables to be considered on the evaluation of interaction
-  techniques}
-\label{tab:exTable1}
-\includegraphics[width=.7\textwidth]{table.jpg}
+\includegraphics[width=1\textwidth]{fig1.eps}
+\caption{Tempo diário dedicado à tarefas domésticas. Fonte: (Rocha \& Debert-Ribeiro 2001)}
+\label{tab:fig1}
 \end{table}
 
-\section{Images}
+\subsection{Solução}
+Ciente do problema foi pensada uma solução em forma de um robô de limpeza doméstico, que tem como objetivo aspirar à área seca do chão. Levaram-se em conta alguns fatores como: planejamento da rota, para tentar cobrir o máximo de área possível; detecção de obstáculo feito por sensores, para permitir que o robô tenha mais autonomia; duração do ciclo de limpeza, e levantamento de todos os componentes eletrônicos utilizados, para que haja um cálculo da autonomia da bateria; e por fim, a parte estrutural do robô, como o tamanho, disposição das rodas, o suporte para alcançar o máximo de área possível e ter maior eficiência. Deseja-se então apresentar um protótipo levando em conta estas características.
 
-All images and illustrations should be in black-and-white, or gray tones,
-excepting for the papers that will be electronically available (on CD-ROMs,
-internet, etc.). The image resolution on paper should be about 600 dpi for
-black-and-white images, and 150-300 dpi for grayscale images.  Do not include
-images with excessive resolution, as they may take hours to print, without any
-visible difference in the result. 
 
-\section{References}
+\section{Metodologia}
+\subsection{Planejamento}
+Para o desenvolvimento do projeto, de maneira a integrar todas as engenharias envolvidas e não individualizar o trabalho de cada integrante dentro de sua especialidade, foi feita uma divisão em três frentes de trabalho: uma responsável pela estrutura física do protótipo, outra para trabalhar com os algoritmos e programação envolvidos no sistema, e por último, uma voltada para desenvolver o sistema de limpeza. De tal forma que haja integrantes de mais de uma engenharia em cada frente, mas que ao mesmo tempo não haja exclusão de ocupação, ou seja, um mesmo integrante pode trabalhar em mais de uma frente, para que o desenvolvimento do trabalho seja feito sempre em equipe.
+Assim, a divisão geral para a evolução do trabalho nesta primeira etapa se deu da seguinte forma:
 
-Bibliographic references must be unambiguous and uniform.  We recommend giving
-the author names references in brackets, e.g. \cite{knuth:84},
-\cite{boulic:91}, and \cite{smith:99}.
+\begin{table}[h!]
+  \begin{center}
+    \begin{tabular}{|l|l|l|}
+      \hline
+      Estrutura & Controle e Eletrônica & Método de Limpeza \\
+      \hline
+      João (automotiva) & Lucas (software) & Marcos (software) \\
+      Rodrigo (software) & Matheus (eletrônica) & Vanessa (energia) \\
+      Thaynara (energia) & Pablo (eletrônica) & José Armando (eletrônica) \\
+      Tuane (energia) & Maria (energia) & José Pedro (software) \\
+      \hline
+    \end{tabular}
+  \end{center}
+\end{table}
 
-The references must be listed using 12 point font size, with 6 points of space
-before each reference. The first line of each reference should not be
-indented, while the subsequent should be indented by 0.5 cm.
+
+\subsection{Cronograma}
+Tendo como objetivo final a apresentação de um protótipo funcional ao final da disciplina e considerando três apresentações ao longo desse percurso, o cronograma do processo de produção, já executado até agora e o planejado, encontra-se a seguir:
+
+
+
+% FAZER TABELA
+
+
+\subsection{Custos}
+******* TO DO ********
+
+\section{Tecnologia Utilizada e Desenvolvimento da Solução}
+
+\subsection{Arquitetura de Software}
+
+\subsection{Comunicação}
+
+\subsection{Locomoção}
+
+\subsection{Elementos Físicos}
+
+\subsection{Bateria e Fonte}
+Para a alimentação de todo o sistema foi feito um levantamento com a estimativa de consumo de cada componente, a fim de garantir sua autonomia por no mínimo uma hora.
+
+******* TABELA DA MARIA ********
+
+Para o teste inicial, visto que não havia o material total necessário, mas sim uma preocupação em validar o sistema como um todo (motores, sistema de limpeza e circuitos) foi utilizada uma fonte de computador modelo WSPC-450, com entrada AC de 115~230V - 10~5,5A e saída DC de 3,3V - 32A, 5V - 35A, e 12V - 14A.
+
+Para os próximos testes, foram utilizadas três baterias de lítio-íon 3,7 V - 4200mAh ligadas em série para fornecer 11,1 V ao sistema. Tais baterias foram suficientes para o teste de locomoção e teste doS algorítmos , além do teste do sistema de limpeza feito separadamente.
+
+Apesar de ter sido satisfatório o desempenho dessas baterias nos testes \cite{chagas2007novas}, o banco de baterias criado a partir delas dificultou seu recarregamento, visto que cada bateria teria que ser recarregada separadamente, uma vez que não tínhamos a disposição um carregador próprio para a bateria final e a operação de recarga de baterias de lítio não apropriada apresenta o risco de incêndio.
+
+Dessa maneira, com os dados coletados e com uma pesquisa sobre quais baterias mais utilizadas em um sistema de robótica e telecomunicação, foi escolhida uma bateria de chumbo-ácido selada (SLA), além da facilidade de ser encontrada no mercado e preço acessível, a sua manutenção e utilização são relativamente simples.
+
+É a bateria mais econômica do mercado, e foram as primeiras baterias para uso comercial. Atualmente as baterias de chumbo-ácido são amplamente usadas em sistemas de fornecimento de energia elétrica ininterrupta (no-breaks).
+
+******* ESPECIFICAÇÃO DA BATERIA ********
+
+\subsection{Carga Total}
+
+******* TO DO ********
+
+\subsection{Sistema de Limpeza}
+O sistema de limpeza é composto por duas partes:
+\begin{itemize}
+  \item Escova giratória na área frontal do robô, que gira com a intenção de levantar a sujeira e direcioná-la para a área de aspiração. Basicamente, o motor gira e faz com que a escova também gire, com auxilio do suporte e do eixo. O mecanismo da escova giratória possui:
+    \begin{itemize}
+      \item um motor DC;
+      \item um eixo;
+      \item suporte lateral;
+      \item escova.
+    \end{itemize}
+  \item O aspirador suga a sujeira/poeira à medida que o robô se move pelo piso. É composto por:
+    \begin{itemize}
+      \item abertura de entrada de ar;
+      \item porta de saída de ar;
+      \item motor DC;
+      \item tela porosa;
+      \item tubo cilíndrico;
+      \item compartimento para a sujeira;
+      \item hélice de um cooler usado em computadores.
+    \end{itemize}
+\end{itemize}
+
+Foi acoplado um motor à hélice de um cooler, que esta situada na extremidade de um tubo cilíndrico e, para sua proteção, foi utilizado uma tela porosa a fim de evitar eventuais danos ao cooler, atuando como se fosse um filtro, em uma das laterais deste tubo plástico, existe um orifício por onde a sujeira irá sair, ficando retida em um compartimento.
+
+
+\section{Resultados Parciais}
+******* TO DO ********
+
+\section{Considerações Finais}
+******* TO DO ********
+
+% NAO SEI PQ MAS AS REFERENCIAS BIBLIOGRAFICAS SO FUNCIONAM QUANDO EU CITO ALGO NA ULTIMA SECÇÃO
+\cite{smith:99}.
+
 
 \bibliographystyle{sbc}
 \bibliography{sbc-template}
