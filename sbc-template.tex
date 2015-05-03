@@ -5,40 +5,21 @@
 \usepackage{graphicx,url}
 
 %\usepackage[brazil]{babel}   
-\usepackage[latin1]{inputenc}
-
-\newenvironment{myfont}{\fontsize{10}{10}\fontfamily{courier}\selectfont}{\par}
+\usepackage[latin1]{inputenc}  
 
      
 \sloppy
 
-\title{Autômato de Limpeza em Aplicação Residencial}
+\title{Instructions for Authors of SBC Conferences\\ Papers and Abstracts}
 
-\author{João G. Machado\inst{1}, José A. Neto\inst{1}, José P. Neto\inst{1}, \\
- Lucas A. Moura\inst{1}, Marcos S. Ramos\inst{1}, Maria Eugênia Santos\inst{1}, \\
- Matheus F. Pimenta\inst{1}, Pablo A. Urbizagastegui\inst{1}, Rodrigo S. Melo\inst{1}, \\
- Thaynara R. Santana\inst{1}, Tuane T. Fonseca\inst{1}, Vanessa O. Ribeiro\inst{1}}
+\author{José A. Neto, José P. Neto, Lucas A. Moura, \\
+        Marcos S. Ramos, Maria Eugênia Santos,\\
+        Matheus F. Pimenta, Pablo A. Urbizagastegui,\\
+        Rodrigo S. Melo, Thaynara R. Santana, \\
+        Tuane T. Fonseca, Vanessa O. Ribeiro}
 
 \address{Faculdade UnB Gama - Universidade de Brasília (UnB)\\
-  CEP 72444-240 - Brasília - DF - Brasil \\
-  \begin{myfont}
-    \{joao\_gml, josearmando\_neto\}@hotmail.com,
-  \end{myfont} \\
-  \begin{myfont}
-    \{1jpsneto, lucas.moura128\}@gmail.com, ms.ramos@outlook.com, 
-  \end{myfont}
-  \\
-  \begin{myfont}
-    \{mariaec46, matheuspimentao, pabloabu\}@gmail.com,
-  \end{myfont}
-  \\
-  \begin{myfont}
-    \{rodrigosiqueiramelo, thaynara.rsantana\}@gmail.com,
-  \end{myfont}
-  \\
-  \begin{myfont}
-    \{tuane.thais, nessa.engenharia\}@hotmail.com
-  \end{myfont}
+  CEP 72444-240 - Brasília - DF - Brasil
 }
 
 \begin{document} 
@@ -46,45 +27,668 @@
 \maketitle
 
 \begin{abstract}
-  This meta-paper describes the style to be used in articles and short papers
-  for SBC conferences. For papers in English, you should add just an abstract
-  while for the papers in Portuguese, we also ask for an abstract in
-  Portuguese (``resumo''). In both cases, abstracts should not have more than
-  10 lines and must be in the first page of the paper.
+  This
 \end{abstract}
      
 \begin{resumo} 
-  Este meta-artigo descreve o estilo a ser usado na confecção de artigos e
-  resumos de artigos para publicação nos anais das conferências organizadas
-  pela SBC. É solicitada a escrita de resumo e abstract apenas para os artigos
-  escritos em português. Artigos em inglês deverão apresentar apenas abstract.
-  Nos dois casos, o autor deve tomar cuidado para que o resumo (e o abstract)
-  não ultrapassem 10 linhas cada, sendo que ambos devem estar na primeira
-  página do artigo.
+  Este
 \end{resumo}
 
-
 \section{Introdução}
-Hoje em dia, a tecnologia está tornando as casas mais inteligentes e automatizadas. O que gera mais conveniência, e tempo para as pessoas. Com esta finalidade os robôs domésticos estão entrando cada dia mais na casa e na vida da população, mas infelizmente este mercado é relativamente novo, principalmente no Brasil, quer seja por falta de conhecimento ou, pelo alto custo do produto. Em um futuro próximo esta tecnologia estará mais presente no dia a dia das pessoas, o que tornará este produto mais requisitado. Baseado nisso, foi criado um protótipo com o objetivo de aspirar partículas pequenas do chão, tornando essa tarefa automatizada, realizando-a sem intervenção humana, agindo nas varias divisões da casa, ajudando na limpeza, e consequentemente facilitando a vida do usuário que necessita desse tipo de tecnologia por diversos motivos, como: falta de tempo, pouca disposição, falta de recurso financeiro para pagar alguém para realizar essa tarefa.
 
-\subsection{Problematização}
-No último censo em 2010, segundo o IBGE cerca de 12,1\% da população é representada por pessoas que vivem sozinhas, sendo ainda que houve um aumento de aproximadamente 3\% desse índice desde 2000. Esta situação torna a vida do indivíduo um pouco mais estressante por não lhe dar tempo o suficiente para desfrutar dos momentos de descanso, uma vez que, além das responsabilidades profissionais, é necessário dedicar tempo para tarefas domésticas. A tabela da pesquisa \cite{rocha2001trabalho} seguinte quantifica o tempo destinado a essas atividades.
+\paragraph{}
+Durante centenas de anos o homem vem evoluind, contudo segundo Ian 
+Morris descreve no livro ``\textit{why the west rules-for now}'' 
+\cite{Morris:84} a humanidade obteve enorme desenvolvimento durante o 
+periodo da primeira revolução industrial.
 
-\begin{table}[h]
+\begin{figure}[ht]
 \centering
-\includegraphics[width=1\textwidth]{fig1.eps}
-\caption{Tempo diário dedicado à tarefas domésticas. Fonte: (Rocha \& Debert-Ribeiro 2001)}
-\label{tab:fig1}
-\end{table}
+\includegraphics[width=.5\textwidth]{images/curve.png}
+\caption{Desenvolvimento}
+\label{fig:desenvolvimento}
+\end{figure}
 
-\subsection{Solução}
-Ciente do problema foi pensada uma solução em forma de um robô de limpeza doméstico, que tem como objetivo aspirar à área seca do chão. Levaram-se em conta alguns fatores como: planejamento da rota, para tentar cobrir o máximo de área possível; detecção de obstáculo feito por sensores, para permitir que o robô tenha mais autonomia; duração do ciclo de limpeza, e levantamento de todos os componentes eletrônicos utilizados, para que haja um cálculo da autonomia da bateria; e por fim, a parte estrutural do robô, como o tamanho, disposição das rodas, o suporte para alcançar o máximo de área possível e ter maior eficiência. Deseja-se então apresentar um protótipo levando em conta estas características.
+A Figura \ref{fig:desenvolvimento} representa o gráfico do 
+desenvolvimento humano ao longo dos anos. Repare que o gráfico sofre um 
+forte pico ao final, isto deve-se ao período da revolução industrial 
+onde a humanidade obteve elevados índices de desenvolvimento. Grande parte 
+deste crescimento deve-s a elevada automatização das tarefas, antes realizadas 
+por seres humanos e em seguida substituídos por máquinas. Segundo estudos 
+desenvolvidos por Berlo \cite{berlo:91}, tal robotização chegou ao cidadão 
+comum, como demonstrado no elevado número de projetos de casas inteligentes 
+desenvolvidas na europa na última década.
 
+\paragraph{}
+O conceito do projeto de uma casa inteligente baseava-se na 
+automação da casa, em seguida o controle de forma remota e por fim o 
+monitoramento. Contudo recentemente este conceito foi expandido para incluir 
+dispositivos que auxiliam na mobilidade, equipamentos avançados que permitem 
+realizar várias tarefas complicadas \cite{kaist:99}.
 
-\section{Gerenciamento}
+\paragraph{}
+Neste contexto, áreas como limpeza residêncial feita de forma automatizada 
+tornou-se alvo de estudo. Em 1997 a \textit{Eletrolux} apresentou ao 
+mundo o primeiro robô que realiza aspiração de pó \cite{nazli}, contudo somente 
+em 2001 lançou o primeiro robô aspirador ao público europeu abrindo portas para 
+uma nova linha de produtos domiciliar que vem sendo explorada por diversas 
+companias. Empresas grandes como Samsung, LG, Eletrolux e outras como Dyson e 
+IRobot brigam por este mercado emergente oferencendo diferentes variedades de 
+funcionalidades e custos. Segundo o site \textit{euromonitor international} em 
+2012 o mercado de robôs aspiradores gerava 434 milhões de dolares só na europa 
+com projeções de crescimento de 50\% até 2017 \cite{euromonitor} (Veja a 
+Figura \ref{fig:mercado}).
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=.7\textwidth]{images/market.png}
+\caption{Volume de robôs de aspiração VS Valor de venda}
+\label{fig:mercado}
+\end{figure}
+
+\subsection{Problemática}
+
+\paragraph{}
+Segundo censo 2010 \cite{censo} disponibilizado pelo IBGE, cerca de 12,1\% da 
+população é representada por pessoas que vivem sozinhas. Tais dados evidênciam 
+um crescimento de aproximadamente 3\% desse índice desde 2000, fato este que 
+explica-se em parte devido a urbanização crescente. Normalmente pessoas que 
+moram sozinha tendem a cuidar das tarefas domiciliares sozinhas, fato este que 
+torna a vida do indivíduo que trabalha um pouco mais estressante por reduzir o 
+seu tempo de descanso. A Figura \ref{fig:tarefas} quantifica o tempo destinado 
+as tarefas domesticas atividades.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=.7\textwidth]{images/rochaDebert.png}
+\caption{Tarefas domesticas}
+\label{fig:tarefas}
+\end{figure}
+
+\subsection{Motivação}
+\paragraph{}
+O censo 2010 ilustra uma clara mudança na forma como a sociedade brasileira 
+vem se organizando. Além disto, um relatório públicado pela Euromonitor 
+\cite{euromonitorBrazil} afirma que o mercado brasileiro para produtos de 
+aspiração ainda é limitado devido ao fato de que o uso de carpetes não é muito 
+comum no Brasil. O relatório afirma que devido ao clima quente do Brasil os 
+consumidores preferem utilizar cerâmica e por isto utilizam equipamentos não 
+elétricos para realizar a limpeza residêncial. O relatório concluí afirmando 
+que a entrada no mercado brasileiro é muito difícil.
+
+\paragraph{}
+Alguns fatores foram desconsiderados no relatório públicado pela Euromonitor 
+como por exemplo a questão econômico, a mudança social e cultural. Acredita-se 
+que as grandes empresas estão negligenciando o potêncial mercado brasileiro, 
+pois estão encarando o problema da perspectiva errada. Isto mostra-se um fator 
+motivante para a criação de robôs de limpeza, pois a concorrência é 
+relativamente baixa devido ao fato de que os gigantes da industria não estão 
+atuando de fortemente no mercado nacional. Além disto os desafios que envolvem 
+a criação de tal equipamento é outro fator estimulante para a criação do 
+projeto.
+
+\section{Tecnologias encontradas no mercado} \label{sec:mercado}
+
+Existem diversos robôs que realizam limpeza encontrados hoje no mercado. Segue 
+os principais modelos e algumas de suas características.
+
+\subsection{Navibot S - SAMSUNG}
+
+A Figura \ref{fig:samsung} ilustra o modelo Navibot S da Samsung, um dos 
+modelos mais comuns encontrado no mercado. Veja a seguir as principais 
+características deste robo de limpeza \cite{navibot}:
+
+\begin{itemize}
+ \item Dimensões: 35 x 35 x 8cm.
+ \item Velocidade: 0.32 m/s.
+ \item Tempo de autonomia: 100m.
+ \item Tempo de recarga: 180m.
+ \item Limpeza agendada.
+ \item Sistema de auto esvaziamento de sujeira.
+ \item Sensor de declive.
+ \item Custo médio: 2100R\$.
+ \item Críticas: Muitos usuários reportam um comportamento ruim do robô 
+  exigindo do usuário constante verificações do mesmo.
+\end{itemize}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=.3\textwidth]{images/samsung.jpg}
+\caption{Navibot}
+\label{fig:samsung}
+\end{figure}
+
+\subsection{Square vacuum cleaner LG}
+
+\paragraph{}
+Um dos robôs de aspiração mais popular é o square vacuum LG (\ref{fig:lg}). 
+Veja a seguir as príncipais características:
+
+\begin{itemize}
+ \item Sistema de navegação com dual camera.
+ \item Mapeamento com SLAM.
+ \item Alerta de voz.
+ \item Detecção de escada.
+ \item HEPA Filter.
+ \item Custo médio: 2000R\$
+ \item Críticas: Distância muito curta do solo pode causar ``atolamento'' e 
+  apresenta problemas para lidar com fios no chão.
+\end{itemize}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=.3\textwidth]{images/lg.jpg}
+\caption{Square LG}
+\label{fig:lg}
+\end{figure}
+
+\subsection{ROOMBA 880 da IRobot}
+
+\paragraph{}
+A IRobot possuí o seu próprio robô de limpeza, o Roomba é um dos robôs de 
+aspiração mais eficiêntes hoje no mercado (\ref{fig:roomba}). Veja a descrição 
+\cite{roomba}:
+
+\begin{itemize}
+ \item Dimensões: 52 x 41 x 13 cm.
+ \item Limpeza agendada.
+ \item Utiliza elementos comuns.
+ \item Custo médio: 2700R\$.
+ \item Críticas: Sistema de limpeza para de funcionar com pedaços grandes de 
+  sujeira.
+\end{itemize}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=.3\textwidth]{images/roomba.jpg}
+\caption{Roomba}
+\label{fig:roomba}
+\end{figure}
+
+\subsection{Dyson 360}
+
+\paragraph{}
+Dyson 360 é um dos robôs de limpeza mais sofisticados encontrados hoje no 
+mercado. Este possuí certos tipos de técnologias que são únicas, além de uma 
+aparência diferênciada (vide Figura \ref{fig:dyson}). A seguir veja as 
+características deste dispositivo \cite{dyson}:
+
+\begin{itemize}
+ \item Visão 360 graus.
+ \item Sistema de aspiração ciclone.
+ \item Locomoção com correia de tanque.
+ \item Aplicativo que permite controlar o robô.
+ \item Custo médio: 3500R\$.
+ \item Críticas: Custo elevado.
+\end{itemize}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=.4\textwidth]{images/dyson360.jpg}
+\caption{Dyson}
+\label{fig:dyson}
+\end{figure}
+
+\subsection{Ecovacs Robô Mini Deebot}
+
+\paragraph{}
+Deebot é um dos robôs aspirador mais acessíveis em termos de custos encontrados 
+hoje no mercado (\ref{fig:deebot}). Veja a seguir as características:
+
+\begin{itemize}
+ \item Dimensões: 7,8 de espessura e 26,8 de diâmetro.
+ \item 1h de autonomia.
+ \item 4h de recarga.
+ \item Custo médio: 700R\$.
+ \item Críticas: Mapeamento de ambiênte ruim e limpeza não eficiênte.
+\end{itemize}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=.3\textwidth]{images/deebot.jpg}
+\caption{Deebot}
+\label{fig:deebot}
+\end{figure}
+
+\section{O projeto}
+
+\subsection{Descrição}
+
+\paragraph{}
+O projeto em questão tem por objetivo realizar a contrução de um robô que 
+faz limpeza de chão de forma automatizada. O projeto busca inspiração em 
+projetos já existentes, como os descritos na Seção \ref{sec:mercado}. Contudo 
+dois objetivos são os alvos centrais do projeto, são eles:
+\begin{itemize}
+ \item Criar um robô de baixo custo.
+ \item Dominar parte da técnologia para a contrução de robôs de limpeza.
+\end{itemize}
+Contudo devido as restrições de tempo, recurso e conhecimentos o escopo do 
+projeto foi reduzido de tal forma a se obter um bom resultado em dois meses. 
+
+\subsection{Escopo}
+
+\subsection{Proposta}
+
+Para a criação do projeto, foram identificadas diferentes áreas. Com base nos 
+experimentos (vide Seção \ref{sec:exp}) e estudos realizados são feitas 
+propostas para a execução de cada área. Vale observar que a composição final de 
+todas as áreas terá como resultado a criação do robô.
+
+\subsubsection{Arquitetura do Software}
+
+De acordo com  Vaussard \cite{vaussard} quando se projeta um robô aspirador 
+autônomo, o mesmo deve ser capaz de prover um conjunto de funcionalidades que 
+permita que o mesmo desempenhe três tipos de tarefa:
+
+\begin{enumerate}
+  \item Uma estratégia de navegação dentro do ambiente para qual irá atuar.
+  \item Um dispositivo de limpeza.
+  \item Algum tipo de interalçao com o usuário, sendo no minímo possível as 
+    opções de começar ou finaliza um processo de limpeza.
+\end{enumerate}
+
+\paragraph{}
+Para considerar o primeiro trequisito, o de navegação, é necessário antes 
+definir alguns conceitos. O primeiro deles é o conceito de automação. Segundo 
+Bekey \cite{bekey}, um sistema autônomo é capaz de operar em um cenário do 
+mundo real sem nenhum tipo de controle externo por um determinado período de 
+tempo, ou seja, para o contexto dado, o robô aspirador deve ser capaz de navegar 
+pelo ambiente sem que nenhum auxílio ou intervenção do usuário seja necessária. 
+Seguindo nesta mesma lógica, Bekey também define um robô, que seria uma 
+máquina capaz de sentir, pensar e atuar sobre o seu ambiente. Apesar da 
+definição ser um tanto quanto aberta, a mesma consegue ser encaixada no contexto 
+de um robô aspirador. Isso se dá pelo fato de que os itens citados por Bekey são 
+necessários para que o robô consiga navegar em um determinado ambiente. Quando 
+se fala sobre sentir, pode-se fazer uma associação direta aos sensores usados 
+para perceber o ambiente. Dessa forma, os sensores usados no projeto serão a 
+base para a detecção de obstáculos e criação de um mapa. Sendo assim, os 
+seguintes sensores foram detalhados para o uso do projeto:
+
+\begin{itemize}
+ \item Sensor de Distância Ultras-sônico HC-SR04: O sensor ultra-sônico tem 
+  como principal objetivo no robô sendo desenvolvido a detecção de 
+  obstáculos. Entretanto, é conhecido os problemas relacionados ao seu uso, 
+  como o fato de que os algoritmo conseguem extrair apenas informações 
+  limitadas dos dados gerados por ele \cite{menezes}. Vale ressaltar também 
+  que essa escolha também foi mantida devido ao baixo custo dos sensores, a 
+  facilidade de uso do mesmo e o baixo poder computacional requerido para sua 
+  manipulação. \cite{menezes}
+ \item \textit{Switches}: Apesar de não serem sensores, os switches serão 
+  usadas para a detecção de colisão. Isso se dá pela possibilidade de falha
+  dos sensores ultrasônicos. Assim, switches serão usados para alertar o robô 
+  de que uma colisão aconteceu, possibilitando assim que o mesmo tome uma 
+  decisão adequada.
+\end{itemize}
+
+\paragraph{}
+Com os sensores então definidos, pode-se então começar a especificar a parte de 
+``pensar'' relacionada ao robô aspirador. Essa parte se dá pela leitura e 
+interpretação dos dados dos sensores e uma tomada de decisão, o que nada mais é 
+do que a navegação propriamente dita. A primeira consideração a ser feita é 
+sobre como o robô irá se movimentar no cenário.  O primeiro fato a se considerar 
+é sobre o mapeamento, pois devido tempo limite de tempo do projeto e baixa 
+capacidade de processamento dos equipamentos disponíveis, o robô não irá 
+construir nenhum mapa sofisticado, se preocupando apenas com os objetos que 
+estão imediatamente próximos a ele. Isso também se dá pelo fato de que, quando 
+se pretende fazer mapeamento usando os sensores, os erros de tais sensores não 
+são estatisticamente independentes. Isso se dá pelo fato de que erros das 
+medições passadas se acumulam, afetando assim a interpretação de medições 
+futuras \cite{fox}. 
+
+\paragraph{}
+Sendo assim, o primeiro algoritmo considerado para o projeto foi o de Random 
+Walk. Tal algoritmo é um dos mais basicos algoritmos de movimentação e funciona 
+com dois estados básicos: Movimentação para frente e evitar obstáculos 
+\cite{morlok}. O primeiro estado então faz com que o robô se movimente para 
+frente com um pequena possibilidade de mudar um pouco a angulação do seu 
+movimento, deixando a movimentação assim aleatória. Quando o robõ consegue então 
+encontrar algum obstáculo, ele entra no segundo estado, evitar obstáculos. Neste 
+estado, o robô irá parar, rotacionar por algum outro valor gerado aleatoriamente 
+e e voltar para o estado de se movimentar para frente.
+
+\paragraph{}
+Outro algoritmo considerado foi o algoritmo Follow Wall. A idea por trás desse 
+algoritmo é de que se um robo conseguir identificar as paredes de um ambiente 
+interno e segui-las, o robô então conseguiria cobrir boa parte da estrutura 
+\cite{morlok}. Esse algoritmo possui quatro estados diferentes, 
+encontrar uma parede, se alinhar a parede, seguir a parede e passar pelo cantos. 
+Tal algoritmo apresenta um problema que está relacionado ao fato de que ele 
+considera qualquer obstáculo como uma parede, mesmo se o obstáculo seja algo 
+bastante pequeno.
+
+\subsubsection{Comunicação}
+
+\subsubsection{Locomoção}
+
+\paragraph{}
+% O que são encoders? Eu sei, mas é bom explicar melhor =P
+Para um bom controle da rotação dos motores e garantir que o carro ande em 
+linha reta optou-se por utilizar \textit{encoders} de rotação que forneçam  
+ao controlador \textit{feedbacks}. É essencial ter um bom controle do 
+movimento do veículo para que o \textit{software} de mapeamento funcione 
+corretamente e que possamos cobrir todo ou a maior parte possível do ambiente 
+antes do término da limpeza.
+
+\paragraph{}
+O controle Proporcional, integral e derivativo funciona como uma boa malha de 
+realimentação que nos garante que a velocidade desejada é a mesma na qual o robô 
+está andando mesmo quando submetido a diferentes cargas. Garante também que 
+ambos os motores estaram girando na mesma velocidade mesmo se submetidos a 
+cargas diferentes, possivel problema de desbalanceamento do robô. Veja a Figura 
+\ref{fig:locomocao} contendo o esquema geral da locomoção.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=.7\textwidth]{images/locomocao.png}
+\caption{Locomoção}
+\label{fig:locomocao}
+\end{figure}
+
+\subsubsection{Elementos Físicos}
+
+\paragraph{}
+% O que significa uma saída linear e não linear?
+O sensor ultrassônico apresenta algumas vantagens com relação ao sensor infra 
+vermelho. A maior vantagem a se destacar é o fato de que o mesmo é linear para o 
+\textit{range} de operação, enquanto os sensores infravermelhos encontrados, 
+todos da \textit{Sharp}, possuem uma saída não linear. Este fato, aliado com o 
+baixo consumo e a facilidade de aquisição (tal dispositivo é facilmente 
+encontrado em lojas no território brasileiro) foram fatores determinantes para 
+adoção dos sensores ultrassonicos para a detecção de obstaculos.
+
+\paragraph{}
+A ideia inicial consiste na utilização dos sensores ultrassônicos na parte 
+frontal do robô visando um bom reconhecimento de obstaculos e auxiliar no 
+algoritmo de mapeamento do ambiente em que está inserido. Além disto pode-se 
+utilizar este mesmo conjunto de sensores apontando alguns centímetros a frente 
+visando o reconhecimento de desníveis no chão e evitar quedas do mesmo (um 
+exemplo prático é o caso das escadarias de uma residência).
+
+\paragraph{}
+Para o controle dos motores foi preciso realizar uma busca sobre quais motores 
+forneceriam um torque ideal e como controlá-los. Neste contexto dois modelos de 
+ponte H foram selecionados, são eles:
+\begin{itemize}
+ \item L298N
+ \item L293D
+\end{itemize}
+Veja a Tabela \ref{tab:ponteh} contendo a especificação de cada uma das pontes. 
+\begin{center}
+  \begin{table}
+  \caption{Tabela comparativa}
+  \label{tab:ponteh}
+  \begin{tabular}{lllllp{8cm}}
+       & \textbf{L298N} & \textbf{L293D} \\
+       Quantidade de Pontes & 2 & 4 \\
+       Tensão Lógica & 5V & 5V \\
+       Tensão de Drive & 5 V a 35 V & 5 V a 35 V \\
+       Corrente Lógica & 36 mA & 60 mA \\
+       Corrente de drive(por ponte) & 2 A & 1 A \\
+       Máxima Potência & 25 W & 7 W \\
+       Queda de tensão na saída & 1.5 V & 1.5 V \\
+  \end{tabular}
+  \end{table}
+\end{center}
+
+\paragraph{}
+% Os motores do aspirador precisam de mais torque? 
+Obervando a Tabela \ref{tab:ponteh} é possível concluir que a ponte L298N 
+possui melhores requisitos de potência, sendo assim uma melhor escolha para 
+fornecer corrente para motores que necessitem de mais torque, como no caso do 
+motor utilizado no aspirador a ser utilizado. Logo tal dispositivo foi adotado 
+para realização de testes devido ao fato de ser mais fácil de ser encontrada 
+e de ser utilizada para testes com todos os motores que serão utilizados, desde 
+a locomoção até a limpeza. Todavia o fato de a ponte L293D possuir uma maior 
+quantidade de pontes integradas no circuito não nos deixa descartá-la 
+completamente como uma opção futura.
+
+\subsubsection{Bateria e Fonte}
+\subsubsection{Carga Total}
+
+\subsubsection{Sistema de Limpeza}
+\paragraph{}
+Um aspirador é um mecanismo que cria diferença de pressão em dois pontos. As 
+partículas são empurradas da área com maior pressão para a área de menor 
+pressão. Um típico aspirador é composto das seguintes partes:
+\begin{itemize}
+ \item Abertura.
+ \item Motor de alta rotação.
+ \item Hélice.
+ \item Filtro.
+ \item Porta de exaustão.
+ \item Compartimento de pó
+\end{itemize}
+
+\paragraph{}
+Quando o motor de alta rotação gira a hélice à uma alta velocidade, é criada 
+uma diferença de pressão na porta de exaustão e o ar do ambiente é sugado pela 
+entrada. As partículas presentes são então sugadas para o compartimento de pó. 
+O ar sujo (que contém as partículas de poeira) passa pelo filtro e sai pela 
+porta de exaustão enquanto que as partículas permanecem no compartimento de pó.
+
+\begin{itemize}
+ \item Vantagens:
+  \begin{itemize}
+    \item Manufatura simples.
+    \item Eficiente para partículas pequenas e poeira.
+    \item Manutenção simples
+  \end{itemize}
+ \item Desvantagens:
+  \begin{itemize}
+   \item Alto consumo de energia.
+   \item Não funciona muito bem com partículas grandes.
+  \end{itemize}
+\end{itemize}    
+
+\paragraph{}
+Outro forma de limpeza comumente empregada em robôs de limpeza são as vassoura 
+rotativa. Alguns aspiradores e robôs de limpeza também possuem uma pequena 
+escova rotativa, um rolo como cerdas em espiral, que aumenta a eficiência do 
+mecanismo de aspiração ao varrer a poeira e partículas diretamente para a 
+entrada da área de sucção.
+
+\begin{itemize}
+ \item Vantagens:
+  \begin{itemize}
+   \item Manufatura simples.
+   \item Eficiente para partículas grandes.
+   \item Baixo consumo de energia
+   \item Manutenção simples
+  \end{itemize}
+ \item Desvantagens:
+  \begin{itemize}
+   \item Não funciona muito bem com partículas pequenas e com poeira.
+   \item Pode espalhar a sujeira se for composta de partículas muito pequenas.
+  \end{itemize}
+\end{itemize}
+
+\paragraph{}
+Em um sistema de limpeza úmido existe um tecido, normalmente uma microfibra, 
+que é umedecido usando água proveniente de um tanque de água. Esse tecido fica 
+diretamente em contato com o chão, coletando partículas que são muito pequenas 
+para serem varridas ou muito grandes para serem sugadas. Após a limpeza, esse 
+tecido deve ser removido e então limpo ou substituído.
+
+\begin{itemize}
+ \item Vantagens:
+  \begin{itemize}
+   \item Baixo consumo de energia.
+   \item Alta eficiência de limpeza.
+   \item Capacidade de limpar partículas muito pequenas.
+  \end{itemize}
+ \item Desvantagens:
+  \begin{itemize}
+   \item Manutenção mais complicada.
+   \item Manufatura delicada.
+   \item Escopo de utilização mais restrito.
+  \end{itemize}
+\end{itemize}
+
+\paragraph{}
+Cada mecanismo de limpeza apresentado funciona melhor para um tipo específico 
+de sujeira. Para melhorar a eficiência de limpeza do produto é necessário usar
+uma combinação deles. Devido ao tempo reduzido para a implementação do projeto
+foi decidido que apenas dois procedimentos de limpeza serão implementados, suas
+combinações são:
+\begin{itemize}
+ \item Alternativa 1: Aspirador + Limpeza úmida
+ \item Alternativa 2: Limpeza úmida + vassoura rotativa
+ \item Alternativa 3: Aspirador + vassoura rotativa
+\end{itemize}
+
+\paragraph{}
+Para a escolha de quais seriam os mecanismos que seriam implementados foi 
+criada uma tabela de pontuação. Cada critério possui um peso, e cada mecanismo 
+possui uma nota para cada critério. A pontuação em cada critério é o 
+produto entre o peso e sua nota. A nota final é a soma das pontuações em cada 
+critério. A Tabela \ref{} ilustra o resultado da pontuação de cada combinação.
+
+%TODO: Por questão de tempo eu deixei a tabela pela metade, arrumar isto!
+
+\begin{center}
+  \begin{table}
+  \begin{tabular}{lllllp{8cm}}
+      \textbf{item} & \textbf{Peso} & \textbf{Alternativa 1} &
+      \textbf{Alternativa 2} & \textbf{Alternativa 3}\\
+      
+      Simplicidade de manufatura  & 25 & 3, 75 & 5, 125 & 8, 200 \\
+      Eficiência de limpeza & 25 & 8, 200 & 6, 150 & 7, 175 \\
+      Tempo de limpeza & 10 & 6, 60 & 6, 60 & 7, 70 \\
+      Facilidade de uso & 20 & 4, 80 & 6, 120 & 8, 160 \\
+      Facilidade de manutenção & 20 & 4, 80 & 6, 120 & 8, 160 \\
+      Total & 100 & 25, 495 & 29, 575 & 38, 765 \\
+  \end{tabular}
+  \end{table}
+\end{center}
+
+A nota obtida em cada critério foi escolhida tendo como base a análise de 
+produtos já existentes, a dificuldade em encontrar peças em tempo hábil e o 
+conhecimento da equipe acerca das tecnologias envolvidas. A alternativa 
+escolhida foi a Alternativa 3, onde o mecanismo de limpeza será composto por 
+um aspirador e uma vassoura rotativa.
+
+\paragraph{}
+Devido às restrições de tempo e escopo da disciplina foi decidido que o 
+mecanismo escolhido é aquele que apresentaria melhor relação entre eficiência 
+de limpeza por complexidade de manufatura. Utilizando esses parâmetros foi 
+escolhida a Alternativa 3.
+
+\section{Resultados Parciais} \label{sec:exp}
+
+\paragraph{}
+Visando validar a viabilidade de muitas das nossas propostas, realizou-se 
+dezenas de experimentos que foram extremamente úteis para guiar as tomadas de 
+decisões. Neste contexto veja a descrição de alguns dos testes feitos nas 
+subseções.
+
+\subsection{Validando sistema de limpeza}
+
+\paragraph{}
+Para validar a escolha do mecanismo de limpeza adotado e provar que ele atende 
+às expectativas foram desenvolvidos dois protótipos: uma vassoura giratória e um
+aspirador pequeno. Os materiais, procedimentos e resultados obtidos são 
+descritos
+a seguir.
+
+\subsubsection{Vassoura giratória}
+\begin{itemize}
+  \item Materiais:
+    \begin{itemize}
+      \item 1x Motor DC 9V/0.1A 300RPM.
+      \item 1x Rolo de pintura para acabamentos.
+    \end{itemize}
+  \item Procedimento:
+    \begin{itemize}
+     \item O eixo do motor foi diretamente encaixado no rolo.
+    \end{itemize}
+  \item Caso de teste:
+    \begin{itemize}
+     \item Colocar terra e areia sobre uma superfície lisa e plana.
+     \item Ligar o motor.
+     \item Passar com a vassoura giratória pela superfície.
+     \item Manter uma pá atrás da vassoura.
+     \item Verificar se as partículas foram para a pá.
+    \end{itemize}
+  \item Resultado:
+    \begin{itemize}
+     \item A maior parte das partículas foram varridas para a pá.
+    \end{itemize}
+\end{itemize}
+
+\subsubsection{Aspirador}
+\begin{itemize}
+ \item Materiais:
+  \begin{itemize}
+   \item 1x Motor DC 12V/2A 3600RPM.
+   \item 2x Garrafas PET 500ml.
+   \item 1x Haste de cotonete.
+   \item 1x Hélice de ventoinha de dissipador de calor.
+   \item Cola quente.
+  \end{itemize}
+ \item Procedimento:
+  \begin{itemize}
+   \item Cortar a haste de cotonete para que fique com 2cm e sem o algodão.
+   \item Fixar a haste no eixo do motor.
+   \item Colar a outra ponta da haste no centro da hélice.
+   \item Furar uma garra para encaixe do motor.
+   \item Cortar a garrafa a 2cm do encaixe do motor.
+   \item Fixar o motor em seu compartimento usando cola quente.
+   \item Cortar a outra garrafa na metade.
+   \item Fazer um furo lateral na segunda garrafa para o escape do ar.
+   \item Encaixar as duas metates garrafa.
+   \item Encaixar o fundo da segunda garrafa no furo lateral para armazenar os 
+    resíduos.
+  \end{itemize}  
+ \item Caso de teste:
+  \begin{itemize}
+   \item Colocar terra e areia sobre uma superfície lisa e plana.
+   \item Ligar o motor.
+   \item Passar o conjuto de aspiração a uma distância de 2cm da superfície.
+   \item Verificar se as partículas foram para o armazenamento.
+  \end{itemize}
+ \item Resultado:
+  \begin{itemize}
+   \item Partículas aspiradas e armazenadas
+  \end{itemize}
+ \end{itemize}
+
+\subsection{Conclusão da validação do sistema de limpeza}
+\paragraph{}
+Em ambos os experimentos foram obtidos resultados satisfatórios e, com isso, 
+concluímos que a solução escolhida é válida e factível. Os experimentos 
+validaram a escolha do sistema de limpeza e gerou conhecimento a respeito de 
+como eles se comportam. Todavia, foram encontrados alguns problemas durante a 
+montagem dos experimentos, por exemplo: \\
+\begin{itemize}
+ \item Sob rotação muito alta, a vassoura giratória espalha a sujeira ao invés 
+  de jogar para trás;
+ \item Sem um filtro, a hélice do aspirador se torna vulnerável à partículas 
+  sólidas grandes;
+ \item O consumo de energia do motor do aspirador é alto.
+\end{itemize}
+
+\paragraph{}
+Os problemas foram identificados já nas primeiras execuções dos testes e as 
+soluções já estão em desenvolvimento e entrarão no ciclo de desenvolvimento do 
+próximo protótipo.
+
+\section{Custos}
+\section{Metodologia}
+
+\section{Gerenciamento do Projeto}
 \subsection{Planejamento}
-Para o desenvolvimento do projeto, de maneira a integrar todas as engenharias envolvidas e não individualizar o trabalho de cada integrante dentro de sua especialidade, foi feita uma divisão em três frentes de trabalho: uma responsável pela estrutura física do protótipo, outra para trabalhar com os algoritmos e programação envolvidos no sistema, e por último, uma voltada para desenvolver o sistema de limpeza. De tal forma que haja integrantes de mais de uma engenharia em cada frente, mas que ao mesmo tempo não haja exclusão de ocupação, ou seja, um mesmo integrante pode trabalhar em mais de uma frente, para que o desenvolvimento do trabalho seja feito sempre em equipe.
-Assim, a divisão geral para a evolução do trabalho nesta primeira etapa se deu da seguinte forma:
+Para o desenvolvimento do projeto, de maneira a integrar todas as engenharias 
+envolvidas e não individualizar o trabalho de cada integrante dentro de sua 
+especialidade, foi feita uma divisão em três frentes de trabalho: uma 
+responsável pela estrutura física do protótipo, outra para trabalhar com os 
+algoritmos e programação envolvidos no sistema, e por último, uma voltada para 
+desenvolver o sistema de limpeza. De tal forma que haja integrantes de mais de 
+uma engenharia em cada frente, mas que ao mesmo tempo não haja exclusão de 
+ocupação, ou seja, um mesmo integrante pode trabalhar em mais de uma frente, 
+para que o desenvolvimento do trabalho seja feito sempre em equipe.
+Assim, a divisão geral para a evolução do trabalho nesta primeira etapa se deu 
+da seguinte forma:
 
 \begin{table}[h!]
   \begin{center}
@@ -101,124 +705,38 @@ Assim, a divisão geral para a evolução do trabalho nesta primeira etapa se deu d
   \end{center}
 \end{table}
 
-\subsubsection{Fases, Atividades e Responsáveis}
-No que diz respeito as fases do projeto foram destacadas tais fases com as seguintes atividades:
+\subsection{Cronograma}
+Tendo como objetivo final a apresentação de um protótipo funcional ao final da 
+disciplina e considerando três apresentações ao longo desse percurso, o 
+cronograma do processo de produção, já executado até agora e o planejado, 
+encontra-se a seguir:
 
-\begin{itemize}
-  \item Iniciação:
-  \begin{itemize}
-    \item Apresentação da disciplina (Responsáveis: todo o grupo). Entadas:
-      \begin{itemize}
-        \item 
-      \end{itemize}}
-      Saídas:
-    \item Definição de Grupo (Responsáveis: todo o grupo). Tal atividade será concluida até que haja elementos de todas as engenharias no grupo;
-    \item Discussão do Tema (Responsáveis: todo o grupo). Tal atividade será concluida até que haja várias opções de perspectivas do tema;
-    \item Definição do Tema (Responsáveis: todo o grupo). Tal atividade será concluida até que haja a consolidação do tema e aceitação do mesmo pelos membros do grupo e professores.
-  \end{itemize}
-  \item Planejamento:
-  \begin{itemize}
-    \item Pesquisas bibliográficas e estudos de viabilidade (Responsáveis: todo o grupo). Tal atividade será concluida até que haja referências teóricas e metodológicas o suficiente para a viabilidade do projeto;
-    \item Divisão das frentes de trabalho (Responsáveis: todo o grupo). Tal atividade será concluida até que haja que todos os integrantes do grupo sejam alocados em suas respectivas tarefas de modo que haja integração harmônica com todas as partes do projeto.
-  \end{itemize}
-  \item Execução:
-  \begin{itemize}
-    \item Desenvolvimento do primeiro protótipo (Responsáveis: todo o grupo). Tal atividade será concluida até que o protótipo faça as funções básicas como limpar e se locomover;
-    \item Testes de bateria (Responsáveis: Maria, Vanessa, Tuane e Thaynara). Tal atividade será concluida até que a fonte de energia via baterias funcione regularmente;
-    \item Testes de estrutura e locomoção (Responsáveis: José Pedro, José Armando e Marcos Ramos). Tal atividade será concluida até que a estrutura e locomoção fique funcional;
-    \item Testes de algoritmos e sistema de controle eletrônico (Responsáveis: Matheus, Pablo e Lucas Moura).  Tal atividade será concluida até que os algoritmos e sistemas de controle eletrônico sejam integrados e funcionais.
-  \end{itemize}
-\end{itemize}
+Quarta
+Sexta
+Quarta
+Sexta
+Quarta
+Sexta
+Quarta
+Sexta
 
-%o Entradas (ex: recursos consumidos);
-%o Saídas (ex: resultados ou artefatos esperados);
-%o Medições que serão utilizadas durante o processo 
-%produtivo.
-%• Planejamento do processo produtivo – Prazo: até o 1o pto de controle;
-%• Definição do processo de Acompanhamento do projeto (em cada pto de controle);
-%Deverão ser descritos quais os artefatos, entregas, resultados esperados em cada ponto de controle, assim como umma análise crítica das medições definidas e coletadas, barreiras e facilidades encontradas até o momento e visualidas no projeto."
+\begin{table}[h!]
+  \begin{center}
+    \begin{tabular}{|l|l|l|l|}  
+       Semana 1 & Semana 2 & Semana 3 & Semana 4
+      \begin{tabular}{|l|l|l|l|l|l|l|l|}
+        \hline
+        Quarta & Sexta & Quarta & Sexta & Quarta & Sexta & Quarta & Sexta 
+
+      \end{tabular}
+    \end{tabular}  
+  \end{center}
+\end{table}
+\section{Perspectivas Futuras}
+\section{Considerações Finais}
 
 \newpage
-\subsection{Cronograma}
-Tendo como objetivo final a apresentação de um protótipo funcional ao final da disciplina e considerando três apresentações ao longo desse percurso, o cronograma do processo de produção, já executado até agora e o planejado, encontra-se a seguir:
-
-\begin{figure}[h]
-  \centering
-  \includegraphics[width=1\textwidth]{crono_1.png}
-  \includegraphics[width=1\textwidth]{crono_2.png}
-  \caption{Diagrama de Gantt do Cronograma}
-\label{tab:fig1}
-\end{figure}
-
-\subsection{Custos}
-******* TO DO ********
-
-\section{Tecnologia Utilizada e Desenvolvimento da Solução}
-
-\subsection{Arquitetura de Software}
-
-\subsection{Comunicação}
-
-\subsection{Locomoção}
-
-\subsection{Elementos Físicos}
-
-\subsection{Bateria e Fonte}
-Para a alimentação de todo o sistema foi feito um levantamento com a estimativa de consumo de cada componente, a fim de garantir sua autonomia por no mínimo uma hora.
-
-******* TABELA DA MARIA ********
-
-Para o teste inicial, visto que não havia o material total necessário, mas sim uma preocupação em validar o sistema como um todo (motores, sistema de limpeza e circuitos) foi utilizada uma fonte de computador modelo WSPC-450, com entrada AC de 115~230V - 10~5,5A e saída DC de 3,3V - 32A, 5V - 35A, e 12V - 14A.
-
-Para os próximos testes, foram utilizadas três baterias de lítio-íon 3,7 V - 4200mAh ligadas em série para fornecer 11,1 V ao sistema. Tais baterias foram suficientes para o teste de locomoção e teste doS algorítmos , além do teste do sistema de limpeza feito separadamente.
-
-Apesar de ter sido satisfatório o desempenho dessas baterias nos testes \cite{chagas2007novas}, o banco de baterias criado a partir delas dificultou seu recarregamento, visto que cada bateria teria que ser recarregada separadamente, uma vez que não tínhamos a disposição um carregador próprio para a bateria final e a operação de recarga de baterias de lítio não apropriada apresenta o risco de incêndio.
-
-Dessa maneira, com os dados coletados e com uma pesquisa sobre quais baterias mais utilizadas em um sistema de robótica e telecomunicação, foi escolhida uma bateria de chumbo-ácido selada (SLA), além da facilidade de ser encontrada no mercado e preço acessível, a sua manutenção e utilização são relativamente simples.
-
-É a bateria mais econômica do mercado, e foram as primeiras baterias para uso comercial. Atualmente as baterias de chumbo-ácido são amplamente usadas em sistemas de fornecimento de energia elétrica ininterrupta (no-breaks).
-
-******* ESPECIFICAÇÃO DA BATERIA ********
-
-\subsection{Carga Total}
-
-******* TO DO ********
-
-\subsection{Sistema de Limpeza}
-O sistema de limpeza é composto por duas partes:
-\begin{itemize}
-  \item Escova giratória na área frontal do robô, que gira com a intenção de levantar a sujeira e direcioná-la para a área de aspiração. Basicamente, o motor gira e faz com que a escova também gire, com auxilio do suporte e do eixo. O mecanismo da escova giratória possui:
-    \begin{itemize}
-      \item um motor DC;
-      \item um eixo;
-      \item suporte lateral;
-      \item escova.
-    \end{itemize}
-  \item O aspirador suga a sujeira/poeira à medida que o robô se move pelo piso. É composto por:
-    \begin{itemize}
-      \item abertura de entrada de ar;
-      \item porta de saída de ar;
-      \item motor DC;
-      \item tela porosa;
-      \item tubo cilíndrico;
-      \item compartimento para a sujeira;
-      \item hélice de um cooler usado em computadores.
-    \end{itemize}
-\end{itemize}
-
-Foi acoplado um motor à hélice de um cooler, que esta situada na extremidade de um tubo cilíndrico e, para sua proteção, foi utilizado uma tela porosa a fim de evitar eventuais danos ao cooler, atuando como se fosse um filtro, em uma das laterais deste tubo plástico, existe um orifício por onde a sujeira irá sair, ficando retida em um compartimento.
-
-
-\section{Resultados Parciais}
-******* TO DO ********
-
-\section{Considerações Finais}
-******* TO DO ********
-
-% NAO SEI PQ MAS AS REFERENCIAS BIBLIOGRAFICAS SO FUNCIONAM QUANDO EU CITO ALGO NA ULTIMA SECÇÃO
-\cite{smith:99}.
-
-
+\section{References}
 \bibliographystyle{sbc}
 \bibliography{sbc-template}
 
