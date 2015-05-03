@@ -34,6 +34,9 @@
   Este
 \end{resumo}
 
+%-----------------------------------------------------------------------------
+% Indrodução
+%-----------------------------------------------------------------------------
 \section{Introdução}
 
 \paragraph{}
@@ -86,6 +89,9 @@ Figura \ref{fig:mercado}).
 \label{fig:mercado}
 \end{figure}
 
+%-----------------------------------------------------------------------------
+% Indrodução -> Problemática
+%-----------------------------------------------------------------------------
 \subsection{Problemática}
 
 \paragraph{}
@@ -105,6 +111,9 @@ as tarefas domesticas atividades.
 \label{fig:tarefas}
 \end{figure}
 
+%-----------------------------------------------------------------------------
+% Indrodução -> Motivação
+%-----------------------------------------------------------------------------
 \subsection{Motivação}
 \paragraph{}
 O censo 2010 ilustra uma clara mudança na forma como a sociedade brasileira 
@@ -127,6 +136,9 @@ atuando de fortemente no mercado nacional. Além disto os desafios que envolvem
 a criação de tal equipamento é outro fator estimulante para a criação do 
 projeto.
 
+%-----------------------------------------------------------------------------
+% Tecnologias encontradas no mercado
+%-----------------------------------------------------------------------------
 \section{Tecnologias encontradas no mercado} \label{sec:mercado}
 
 Existem diversos robôs que realizam limpeza encontrados hoje no mercado. Segue 
@@ -244,12 +256,15 @@ hoje no mercado (\ref{fig:deebot}). Veja a seguir as características:
 \end{itemize}
 
 \begin{figure}[ht]
-\centering
-\includegraphics[width=.3\textwidth]{images/deebot.jpg}
-\caption{Deebot}
-\label{fig:deebot}
+  \centering
+  \includegraphics[width=.3\textwidth]{images/deebot.jpg}
+  \caption{Deebot}
+  \label{fig:deebot}
 \end{figure}
 
+%-----------------------------------------------------------------------------
+% O projeto
+%-----------------------------------------------------------------------------
 \section{O projeto}
 
 \subsection{Descrição}
@@ -266,6 +281,9 @@ dois objetivos são os alvos centrais do projeto, são eles:
 Contudo devido as restrições de tempo, recurso e conhecimentos o escopo do 
 projeto foi reduzido de tal forma a se obter um bom resultado em dois meses. 
 
+%-----------------------------------------------------------------------------
+% O projeto - Escopo
+%-----------------------------------------------------------------------------
 \subsection{Escopo}
 
 \subsection{Proposta}
@@ -275,90 +293,179 @@ experimentos (vide Seção \ref{sec:exp}) e estudos realizados são feitas
 propostas para a execução de cada área. Vale observar que a composição final de 
 todas as áreas terá como resultado a criação do robô.
 
+%-----------------------------------------------------------------------------
+% O projeto - Proposta - Arquitetura de Software
+%-----------------------------------------------------------------------------
 \subsubsection{Arquitetura do Software}
 
-De acordo com  Vaussard \cite{vaussard} quando se projeta um robô aspirador 
+\textbf{Veiculo automato} \\
+
+De acordo com  Vaussard \cite{vaussard}, quando se projeta um robô aspirador 
 autônomo, o mesmo deve ser capaz de prover um conjunto de funcionalidades que 
 permita que o mesmo desempenhe três tipos de tarefa:
 
 \begin{enumerate}
-  \item Uma estratégia de navegação dentro do ambiente para qual irá atuar.
-  \item Um dispositivo de limpeza.
-  \item Algum tipo de interalçao com o usuário, sendo no minímo possível as 
+  \item Uma estratégia de navegação dentro do ambiente para qual irá atuar;
+  \item Um dispositivo de limpeza
+  \item Algum tipo de interalção com o usuário, sendo no minímo possível as 
     opções de começar ou finaliza um processo de limpeza.
 \end{enumerate}
 
 \paragraph{}
-Para considerar o primeiro trequisito, o de navegação, é necessário antes 
+Para considerar o primeiro requisito, o de navegação, é necessário antes 
 definir alguns conceitos. O primeiro deles é o conceito de automação. Segundo 
 Bekey \cite{bekey}, um sistema autônomo é capaz de operar em um cenário do 
 mundo real sem nenhum tipo de controle externo por um determinado período de 
-tempo, ou seja, para o contexto dado, o robô aspirador deve ser capaz de navegar 
-pelo ambiente sem que nenhum auxílio ou intervenção do usuário seja necessária. 
-Seguindo nesta mesma lógica, Bekey também define um robô, que seria uma 
-máquina capaz de sentir, pensar e atuar sobre o seu ambiente. Apesar da 
-definição ser um tanto quanto aberta, a mesma consegue ser encaixada no contexto 
-de um robô aspirador. Isso se dá pelo fato de que os itens citados por Bekey são 
-necessários para que o robô consiga navegar em um determinado ambiente. Quando 
-se fala sobre sentir, pode-se fazer uma associação direta aos sensores usados 
-para perceber o ambiente. Dessa forma, os sensores usados no projeto serão a 
-base para a detecção de obstáculos e criação de um mapa. Sendo assim, os 
-seguintes sensores foram detalhados para o uso do projeto:
+tempo, ou seja, para o contexto fornecido, o robô aspirador deve ser capaz de 
+navegar pelo ambiente sem que nenhum auxílio ou intervenção do usuário seja 
+necessária. Seguindo nesta mesma lógica, Bekey também define um robô, que seria 
+uma máquina capaz de sentir, pensar e atuar sobre o seu ambiente. Apesar da 
+definição ser muito ampla, a mesma encaixa-se no contexto de um robô aspirador. 
+Isso se dá pelo fato de que os itens citados por Bekey são necessários para que 
+o robô consiga navegar em um determinado ambiente. Quando se fala sobre sentir, 
+pode-se fazer uma associação direta aos sensores usados para perceber o 
+ambiente. Dessa forma, os sensores usados no projeto serão a base para a 
+detecção de obstáculos e criação de um mapa. Sendo assim, os seguintes sensores 
+foram detalhados para o uso do projeto:
 
 \begin{itemize}
- \item Sensor de Distância Ultras-sônico HC-SR04: O sensor ultra-sônico tem 
-  como principal objetivo no robô sendo desenvolvido a detecção de 
-  obstáculos. Entretanto, é conhecido os problemas relacionados ao seu uso, 
-  como o fato de que os algoritmo conseguem extrair apenas informações 
-  limitadas dos dados gerados por ele \cite{menezes}. Vale ressaltar também 
-  que essa escolha também foi mantida devido ao baixo custo dos sensores, a 
-  facilidade de uso do mesmo e o baixo poder computacional requerido para sua 
-  manipulação. \cite{menezes}
- \item \textit{Switches}: Apesar de não serem sensores, os switches serão 
-  usadas para a detecção de colisão. Isso se dá pela possibilidade de falha
-  dos sensores ultrasônicos. Assim, switches serão usados para alertar o robô 
-  de que uma colisão aconteceu, possibilitando assim que o mesmo tome uma 
-  decisão adequada.
+ \item Sensor de Distância Ultrassônico HC-SR04:  O sensor ultrassônico tem 
+  como objetivo auxiliar o robô sendo desenvolvido a detecção de obstáculos. 
+  Entretanto, existem problemas relacionados ao seu uso, como o fato de 
+  que os algoritmo conseguem extrair apenas informações limitadas dos dados 
+  gerados por ele \cite{menezes}. Vale ressaltar também que essa escolha também 
+  é influencida pelo baixo custo dos sensores, a facilidade de uso do mesmo e 
+  o baixo poder computacional requerido para sua manipulação\cite{menezes}. 
+  Para mais detalhes sobre o sensor, vide \ref{sec:elementos}.
+ \item \textit{Switches}: Apesar de não serem sensores, os \textit{switches} 
+  serão utilizados para a detecção de colisão. Isso se dá pela possibilidade de 
+  falha dos sensores ultrasônicos. Assim, \textit{switches} serão usados para 
+  alertar o robô de que uma colisão aconteceu, possibilitando assim que o mesmo 
+  tome uma decisão adequada.
 \end{itemize}
 
 \paragraph{}
-Com os sensores então definidos, pode-se então começar a especificar a parte de 
-``pensar'' relacionada ao robô aspirador. Essa parte se dá pela leitura e 
-interpretação dos dados dos sensores e uma tomada de decisão, o que nada mais é 
-do que a navegação propriamente dita. A primeira consideração a ser feita é 
-sobre como o robô irá se movimentar no cenário.  O primeiro fato a se considerar 
-é sobre o mapeamento, pois devido tempo limite de tempo do projeto e baixa 
-capacidade de processamento dos equipamentos disponíveis, o robô não irá 
-construir nenhum mapa sofisticado, se preocupando apenas com os objetos que 
-estão imediatamente próximos a ele. Isso também se dá pelo fato de que, quando 
-se pretende fazer mapeamento usando os sensores, os erros de tais sensores não 
-são estatisticamente independentes. Isso se dá pelo fato de que erros das 
-medições passadas se acumulam, afetando assim a interpretação de medições 
-futuras \cite{fox}. 
+Partindo da definição dos sensores, pode-se então começar a especificar a parte 
+de ``pensar'' relacionada ao robô aspirador. Essa atribuição se dá pela leitura 
+e interpretação dos dados dos sensores e com base em tais elementos é feita uma 
+tomada de decisão, tal processo é conhecido como a navegação do robô. A 
+primeira consideração a ser feita é sobre como o robô vai se movimentar no 
+cenário. O primeiro fato a se considerar é sobre o mapeamento, pois devido 
+tempo limite de tempo do projeto e baixa capacidade de processamento dos 
+equipamentos disponíveis, o robô não irá construir nenhum mapa sofisticado, a 
+única preocupação do mesmo será apenas com os objetos que estão imediatamente 
+próximos a ele. Isso também se dá pelo fato de que quando se pretende fazer 
+mapeamento usando sensores, os erros de tais sensores não são estatisticamente 
+independentes. Isso se dá pelo fato de que erros das medições passadas se 
+acumulam, afetando assim a interpretação de medições futuras \cite{fox}. 
 
 \paragraph{}
-Sendo assim, o primeiro algoritmo considerado para o projeto foi o de Random 
-Walk. Tal algoritmo é um dos mais basicos algoritmos de movimentação e funciona 
-com dois estados básicos: Movimentação para frente e evitar obstáculos 
-\cite{morlok}. O primeiro estado então faz com que o robô se movimente para 
-frente com um pequena possibilidade de mudar um pouco a angulação do seu 
-movimento, deixando a movimentação assim aleatória. Quando o robõ consegue então 
-encontrar algum obstáculo, ele entra no segundo estado, evitar obstáculos. Neste 
-estado, o robô irá parar, rotacionar por algum outro valor gerado aleatoriamente 
-e e voltar para o estado de se movimentar para frente.
+Sendo assim, o primeiro algoritmo considerado para o projeto foi o de 
+\textit{Random Walk}. Tal algoritmo é um dos mais básicos algoritmos de 
+movimentação e funciona com dois estados básicos: Movimentação para frente e 
+evitar obstáculos \cite{morlok}. O primeiro estado então faz com que o robô se 
+movimente para frente com uma pequena possibilidade de mudar um pouco a 
+angulação do seu movimento, deixando a movimentação assim aleatória. Quando o 
+robô encontrar algum obstáculo, ele entra no segundo estado, evitar obstáculos. 
+Neste estado, o robô irá parar, rotacionar por algum outro valor gerado 
+aleatoriamente e e voltará para o estado de se movimentar para frente.
 
 \paragraph{}
-Outro algoritmo considerado foi o algoritmo Follow Wall. A idea por trás desse 
-algoritmo é de que se um robo conseguir identificar as paredes de um ambiente 
-interno e segui-las, o robô então conseguiria cobrir boa parte da estrutura 
-\cite{morlok}. Esse algoritmo possui quatro estados diferentes, 
+Outro algoritmo considerado foi o algoritmo \textit{Follow Wall}. A idea por 
+trás desse algoritmo é de que se um robô consegue identificar as paredes de um 
+ambiente interno e segui-las, o robô então conseguiria cobrir boa parte da 
+estrutura \cite{morlok}. Esse algoritmo possui quatro estados diferentes, 
 encontrar uma parede, se alinhar a parede, seguir a parede e passar pelo cantos. 
-Tal algoritmo apresenta um problema que está relacionado ao fato de que ele 
-considera qualquer obstáculo como uma parede, mesmo se o obstáculo seja algo 
-bastante pequeno.
+\textit{Follow Wall} apresenta um problema que está relacionado ao fato de que 
+ele considera qualquer obstáculo como uma parede, mesmo se o obstáculo seja 
+algo bastante pequeno e o mesmo ainda pode ficar preso em um ciclo dada algums 
+disposições de obstáculos \cite{morlok}.
 
+\paragraph{}
+Sendo assim, baseado nos problemas encontrados com o algoritmo \textit{Follow 
+Wall}, o algoritmo escolhido foi o \textit{random walk}. Apesar de simples, o 
+mesmo irá garantir que o robô não ficará preso no ambiente, mesmo o algoritmo 
+não possuindo nenhum mecanismo eficiênte para diminuir o tempo da limpeza. Além 
+disto, ele traz a possibilidade de não passar por todos os possíveis lugares de 
+um cômodo, graças ao fator randômico de sua localização. Com a escolha deste 
+algoritmo, tanto a parte de pensamento quanto de atuação são resolvidas para a 
+parte do robô, além disso, visto que o algoritmo escolhido não precisade de 
+intervenção, o mesmo também se enquadra como autônomo.
+
+\paragraph{}
+A Figura \ref{fig:algoritmo} representa o diagrama de como será a interação 
+entre os elementos. Os sensores continuamente capturaram estímulos do 
+ambiente, desde obstáculos perto do robô ou até mesmo quando nenhum obstáculo 
+está visível. Uma vez capturado os dados pelos sensores, o mesmo irá enviar tais 
+dados para o Arduino. Este dispositivo por sua vez manipulará o pulso para 
+estimar a distância do pulso dado pelo sensor, isso no contexto dos sensores 
+ultrasônico. Para o sensor de contato, o arduino definirá uma distância com 
+zero. Após o cálculo da distância, o dispositivo enviará tal informação 
+para um \textit{Raspberry PI}, que terá o algoritmo \textit{random walk} 
+embarcado. Quando o \textit{Raspberry PI} receber a informação, a mesma será 
+repassada para o algoritmo. O algoritmo então irá analisar a distância 
+recebida pelos sensores, observar em qual estado está e então tomar uma decisão. 
+Caso a distância seja de 8 cm ou menor, o algoritmo irá enteder que um obstáculo 
+está próximo e irá mudar de estado para evitar obstáculos. Caso nenhum obstáculo 
+seja detectado, o robô irá se manter no estado em que está.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=.4\textwidth]{images/fluxoDeDados.png}
+  \caption{Diagrama de fluxo de dados}
+  \label{fig:algoritmo}
+\end{figure}
+
+
+\textbf{Interação humano computador} \\
+
+\paragraph{}
+De acordo com Forlizzi \cite{forlizzi}, quando um robô começa a ser usada em 
+espaços privados por pessoas, o robô deixa de ser um componente técnico para se 
+tornar um ``agente social''. Dessa forma, quando se pensa no projeto de um robô 
+aspirador, deve-se levar em questão os conceitos de usabilidade e público-alvo 
+em consideração. O primeiro ponto a ser analisado é em relação a um público 
+alvo. Dado que o sistema é usado prioritariamente para limpeza, a restrição por 
+idade não convém, pois a realização de uma limpeza não está atrelada a nenhuma 
+idade. Apesar disso, dada o possível peso do robô, pessoas mais velhas podem 
+ter dificuldade em manuseá-lo, sendo assim, o público alvo seria um espaço desde 
+pessoas com 12 anos de idade até 60 anos.
+
+\paragraph{}
+Para abranger as faixas etárias sugeridas, alguns conceitos de usabilidade 
+devem ser levados em consideração, sendo os principais relacionados ao 
+funcionamento do robô e a sua alimentação propriamente dita. Para a parte de 
+funcionamento do robô, foi originalmente pensado na criação de um pequeno 
+controle para o mesmo, com apenas duas funcionalidades, ligar e desligar. Isso 
+se dá pelo fato de que um usuário pode querer desligar ou ligar o robô 
+manualmente. A segunda forma de interação com o robô será com um simples botão 
+que se encontrará na parte superior do mesmo. Tal botão conterá o símbolo 
+universal associado ao ligar e desligar um aparelho (Vide Figura 
+\ref{fig:turnOff}). Tal botão exibirá a cor verde quando o robô estiver ligado 
+e a cor vermelha quando a mesma estiver desligada.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=.4\textwidth]{images/turnOff.png}
+  \caption{Símbolo que será usado para o botão manual de liga e desliga}
+  \label{fig:turnOff}
+\end{figure}
+
+\paragraph{}
+Outro ponto de preacupação da equipe está na parte de recarga da bateria. Isso 
+se dá pelo fato de que o carregamento do sistema deve ser simples e prático. 
+Para isso, o grupo pensou em deixar a bateria do robô facilmente encaixável e 
+desencaxável, permitindo assim que o usuário posso ter o maior controle de onde 
+carregar a bateria, sem se preocupar com as dimensões do carrinho.
+
+%-----------------------------------------------------------------------------
+% O projeto - Proposta - Comunicação
+%-----------------------------------------------------------------------------
 \subsubsection{Comunicação}
 
+%-----------------------------------------------------------------------------
+% O projeto - Proposta - Locomoção
+%-----------------------------------------------------------------------------
 \subsubsection{Locomoção}
 
 \paragraph{}
@@ -385,7 +492,10 @@ cargas diferentes, possivel problema de desbalanceamento do robô. Veja a Figura
 \label{fig:locomocao}
 \end{figure}
 
-\subsubsection{Elementos Físicos}
+%-----------------------------------------------------------------------------
+% O projeto - Proposta - Elementos físicos
+%-----------------------------------------------------------------------------
+\subsubsection{Elementos Físicos} \label{sec:elementos}
 
 \paragraph{}
 % O que significa uma saída linear e não linear?
@@ -416,9 +526,11 @@ ponte H foram selecionados, são eles:
 Veja a Tabela \ref{tab:ponteh} contendo a especificação de cada uma das pontes. 
 \begin{center}
   \begin{table}
+  \centering
   \caption{Tabela comparativa}
   \label{tab:ponteh}
-  \begin{tabular}{lllllp{8cm}}
+  \begin{tabular}{lccccp{8cm}}
+  \hline
        & \textbf{L298N} & \textbf{L293D} \\
        Quantidade de Pontes & 2 & 4 \\
        Tensão Lógica & 5V & 5V \\
@@ -427,9 +539,11 @@ Veja a Tabela \ref{tab:ponteh} contendo a especificação de cada uma das pontes.
        Corrente de drive(por ponte) & 2 A & 1 A \\
        Máxima Potência & 25 W & 7 W \\
        Queda de tensão na saída & 1.5 V & 1.5 V \\
+  \hline
   \end{tabular}
   \end{table}
 \end{center}
+
 
 \paragraph{}
 % Os motores do aspirador precisam de mais torque? 
@@ -443,9 +557,109 @@ a locomoção até a limpeza. Todavia o fato de a ponte L293D possuir uma maior
 quantidade de pontes integradas no circuito não nos deixa descartá-la 
 completamente como uma opção futura.
 
-\subsubsection{Bateria e Fonte}
+%-----------------------------------------------------------------------------
+% O projeto - Proposta - Carga total
+%-----------------------------------------------------------------------------
 \subsubsection{Carga Total}
 
+\paragraph{}
+Com todos os componentes selecionados, iniciou-se a etapa de determinação da 
+carga total do sistema. O consumo dos componentes foi levantado utilizando um 
+multímetro digital e as especificações dos fabricantes.  Na Tabela 
+\ref{tab:levantacarga} é possível verificar os valores obtidos para cada 
+componente.
+
+\begin{center}
+  \begin{table}[h]
+  \caption{Levantamento da Carga Total do Sistema}
+  \label{tab:levantacarga}
+  \begin{tabular}{lcccp{8cm}}
+  \hline
+    \textbf{Componente} & \textbf{Quantidade} & \textbf{Tensão de Alimentação
+      (V)} &
+    \textbf{Corrente (mA)}\\
+      Motor DC (rodas) & 2 & 5$\sim$6 & 110 x 2 \\
+      Motor DC (vassoura) & 1 & 5$\sim$6 & 40 \\
+      Motor DC (aspirador) & 1 & 12 & 2000 \\
+      Raspberry Pi & 1 & 5 & 1000 \\
+      Arduino & 1 & 5 & 500 \\
+      Regulador de Tensão & 3 &  &  \\
+      Sensor Ultrassonico & 4 & 5 & 15 x 4 \\
+      Ponte H & 1 & 5 & 36 \\
+  \hline
+  \textbf{Total} &  &  & \textbf{3856} \\
+  \end{tabular}
+  \end{table}
+\end{center}
+
+%-----------------------------------------------------------------------------
+% O projeto - Proposta - Bateria e Fonte
+%-----------------------------------------------------------------------------
+\subsubsection{Bateria e Fonte}
+%O que são baterias?
+\paragraph{}
+Baterias são associações de células unitárias que permitem obter os valores de 
+tensões ou correntes elétricas, representando uma fonte autônoma de energia. 
+\cite{Chagas:07}
+
+\paragraph{}
+Com base nas informações da Tabela \ref{tab:levantacarga} e visando garantir uma
+autonomia de aproximadamente uma hora, determinou-se  que o sistema seria
+alimentado por uma bateria com cerca de 4000mAh de capacidade.
+
+%Quais são os tipos de bateria no mercado?
+\paragraph{}
+Na Tabela \ref{tab:tiposbateria} pode-se verificar características dos 
+principais tipos de bateria disponíveis no mercado.
+
+\begin{center}
+  \begin{table}[h]
+  \caption{Principais Tipos de Bateria \cite{Mezaroba:12} (Adaptado)}
+  \label{tab:tiposbateria}
+  \begin{tabular}{lccccp{8cm}}
+  \hline
+    \textbf{Tipo} & \textbf{Peso (kg)} & \textbf{Dens. Energia (Wh/kg)} &
+    \textbf{$\eta$ (\%)} & \textbf{Vida útil (ciclos)} \\
+      Chumbo-Ácido & 850 & 25-45 & 60-95 & 300-500 \\
+      Ni-Cd & 550 & 20-40 & 60-80 & 300-1500 \\
+      NiMh & 430 & 45-75 & 65-70 & 300-600 \\
+      Lítio-Íon & 270 & 80-150 & 90-100 & 1500-3000 \\
+  \hline
+  \end{tabular}
+  \end{table}
+\end{center}
+
+%Justificar a escolha da bateria de li ion
+\paragraph{}
+Além das características apresentadas na Tabela \ref{tab:tiposbateria}, a 
+bateria de íons de lítio também apresenta baixa auto-descarga e baixa 
+manutenção. \cite{STA}  Em virtude dessas características, foram adquiridas três 
+baterias de lítio-íon de 3,7V - 4200mAh, que, conectadas em série, forneceriam 
+uma tensão de 11,1 V ao sistema.
+
+%Levantar problema do carregamento
+\paragraph{}
+Entretanto, na tentativa de estabelecer um mecanismo de carregamento confiável, 
+o grupo encontrou dificuldades, uma vez que a instabilidade do lítio requer 
+precauções nos processos de carga e descarga da bateria. \cite{Fell:13}
+
+%Justificar a escolha da bateria de chumbo
+\paragraph{}
+Dessa maneira, com os dados coletados e com uma pesquisa sobre quais
+baterias mais utilizadas em um sistema de robótica e telecomunicação, foi 
+escolhida uma bateria de chumbo-ácido selada (SLA), além da facilidade de ser 
+encontrada no mercado e preço acessível, a sua manutenção e utilização são 
+relativamente simples.
+
+\paragraph{}
+A bateria de chumbo-ácido é a mais econômica do mercado, e foram as primeiras 
+baterias para uso comercial. Atualmente são amplamente utilizadas em sistemas 
+de fornecimento de energia elétrica ininterrupta (\textit{no-breaks}). 
+\cite{Chagas:07}
+
+%-----------------------------------------------------------------------------
+% O projeto - Proposta - Sistema de limpeza
+%-----------------------------------------------------------------------------
 \subsubsection{Sistema de Limpeza}
 \paragraph{}
 Um aspirador é um mecanismo que cria diferença de pressão em dois pontos. As 
@@ -574,6 +788,9 @@ mecanismo escolhido é aquele que apresentaria melhor relação entre eficiência
 de limpeza por complexidade de manufatura. Utilizando esses parâmetros foi 
 escolhida a Alternativa 3.
 
+%-----------------------------------------------------------------------------
+% Resultados parciais
+%-----------------------------------------------------------------------------
 \section{Resultados Parciais} \label{sec:exp}
 
 \paragraph{}
@@ -582,6 +799,29 @@ dezenas de experimentos que foram extremamente úteis para guiar as tomadas de
 decisões. Neste contexto veja a descrição de alguns dos testes feitos nas 
 subseções.
 
+%-----------------------------------------------------------------------------
+% Resultados parciais - Validando comunicação com Arduino
+%-----------------------------------------------------------------------------
+\subsection{Validando comunicação com Arduino}
+\paragraph{}
+Um dos testes de comunicação foi implementado com sucesso, o experimento 
+consistia em si em implementar a comunicação serial entre um arduino e um 
+código escrito na linguagem C. Para isso, uma biblioteca de software livre foi 
+usada para suportar tal comunicação. A mesma pode ser encontrada no link à 
+seguir:
+
+\url{https://github.com/todbot/arduino-serial}
+
+O teste realizado foi implementar um código C que conseguisse ler as distâncias 
+calculadas pelo arduino e passadas via saída serial. Para isso o código 
+encontrado possuia funções tanto de comunicação quanto de leitura de uma saída 
+serial de um dado dispositivo. Após o código necessário ter sido escrito, 
+pode-se validar a hipótese quanto a comunicação serial do arduino com um código 
+C.
+
+%-----------------------------------------------------------------------------
+% Resultados parciais - Validando comunicação com Arduino
+%-----------------------------------------------------------------------------
 \subsection{Validando sistema de limpeza}
 
 \paragraph{}
@@ -591,6 +831,9 @@ aspirador pequeno. Os materiais, procedimentos e resultados obtidos são
 descritos
 a seguir.
 
+%-----------------------------------------------------------------------------
+% Resultados parciais - Vassoura giratória
+%-----------------------------------------------------------------------------
 \subsubsection{Vassoura giratória}
 \begin{itemize}
   \item Materiais:
@@ -616,6 +859,9 @@ a seguir.
     \end{itemize}
 \end{itemize}
 
+%-----------------------------------------------------------------------------
+% Resultados parciais - Aspirador
+%-----------------------------------------------------------------------------
 \subsubsection{Aspirador}
 \begin{itemize}
  \item Materiais:
@@ -653,6 +899,9 @@ a seguir.
   \end{itemize}
  \end{itemize}
 
+ %-----------------------------------------------------------------------------
+% Resultados parciais - Conclusão da validação
+%-----------------------------------------------------------------------------
 \subsection{Conclusão da validação do sistema de limpeza}
 \paragraph{}
 Em ambos os experimentos foram obtidos resultados satisfatórios e, com isso, 
@@ -672,7 +921,15 @@ montagem dos experimentos, por exemplo: \\
 Os problemas foram identificados já nas primeiras execuções dos testes e as 
 soluções já estão em desenvolvimento e entrarão no ciclo de desenvolvimento do 
 próximo protótipo.
+
+%-----------------------------------------------------------------------------
+% Gerenciamento
+%-----------------------------------------------------------------------------
 \section{Gerenciamento}
+
+%-----------------------------------------------------------------------------
+% Gerenciamento - Planejamento
+%-----------------------------------------------------------------------------
 \subsection{Planejamento}
 Para o desenvolvimento do projeto, de maneira a integrar todas as engenharias envolvidas e não individualizar o trabalho de cada integrante dentro de sua especialidade, foi feita uma divisão em três frentes de trabalho: uma responsável pela estrutura física do protótipo, outra para trabalhar com os algoritmos e programação envolvidos no sistema, e por último, uma voltada para desenvolver o sistema de limpeza. De tal forma que haja integrantes de mais de uma engenharia em cada frente, mas que ao mesmo tempo não haja exclusão de ocupação, ou seja, um mesmo integrante pode trabalhar em mais de uma frente, para que o desenvolvimento do trabalho seja feito sempre em equipe.
 Assim, a divisão geral para a evolução do trabalho nesta primeira etapa se deu da seguinte forma:
@@ -692,34 +949,75 @@ Assim, a divisão geral para a evolução do trabalho nesta primeira etapa se deu d
   \end{center}
 \end{table}
 
+%-----------------------------------------------------------------------------
+% Resultados parciais - Fases, atividades e responsáveis
+%-----------------------------------------------------------------------------
 \subsubsection{Fases, Atividades e Responsáveis}
-No que diz respeito as fases do projeto foram destacadas tais fases com as seguintes atividades:
+No que diz respeito as fases do projeto foram destacadas tais fases com as 
+seguintes atividades:
 
 \begin{itemize}
   \item Iniciação:
   \begin{itemize}
     \item Apresentação da disciplina (Responsáveis: todo o grupo).
-    \item Definição de Grupo (Responsáveis: todo o grupo). Tal atividade será concluida até que haja elementos de todas as engenharias no grupo. Entradas: número de pessoas possíveis de cada engenharia e total. Saída: membros da equipe;
-    \item Discussão do Tema (Responsáveis: todo o grupo). Tal atividade será concluida até que haja várias opções de perspectivas do tema. Entradas: contextos envolvidos por escopo, custo e prazo. Saídas: sugestões de temas refinados;
-    \item Definição do Tema (Responsáveis: todo o grupo). Tal atividade será concluida até que haja a consolidação do tema e aceitação do mesmo pelos membros do grupo e professores. Entradas: sugestões de temas. Saída: tema consolidado.
+    \item Definição de Grupo (Responsáveis: todo o grupo). Tal atividade será 
+      concluida até que haja elementos de todas as engenharias no 
+      grupo. Entradas: número de pessoas possíveis de cada engenharia e total. 
+      Saída: membros da equipe;
+    \item Discussão do Tema (Responsáveis: todo o grupo). Tal atividade
+      seráconcluida até que haja várias opções de perspectivas do tema. 
+      Entradas: contextos envolvidos por escopo, custo e prazo. Saídas: 
+      sugestões de temas refinados;
+    \item Definição do Tema (Responsáveis: todo o grupo). Tal atividade 
+      seráconcluida até que haja a consolidação do tema e aceitação do mesmo 
+      pelos membros do grupo e professores. Entradas: sugestões de temas. 
+      Saída: tema consolidado.
   \end{itemize}
   \item Planejamento:
   \begin{itemize}
-    \item Pesquisas bibliográficas e estudos de viabilidade (Responsáveis: todo o grupo). Tal atividade será concluida até que haja referências teóricas e metodológicas o suficiente para a viabilidade do projeto. Entradas: referências teóricas e bibliográficas. Saída: tema refinado com análise de viabilidade;
-    \item Divisão das frentes de trabalho (Responsáveis: todo o grupo). Tal atividade será concluida até que haja que todos os integrantes do grupo sejam alocados em suas respectivas tarefas de modo que haja integração harmônica com todas as partes do projeto. Entradas: membros do projeto e áreas técnicas. Saída: tarefas alocadas com seus respectivos responsáveis.
+    \item Pesquisas bibliográficas e estudos de viabilidade (Responsáveis: todo 
+      o grupo). Tal atividade será concluida até que haja referências teóricas 
+      e metodológicas o suficiente para a viabilidade do projeto. Entradas: 
+      referências teóricas e bibliográficas. Saída: tema refinado com análise 
+      de viabilidade;
+    \item Divisão das frentes de trabalho (Responsáveis: todo o grupo). 
+      Tal atividade será concluida até que haja que todos os integrantes do 
+      grupo sejam alocados em suas respectivas tarefas de modo que haja 
+      integração harmônica com todas as partes do projeto. Entradas: membros do 
+      projeto e áreas técnicas. Saída: tarefas alocadas com seus respectivos 
+      responsáveis.
   \end{itemize}
   \item Execução:
   \begin{itemize}
-    \item Desenvolvimento do primeiro protótipo (Responsáveis: todo o grupo). Tal atividade será concluida até que o protótipo faça as funções básicas como limpar e se locomover. Entradas: membros do projeto e materiais. Saída: primeiro protótipo;
-    \item Testes de bateria (Responsáveis: Maria, Vanessa, Tuane e Thaynara). Tal atividade será concluida até que a fonte de energia via baterias funcione regularmente. Entradas: membros do projeto, baterias e protótipo. Saída: resultados dos testes;
-    \item Testes de estrutura e locomoção (Responsáveis: José Pedro, José Armando e Marcos Ramos). Tal atividade será concluida até que a estrutura e locomoção fique funcional. Entradas: membros do projeto e protótipo. Saída: resultados dos testes;
-    \item Testes de algoritmos e sistema de controle eletrônico (Responsáveis: Matheus, Pablo e Lucas Moura).  Tal atividade será concluida até que os algoritmos e sistemas de controle eletrônico sejam integrados e funcionais. Entradas: membros do projeto e protótipo. Saída: resultados dos testes.
+    \item Desenvolvimento do primeiro protótipo (Responsáveis: todo o grupo). 
+      Tal atividade será concluida até que o protótipo faça as funções básicas 
+      como limpar e se locomover. Entradas: membros do projeto e materiais. 
+      Saída: primeiro protótipo;
+    \item Testes de bateria (Responsáveis: Maria, Vanessa, Tuane e Thaynara). 
+      Tal atividade será concluida até que a fonte de energia via baterias 
+      funcione regularmente. Entradas: membros do projeto, baterias e 
+      protótipo. Saída: resultados dos testes;
+    \item Testes de estrutura e locomoção (Responsáveis: José Pedro, José 
+      Armando e Marcos Ramos). Tal atividade será concluida até que a estrutura 
+      e locomoção fique funcional. Entradas: membros do projeto e protótipo. 
+      Saída: resultados dos testes;
+    \item Testes de algoritmos e sistema de controle eletrônico 
+      (Responsáveis: Matheus, Pablo e Lucas Moura).  Tal atividade será 
+      concluida até que os algoritmos e sistemas de controle eletrônico sejam 
+      integrados e funcionais. Entradas: membros do projeto e protótipo. Saída: 
+      resultados dos testes.
   \end{itemize}
 \end{itemize}
 
 \newpage
+%-----------------------------------------------------------------------------
+% Cronograma
+%-----------------------------------------------------------------------------
 \subsection{Cronograma}
-Tendo como objetivo final a apresentação de um protótipo funcional ao final da disciplina e considerando três apresentações ao longo desse percurso, o cronograma do processo de produção, já executado até agora e o planejado, encontra-se a seguir:
+Tendo como objetivo final a apresentação de um protótipo funcional ao final da 
+disciplina e considerando três apresentações ao longo desse percurso, o 
+cronograma do processo de produção, já executado até agora e o planejado, 
+encontra-se a seguir:
 
 \begin{figure}[h]
   \centering
@@ -730,9 +1028,18 @@ Tendo como objetivo final a apresentação de um protótipo funcional ao final da d
 \end{figure}
 
 \newpage
+%-----------------------------------------------------------------------------
+% Custos
+%-----------------------------------------------------------------------------
 \subsection{Custos}
 
-No ponto de vista da gerência de custos do projeto foi desenvolvido uma estratégia de compras de recursos por demanda. Cada um dos integrantes colaborou com uma certa quantia de dinheiro a ser guardado no caixa do projeto. A medida em que aparece demanda por aquisição de materiais, a compra é efetuada. Para um melhor gerenciamento os recursos financeiros foram divididos no ponto de vista de áreas tecnicas do produto e por membros do projeto. Segue abaixo uma imagem representativa da divisão por áreas técnicas:
+No ponto de vista da gerência de custos do projeto foi desenvolvido 
+umaestratégia de compras de recursos por demanda. Cada um dos integrantes 
+colaborou com uma certa quantia de dinheiro a ser guardado no caixa do projeto. 
+A medida em que aparece demanda por aquisição de materiais, a compra é efetuada. 
+Para um melhor gerenciamento os recursos financeiros foram divididos no ponto de 
+vista de áreas tecnicas do produto e por membros do projeto. Segue abaixo uma 
+imagem representativa da divisão por áreas técnicas:
 
 \begin{figure}[h]
   \centering
@@ -741,10 +1048,14 @@ No ponto de vista da gerência de custos do projeto foi desenvolvido uma estratég
 \label{tab:fig2}
 \end{figure}
 
-Observa-se na figura acima que o maior custa está sendo relacionado a área técnica de energia visto que as baterias possuem um alto custo. O menor custo está sendo relacionado a estrutura pois muito da mesma está sendo feita por reutilização de materiais. 
+Observa-se na figura acima que o maior custa está sendo relacionado a área 
+técnica de energia visto que as baterias possuem um alto custo. O menor custo 
+está sendo relacionado a estrutura pois muito da mesma está sendo feita por 
+reutilização de materiais. 
 
 \newpage
 Segue abaixo uma imagem representativa da divisão por membros do projeto:
+
 \begin{figure}[h]
   \centering
   \includegraphics[width=0.8\textwidth]{images/custo_membros.png}
@@ -752,7 +1063,9 @@ Segue abaixo uma imagem representativa da divisão por membros do projeto:
 \label{tab:fig2}
 \end{figure}
 
-Observa-se da imagem que o maior custo é oriundo de um membro responsável pela parte de energia do projeto. Segue abaixo tabela de resumo dos custos:
+Observa-se da imagem que o maior custo é oriundo de um membro responsável pela 
+parte de energia do projeto. Segue abaixo tabela de resumo dos custos:
+
 \begin{figure}[h]
   \centering
   \includegraphics[width=0.8\textwidth]{images/tabela.png}
@@ -760,10 +1073,19 @@ Observa-se da imagem que o maior custo é oriundo de um membro responsável pela p
 \label{tab:fig2}
 \end{figure}
 
+%-----------------------------------------------------------------------------
+% Perspectivas futuras
+%-----------------------------------------------------------------------------
 \section{Perspectivas Futuras}
+%-----------------------------------------------------------------------------
+% Considerações finais
+%-----------------------------------------------------------------------------
 \section{Considerações Finais}
 
 \newpage
+%-----------------------------------------------------------------------------
+% References
+%-----------------------------------------------------------------------------
 \section{References}
 \bibliographystyle{sbc}
 \bibliography{sbc-template}
