@@ -287,9 +287,69 @@ execução;
 %-----------------------------------------------------------------------------
 % O projeto - Escopo
 %-----------------------------------------------------------------------------
+\paragraph{}
+Está seção constituí a parte central deste trabalho, pois nela é apresentada a 
+descrição do projeto, a funcionalidade, restrições e por fim é apresenta um 
+estudo detalhado sobre cada área necessária para a realização do projeto. O 
+estudo de cada área apresenta as diferentes opções para resolver cada problema, 
+assim como a decisão de qual solução foi escolhida para o projeto (Seção 
+\ref{sec:proposta}). Por fim, vale observar que diversos experimentos foram 
+feitos para validar cada uma das propostas aqui apresentadas. Veja a Seção 
+\ref{sec:exp} para uma descrição completa dos testes realizados.
+
+\subsection{Descrição}
+
+\paragraph{}
+O projeto em questão tem por objetivo realizar a contrução de um robô que 
+faz limpeza de chão de forma automatizada. O projeto busca inspiração em 
+projetos já existentes, como os descritos na Seção \ref{sec:mercado}. Contudo 
+dois objetivos são os alvos centrais do projeto, são eles:
+
+\begin{itemize}
+ \item Criar um robô de baixo custo.
+ \item Dominar parte da técnologia para a contrução de robôs de limpeza.
+\end{itemize}
+
+Contudo devido as restrições de tempo, recurso e conhecimentos o escopo do 
+projeto foi reduzido de tal forma a se obter um bom resultado em dois meses. 
+
+%-----------------------------------------------------------------------------
+% O projeto - Escopo
+%-----------------------------------------------------------------------------
 \subsection{Escopo}
 
-\subsection{Proposta}
+\paragraph{}
+Após uma extensa pesquisa sobre os robôs aspiradores existentes no mercado e as 
+suas características, definiu-se um conjunte de funcionalidades para serem 
+atingidas nos próximos dois meses de projeto. Tal escopo possui reduções de 
+funcionalidades baseadas no ambiente. Seguem as funcionalidade e as restrições.
+
+\subsubsection{Funcionalidades}
+
+\begin{itemize}
+ \item O robô deve ser capaz de movimentar-se pelo ambiente sem intervenção 
+  humana.
+ \item O robô deve ser capaz de limpar particulas inferiores a 0,5 cm.
+ \item O robô deve detectar obstaculos com espessura superior a 15 cm.
+ \item O robô deve ter dimensões entre 50x50 cm.
+ \item O robô deve ser capaz de passar por baixo de móveis com mais de 40 cm de 
+  altura.
+\end{itemize}
+
+\subsubsection{Restrições}
+\begin{itemize}
+ \item O comôdo deve ter um formato retangular. Essa restrição foi imposta para 
+  facilitar os testes relacionados e reduzir a complexidade do algoritmo.
+ \item O chão não pode ter quedas subtas, tais quais escadas.
+ \item O ambiente não deve ter carpete.
+ \item Obstaculos muito finos, tal como pernas de cadeiras, podem não ser 
+  detectados e ocorrendo assim a colisão.
+ \item Não deve haver fios sobre o chão.
+ \item O robô não limpará ambientes molhados.
+\end{itemize}
+
+
+\subsection{Proposta} \label{sec:proposta}
 
 Para a criação do projeto, foram identificadas diferentes áreas. Com base nos 
 experimentos (vide Seção \ref{sec:exp}) e estudos realizados são feitas 
@@ -471,29 +531,205 @@ carregar a bateria, sem se preocupar com as dimensões do carrinho.
 %-----------------------------------------------------------------------------
 \subsubsection{Locomoção}
 
-\paragraph{}
-% O que são encoders? Eu sei, mas é bom explicar melhor =P
-Para um bom controle da rotação dos motores e garantir que o carro ande em 
-linha reta optou-se por utilizar \textit{encoders} de rotação que forneçam  
-ao controlador \textit{feedbacks}. É essencial ter um bom controle do 
-movimento do veículo para que o \textit{software} de mapeamento funcione 
-corretamente e que possamos cobrir todo ou a maior parte possível do ambiente 
-antes do término da limpeza.
+\newpage
+\subsubsection{Locomoção e estrutura}
 
 \paragraph{}
-O controle Proporcional, integral e derivativo funciona como uma boa malha de 
-realimentação que nos garante que a velocidade desejada é a mesma na qual o robô 
-está andando mesmo quando submetido a diferentes cargas. Garante também que 
-ambos os motores estaram girando na mesma velocidade mesmo se submetidos a 
-cargas diferentes, possivel problema de desbalanceamento do robô. Veja a Figura 
-\ref{fig:locomocao} contendo o esquema geral da locomoção.
+Para a Locomoção utilizaremos dois motores DC para direcionar o robô. Um
+requisito importante para esses motores é um bom torque uma vez que são
+responsáveis por carregar tudo que está sobre eles. Não é necessário uma grande
+quantidade de rotações por minuto. Na verdade, um robô rápido demais
+atrapalharia a leitura dos sensores de distancia e o envio dos comandos de
+tomada de decisão já que em alta velocidade o robô pode bater em algum obstáculo
+antes de as entradas serem processadas e os comandos enviados. 
+
+\paragraph{}
+Os testes iniciais foram realizados com dois motores com caixa de redução de
+1:120, de 3 a 6 Volts com consumo máximo medido de 125mA. Os modelos utilizados
+nos testes iniciais deverão ser trocados por outros motores com mais torque, uma
+vez que estes foram suficientes para testar as lógicas mas já demonstram que nao
+irão aguentar o peso final.
+
+\paragraph{}
+Para um bom controle da rotação dos motores, e garantir que o carro ande em
+linha reta utilizaremos de encoders de rotação para que o controlador possa ter
+um feedback. É essencial ter um bom controle do movimento do veículo para que o
+software de mapeamento funcione corretamente e que possamos cobrir todo ou a
+maior parte possível do ambiente antes do término da limpeza. Na FIGURA1 vemos
+como será implementada a malha de controle para a velocidade dos motores. Essa
+estimação de velocidade necessária é obtível por meio de encoders ópticos.
 
 \begin{figure}[ht]
 \centering
 \includegraphics[width=.7\textwidth]{images/locomocao.png}
-\caption{Locomoção}
+\caption{Esquematico da malha de controle a ser utilizada}
 \label{fig:locomocao}
 \end{figure}
+
+\paragraph{}
+Os encoders opticos são dispositivos que aliados a um suporte mecanico rodas
+dentadas posicionadas em uma extensão de um eixo, nos possibilitam estimar a
+velocidade de rotação do motor por meio da contagem da passagem de cada dente da
+roda pelo encoder. Com essa estimativa de velocidade podemos nos utilizar da
+teoria de controle para aumentar ou diminuir a velocidade do motor caso
+necessário. Na \ref{fig:roda} podemos ver um exemplo de um motor com o suporte e
+conexão de um encoder optico.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=.3\textwidth]{images/roda.png}
+\caption{Motor com suporte a Encoder Optico}
+\label{fig:roda}
+\end{figure}
+
+\paragraph{}
+O controle Proporcional, integral e derivativo funciona como uma boa malha de
+realimentação que nos garante que a velocidade desejada é a mesma na qual o robô
+está andando, mesmo quando submetido a diferentes cargas. Garante também que
+ambos os motores estarão girando na mesma velocidade mesmo se submetidos a
+cargas diferentes, possivel problema de desbalanceamento do robô.
+
+\textbf{Estrutura}
+
+\paragraph{}
+A escolha do material para o projeto se baseou principalmente nos requisitos de 
+peso. Os componentes aplicados nos sistemas apresentados no presente trabalho 
+somaram ao todo 4,06 quilos. E ao mesmo tempo em que a estrutura deve ser rígida 
+o suficiente para suportar esse peso, ela também deve ser leve o suficiente para 
+permitir certa mobilidade e agilidade ao produto. Considerando ainda a 
+facilidade de produção e adequação das peças, escolheu-se o Nylon como material 
+de construção.
+
+\paragraph{}
+Segundo Marques \cite{marques}, o Nylon é para o projeto em questão, devido à 
+combinação de propriedades como:
+
+\begin{itemize}
+  \item Baixo peso específico;
+  \item Alta resistência ao desgaste e abrasão;
+  \item Grande resistência a agentes químicos;
+  \item Auto lubrificante;
+  \item Absorção de vibrações;
+  \item Alta resistência ao choque;
+  \item Baixo coeficiente de atrito; e 
+  \item Movimentos mecânicos silenciosos.
+\end{itemize}
+
+\paragraph{}
+Sendo interessante ainda destacar propriedades que oferecem segurança ao projeto 
+como a auto extinguibilidade de chama e isolamento elétrico. Veja a tabela 
+\ref{tab:nylonC} para mais detalhes.
+
+\paragraph{}
+Como informações específicas e descritivas da usinagem do nylon são raramente 
+encontradas, de um modo geral, porém os trabalhos de Albuquerque 
+\cite{albuquerque} e Blass \cite{blass} indica que usinagem do Nylon não difere 
+da realizada com metais e suas ligas, permitindo a utilização das mesmas 
+máquinas e ferramentas de corte, além da criação da peça com todos os tipos de 
+operações. Mas obviamente, entende-se que os conhecimentos adquiridos 
+sobre usinagem dos metais, não podem ser diretamente aplicados para os 
+polímeros.
+
+\textbf{Configuração das rodas} \\
+
+\paragraph{}
+Para a análise das configurações das rodas entende-se que o dispositivo 
+desenvolvido estará sempre em baixa velocidade, ou seja, não haverá a 
+necessidade do desenvolvimento de forças laterais sob os pneus, o que garante 
+uma rolagem sem ângulo de escorregamento. Como as rodas dianteiras não terão 
+ângulo de escorregamento, então o centro da curva irá recair na projeção do eixo 
+dianteira. Sendo que o ângulo de esterçamento ideal para a roda traseira é 
+estabelecido pela geometria apresentada na Figura \ref{fig:rodas} e definem os 
+ângulos de esterçamento para a curva.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=.7\textwidth]{images/gillespie.png}
+  \caption{Geometria de um veículo em curva (Gillespie)}
+  \label{fig:rodas}
+\end{figure}
+
+\paragraph{}
+Sendo que para uma geometria propícia na curva, o ângulo de esterçamento será 
+fornecido por:\\
+$$\delta = L/R$$
+
+\paragraph{}
+Tomando como situação ideal o esterçamento do dispositivo sob um eixo há uma 
+distância que não exceda suas extremidades, então temos que o ângulo de 
+esterçamento deverá ser igual 45 graus, considerando um raio de curvatura de 
+metade das distâncias entre eixos. Para alcançar um giro da roda traseira tão 
+amplo, optou-se por usar no eixo traseiro um rodízio de eixo giratório de cerca 
+de 30 mm, comumente chamado de roda boba.
+
+\textbf{Resistência da Estrutura} \\
+
+\paragraph{}
+Para a avaliação da resistência da estrutura do dispositivo de limpeza 
+projetado, a análise estática pode ser utilizada para determinar deslocamentos, 
+tensões, etc. sob condição de carga estática. Têm-se dois tipos de análises 
+estáticas, a linear e a não linear.  Sendo que as não linearidades podem incluir 
+plasticidade, tensão, rigidez, grandes deformações, grandes tensões, 
+hiperelasticidade, superfície de contato e fissuração \cite{alexander}. A 
+formulação usada consiste em dividir um domínio em subdomínios, para os quais se 
+conhece a matriz de rigidez, e utilizar uma função polinomial separada em cada 
+um deles para aproximar cada componente do campo dos deslocamentos, garantindo a 
+continuidade de deslocamentos nos nós adjacentes dos elementos. Para melhorar a 
+qualidade dessas aproximações, ao longo dos últimos anos diferentes software de 
+modelação como o Dassault Systèmes CATIA vêm sendo desenvolvidos.
+
+\paragraph{}
+As análises tiveram início com a criação dos ambientes de trabalho no Generative 
+Structural Analysis do software CATIA, foram gerados um Static Case, seguido de 
+um Frenquency Case (que utilizou como referencial o Static Case) e por último 
+uma Transient Dynamic Response Solution (criada com base no Frequency Case) que 
+utilizou como modulação apresentada na Tabela \ref{tab:tdrs}, logo esperasse 
+encontrar os valores máximos em T(s) = 0,1 segundo.
+
+\begin{center}
+\begin{table}[h]
+\caption{Tempos de resposta para Transient Dynamic Response Solution.}
+\label{tab:tdrs}
+\centering
+\begin{tabular}{cc}
+  \hline
+  T(s) & Y \\
+  0 & 0 \\
+  0,1 & 1 \\
+  0,2 & 0 \\
+  \hline
+\end{tabular}
+\end{table}
+\end{center}
+
+\paragraph{}
+Os resultados apresentados a seguir foram obtidos com as análises iniciais, 
+sendo que eles foram tidos como base para a criação do primeiro protótipo, 
+devido principalmente à não distribuição de peso (carga centrada exclusivamente 
+sob o meio do dispositivo) e aplicação excessivamente concentrada das forças, o 
+que gerou grandes deslocamentos da estrutura do dispositivo. Porém, tal 
+alternativa garantiu uma avaliação mais criteriosa, pois não seria possível 
+aplicar esforços tão expressivos sobre o dispositivo como demonstrado.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=.5\textwidth]{images/estrutura.png}
+  \caption{Deslocamentos da estrutura do dispositivo de limpeza}
+  \label{fig:estrutura1}
+\end{figure}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=.3\textwidth]{images/boudary.png}
+  \caption{Escala de deslocamentos da estrutura do dispositivo de limpeza}
+  \label{fig:boudary}
+\end{figure}
+
+\paragraph{}
+A estrutura apresentou um deslocamento máximo de 3,6 milímetros, como 
+apresentado na Figura \ref{fig:boudary}, o que demostra que o dispositivo de 
+limpeza resistiu complemente ao impacto gerado, validando o primeiro protótipo 
+apresentado.
 
 %-----------------------------------------------------------------------------
 % O projeto - Proposta - Elementos físicos
@@ -501,32 +737,57 @@ cargas diferentes, possivel problema de desbalanceamento do robô. Veja a Figura
 \subsubsection{Elementos Físicos} \label{sec:elementos}
 
 \paragraph{}
-% O que significa uma saída linear e não linear?
-O sensor ultrassônico apresenta algumas vantagens com relação ao sensor infra 
-vermelho. A maior vantagem a se destacar é o fato de que o mesmo é linear para o 
-\textit{range} de operação, enquanto os sensores infravermelhos encontrados, 
-todos da \textit{Sharp}, possuem uma saída não linear. Este fato, aliado com o 
-baixo consumo e a facilidade de aquisição (tal dispositivo é facilmente 
-encontrado em lojas no território brasileiro) foram fatores determinantes para 
-adoção dos sensores ultrassonicos para a detecção de obstaculos.
+Durante o processo de pesquisa, nos deparamos com a necessidade de utilizar
+alguns componentes para o sensoriamento do ambiente e para o controle dos
+motores. Para o sensoriamento do ambiente levantamos requisites de sensores
+Ultrasonicos e Infravermelhos para a decisão de qual utilizar, podemos ver na
+tabela \ref{tab:ultraInfra}, algumas características de ambos.
+
+\begin{table}[h]
+\label{tab:ultraInfra}
+\caption{Tabela compartiva}
+\begin{tabular}{ccc}
+\hline
+  & Ultrassonico(HC-SR04) & Infra Vermelho(GP2Y0A02YK0F) \\
+  Tensão de alimentação & 5 V & 5 V \\
+  Corrente de alimentação & 15 mA & 33 mA \\
+  Range & 4cm a 500cm & 20cm a 150cm \\
+  Frequência & 40Hz & 38 KHz \\
+  Linearidade & Linear & Não-Linear \\
+  Linearidade & Fácil & \\
+\hline
+\end{tabular}
+\end{table}
 
 \paragraph{}
-A ideia inicial consiste na utilização dos sensores ultrassônicos na parte 
-frontal do robô visando um bom reconhecimento de obstaculos e auxiliar no 
-algoritmo de mapeamento do ambiente em que está inserido. Além disto pode-se 
-utilizar este mesmo conjunto de sensores apontando alguns centímetros a frente 
-visando o reconhecimento de desníveis no chão e evitar quedas do mesmo (um 
-exemplo prático é o caso das escadarias de uma residência).
+O Sensor ultrassonico apresenta algumas vantagens com relação ao sensor infra
+vermelho. A maior vantagem a se destacar é o fato de que o mesmo é linear para o
+range de operação, enquanto os sensores infravermelhos encontrados, todos da
+Sharp, possuem uma saída não linear. Essa faixa de linearidade é importante pois
+pois indica um grau de proporcionalidade o sinal gerado e a grandeza física.
+Este fato, aliado com o menor consumo e a maior facilidade de aquisição(mais
+fácil de se encontrar em lojas próximas) nos motivou a utilizar os sensores
+Ultrassonicos para a detecção de obstaculos.
 
 \paragraph{}
-Para o controle dos motores foi preciso realizar uma busca sobre quais motores 
-forneceriam um torque ideal e como controlá-los. Neste contexto dois modelos de 
-ponte H foram selecionados, são eles:
-\begin{itemize}
- \item L298N
- \item L293D
-\end{itemize}
-Veja a Tabela \ref{tab:ponteh} contendo a especificação de cada uma das pontes. 
+A ideia inicial se baseia em utilizar alguns sensores Ultrassonicos à frente do
+robô para um bom reconhecimento de obstaculos e um possível melhor mapeamento do
+ambiente em que está inserido, e um sensor apontando alguns centímetros a frente
+para o reconhecimento de desníveis no chão e evitar quedas do mesmo.
+Um dispositivo importante quando desejamos controlar direção e velocidade de
+rotação de um motor de passo ou motores DC são pontes H. Pontes H são
+responsáveis por fornecer correntes a dispositivos que necessitam e permitem o
+controle de direção pelo chaveamento dos pares de transistores em sua saída. De
+forma resumida, um microcontrolador não consegue fornecer a corrente que um
+motor normalmente necessita para girar seu eixo e a ponte fornece essa corrente
+por meio de uma alimentação externa
+
+\paragraph{}
+O controle dos motores nos levou a pesquisa sobre quais os melhores dispositivos
+a se utilizar para fornecer a corrente que a porta do processador não consegue
+gerar. Encontramos dois modelos de ponte H a serem utilizados, L298n e L293d.
+Pode-se ver a especificação de ambas na Tabela \ref{tab:ponteh}.
+
 \begin{center}
   \begin{table}
   \centering
@@ -547,42 +808,15 @@ Veja a Tabela \ref{tab:ponteh} contendo a especificação de cada uma das pontes.
   \end{table}
 \end{center}
 
-
 \paragraph{}
-% Os motores do aspirador precisam de mais torque? 
-Obervando a Tabela \ref{tab:ponteh} é possível concluir que a ponte L298N 
-possui melhores requisitos de potência, sendo assim uma melhor escolha para 
-fornecer corrente para motores que necessitem de mais torque, como no caso do 
-motor utilizado no aspirador a ser utilizado. Logo tal dispositivo foi adotado 
-para realização de testes devido ao fato de ser mais fácil de ser encontrada 
-e de ser utilizada para testes com todos os motores que serão utilizados, desde 
-a locomoção até a limpeza. Todavia o fato de a ponte L293D possuir uma maior 
-quantidade de pontes integradas no circuito não nos deixa descartá-la 
-completamente como uma opção futura.
-
-
-%-----------------------------------------------------------------------------
-% O projeto - Proposta - Estrutura
-%-----------------------------------------------------------------------------
-\subsubsection{Estrutura}
-\paragraph{Material}
-
-A escolha do material para o projeto se baseou principalmente nos requisitos de peso. Os componentes aplicados nos sistemas apresentados no presente trabalho somaram ao todo 4,06 quilos. E ao mesmo tempo em que a estrutura deve ser rígida o suficiente para suportar esse peso, ela também deve ser leve o suficiente para permitir  certa mobilidade e agilidade ao produto. Considerando ainda a facilidade de produção e adequação das peças, escolheu-se o Nylon como material de construção. Segundo Marques (2006), o Nylon é adequado para aplicações em engenharia, devido à combinação de propriedades como:
-
-\begin{itemize}
-	\item Baixo peso específico;
-	\item Alta resistência ao desgaste e abrasão;
-	\item Grande resistência a agentes químicos;
-	\item Auto lubrificante;
-	\item Absorção de vibrações;
-	\item Alta resistência ao choque;
-	\item Baixo coeficiente de atrito;
-	\item Movimentos mecânicos silenciosos.
-\end{itemize}
-
-Sendo interessante ainda destacar propriedades que oferecem segurança ao  projeto como a auto extinguibilidade de chama e isolamento elétrico. Demais características estão apresentadas na Taela \ref{table:estrutura}. Como informações específicas e descritivas da usinagem do nylon são raramente  encontradas, de um modo geral, porém os trabalhos de Albuquerque (2000) e Blass  (1988) indica que usinagem do Nylon não difere da realizada com metais e suas ligas, permitindo a utilização das mesmas máquinas e ferramentas de corte, além da criação da peça com todos os tipos de operações. Mas obviamente, entende-se que os conhecimentos adquiridos sobre usinagem dos metais, não podem ser diretamente aplicados para os polímeros.
-
-\textbf{LOLOLOL ** COLOCAR TABELA DO JOÃO AQUI ** HUEHUE}
+A ponte L298n claramente possui melhores requisitos de potência, sendo assim uma
+melhor escolha para fornecer corrente para motores que necessitem de mais
+torque, como no caso do aspirador a ser utilizado. Escolhemos ela para fazer
+testes devido ao fato de ser mais fácil de se encontrar para comprar e de ser
+util para testes com todos os motores que iremos utilizar, desde a locomoção até
+a limpeza. Todavia o fato de a ponte L293d possuir uma maior quantidade de
+pontes integradas no circuito não nos deixa descartá-la completamente como uma
+opção futura.
 
 %-----------------------------------------------------------------------------
 % O projeto - Proposta - Carga total
@@ -726,7 +960,8 @@ porta de exaustão enquanto que as partículas permanecem no compartimento de pó.
   \end{itemize}
 \end{itemize}    
 
-\paragraph{Vassoura rotativa}
+\textbf{Vassoura rotativa}
+\paragraph{}
 Outra forma de limpeza comumente empregada em robôs de limpeza é a vassoura rotativa. Alguns aspiradores e robôs de limpeza também possuem uma pequena escova rotativa, um rolo com cerdas em espiral, que aumenta a eficiência do mecanismo de aspiração ao varrer a poeira e partículas diretamente para a entrada da área de sucção.
 
 \begin{itemize}
@@ -744,7 +979,9 @@ Outra forma de limpeza comumente empregada em robôs de limpeza é a vassoura rota
   \end{itemize}
 \end{itemize}
 
-\paragraph{Limpeza úmida}
+\textbf{Limpeza úmida} \\
+
+\paragraph{}
 Em um sistema de limpeza úmido existe um tecido, normalmente uma microfibra, 
 que é umedecido usando água proveniente de um tanque de água. Esse tecido fica 
 diretamente em contato com o chão, coletando partículas que são muito pequenas 
@@ -818,6 +1055,7 @@ um aspirador e uma vassoura rotativa.
 %-----------------------------------------------------------------------------
 % Resultados parciais
 %-----------------------------------------------------------------------------
+\newpage
 \section{Resultados Parciais} \label{sec:exp}
 
 \paragraph{}
@@ -845,8 +1083,6 @@ encontrado possuia funções tanto de comunicação quanto de leitura de uma saída
 serial de um dado dispositivo. Após o código necessário ter sido escrito, 
 pode-se validar a hipótese quanto a comunicação serial do arduino com um código 
 C.
-
-
 
 %-----------------------------------------------------------------------------
 % Resultados parciais - Validando comunicação com Arduino
@@ -956,7 +1192,7 @@ o protótipo estásendo executado.
  %-----------------------------------------------------------------------------
 % Resultados parciais - Conclusão da validação
 %-----------------------------------------------------------------------------
-\subsubsection{Conclusão}
+\subsubsection{Conclusão dos testes}
 \paragraph{}
 Em ambos os experimentos foram obtidos resultados satisfatórios e, com isso, 
 concluímos que a solução escolhida é válida e factível. Os experimentos 
@@ -1015,7 +1251,8 @@ Para validar o conjunto em funcionamento foram desenvolvidos dois protótipos:
 o primeiro para validar se as rodas teriam tração o suficiente para movimentar
 o chassi e os componentes; e o segundo para validar o sistema de movimentação.
 
-\paragraph{Primeiro protótipo}
+\textbf{Primeiro protótipo} \\
+\paragraph{}
 O primeiro protótipo foi desenvolvido usando uma tampa de notebook onde foram
 anexadas as rodas de movimentação, uma roda de apoio, o circuito de alimentação
 e um recipiente como vários objetos pesados para simular o peso final do conjunto.
@@ -1054,7 +1291,8 @@ A Figura \ref{fig:carro_proto_1} mostra o primeiro protótipo montado.
     \end{itemize}
 \end{itemize}
 
-\paragraph{Segundo protótipo}
+\textbf{Segundo protótipo} \\
+\paragraph{}
 O segundo protótipo foi desenvolvido usando uma base de um aspirador de pó, uma
 vez que na primeira versão o material deformava-se com muita facilidade. As rodas
 foram fixadas com parafusos e um sensor ultrasônico foi adicionado na frente do chassi.
@@ -1264,11 +1502,11 @@ parte de energia do projeto. Segue abaixo tabela de resumo dos custos:
 %-----------------------------------------------------------------------------
 % Perspectivas futuras
 %-----------------------------------------------------------------------------
-\section{Perspectivas Futuras}
+%\section{Perspectivas Futuras}
 %-----------------------------------------------------------------------------
 % Considerações finais
 %-----------------------------------------------------------------------------
-\section{Considerações Finais}
+%\section{Considerações Finais}
 
 \newpage
 %-----------------------------------------------------------------------------
