@@ -823,6 +823,110 @@ pode-se validar a hipótese quanto a comunicação serial do arduino com um código
 C.
 
 %-----------------------------------------------------------------------------
+% Resultados parciais - Validando a movimentação
+%-----------------------------------------------------------------------------
+\subsection{Validando a movimentação}
+\paragraph{}
+Para validar o conjunto em funcionamento foram desenvolvidos dois protótipos:
+o primeiro para validar se as rodas teriam tração o suficiente para movimentar
+o chassi e os componentes; e o segundo para validar o sistema de movimentação.
+
+\paragraph{Primeiro protótipo}
+O primeiro protótipo foi desenvolvido usando uma tampa de notebook onde foram
+anexadas as rodas de movimentação, uma roda de apoio, o circuito de alimentação
+e um recipiente como vários objetos pesados para simular o peso final do conjunto.
+A Figura \ref{fig:carro_proto_1} mostra o primeiro protótipo montado.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=.4\textwidth]{images/carro_proto_1.jpg}
+\caption{Primeiro protótipo do conjunto}
+\label{fig:carro_proto_1}
+\end{figure}
+
+\begin{itemize}
+  \item Materiais:
+    \begin{itemize}
+      \item Tampa de notebook;
+      \item 4x pilas AA;
+      \item 1x Arduino;
+      \item 1x ponte H;
+    \end{itemize}
+  \item Procedimento:
+    \begin{itemize}
+     \item Rodas de tração e a roda de apoio foram fixadas ao chassi usando abraçadeiras de nylon;
+     \item Os circuito foi alimentado usando 4 pilhas AA;
+     \item Os motores foram ligados à ponte H;
+    \end{itemize}
+  \item Caso de teste:
+    \begin{itemize}
+     \item Colocar um recipiente de 4kg em cima do chassi;
+     \item Ligar o motor;.
+     \item Verificar se o conjunto se movimentou em uma velocidade satisfatória.
+    \end{itemize}
+  \item Resultado:
+    \begin{itemize}
+     \item O conjunto se movimentou de forma satisfatória.
+    \end{itemize}
+\end{itemize}
+
+\paragraph{Segundo protótipo}
+O segundo protótipo foi desenvolvido usando uma base de um aspirador de pó, uma
+vez que na primeira versão o material deformava-se com muita facilidade. As rodas
+foram fixadas com parafusos e um sensor ultrasônico foi adicionado na frente do chassi.
+O objetivo desse protótipo foi o de verificar se o conjunto consegue se desviar de um obstáculo a sua frente. A Figura \ref{fig:carro_proto_2} mostra o segundo protótipo montado.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=.4\textwidth]{images/carro_proto_2.png}
+\caption{Segundo protótipo do conjunto}
+\label{fig:carro_proto_2}
+\end{figure}
+
+\begin{itemize}
+  \item Materiais:
+    \begin{itemize}
+      \item Base de plástico duro (retirado de um aspirador de pó);
+      \item Fonte de alimentação ATX;
+      \item Duas rodas de tração;
+      \item Uma roda de apoio;
+      \item 1x Arduino;
+      \item 1x ponte H;
+      \item 1x sensor ultrasônico;
+    \end{itemize}
+  \item Procedimento:
+    \begin{itemize}
+     \item Rodas de tração foram fixadas usando fixadores de cano;
+     \item A roda de apoio foi parafusada;
+     \item Fonte de alimentação foi fixada usando fita adesiva;
+     \item Circuitos eletrônicos foram fixados usando fita adesiva;
+    \end{itemize}
+  \item Caso de teste:
+    \begin{itemize}
+     \item Ligar a fonte;
+	 \item Soltar o conjunto no chão e deixar que se mova livremente;
+	 \item Posicionar um obstáculo à frente do conjunto;
+	 \item Verificar se o conjunto se desvia do obstáculo.
+    \end{itemize}
+  \item Resultado:
+    \begin{itemize}
+     \item O conjunto se movimentou e se desviou dos obstáculos de forma razoável.
+    \end{itemize}
+\end{itemize}
+
+\subsubsection{Conclusão da validação do sistema de movimentação}
+O sistema de movimentação funcionou conforme o esperado, carregando todo o conjunto
+em velocidade constante e se desviando dos obstáculos. Todavia foram encontrados alguns
+problemas que deverão ser soluciados na próxima versão do protótipo:
+\begin{itemize}
+	\item A ponte H utilizada precisa ser constantemente alimentada com uma tensão alta;
+	\item Os motores de tração precisam de \textit{encoders} para garantir que girem na
+	mesma rotação, impedindo que o conjunto se desvie de forma inesperada;
+	\item O algoritmo de deve ser refinado para contornar melhor os obstáculos;
+	\item O conjunto de baterias utilizado deve fornecer mais energia.
+\end{itemize}
+
+%-----------------------------------------------------------------------------
 % Resultados parciais - Validando comunicação com Arduino
 %-----------------------------------------------------------------------------
 \subsection{Validando sistema de limpeza}
@@ -930,7 +1034,7 @@ o protótipo estásendo executado.
  %-----------------------------------------------------------------------------
 % Resultados parciais - Conclusão da validação
 %-----------------------------------------------------------------------------
-\subsection{Conclusão da validação do sistema de limpeza}
+\subsubsection{Conclusão da validação do sistema de limpeza}
 \paragraph{}
 Em ambos os experimentos foram obtidos resultados satisfatórios e, com isso, 
 concluímos que a solução escolhida é válida e factível. Os experimentos 
