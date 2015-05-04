@@ -3,6 +3,8 @@
 \usepackage{sbc-template}
 
 \usepackage{graphicx,url}
+\usepackage{multirow}
+\usepackage[table,xcdraw]{xcolor}
 
 %\usepackage[brazil]{babel}   
 \usepackage[latin1]{inputenc}  
@@ -661,17 +663,21 @@ de fornecimento de energia elétrica ininterrupta (\textit{no-breaks}).
 % O projeto - Proposta - Sistema de limpeza
 %-----------------------------------------------------------------------------
 \subsubsection{Sistema de Limpeza}
+
 \paragraph{}
-Um aspirador é um mecanismo que cria diferença de pressão em dois pontos. As 
+Em nosso projeto, inicialmente foram levados em consideração três tipos de sistemas de limpeza: aspiração, vassoura rotativa e sistema de limpeza úmido.
+
+\paragraph{Aspiração}
+Um aspirador é um mecanismo que cria diferença de pressão entre dois pontos. As 
 partículas são empurradas da área com maior pressão para a área de menor 
 pressão. Um típico aspirador é composto das seguintes partes:
 \begin{itemize}
- \item Abertura.
- \item Motor de alta rotação.
- \item Hélice.
- \item Filtro.
- \item Porta de exaustão.
- \item Compartimento de pó
+ \item Abertura;
+ \item Motor de alta rotação;
+ \item Hélice;
+ \item Filtro;
+ \item Porta de exaustão;
+ \item Compartimento de pó.
 \end{itemize}
 
 \paragraph{}
@@ -695,12 +701,8 @@ porta de exaustão enquanto que as partículas permanecem no compartimento de pó.
   \end{itemize}
 \end{itemize}    
 
-\paragraph{}
-Outro forma de limpeza comumente empregada em robôs de limpeza são as vassoura 
-rotativa. Alguns aspiradores e robôs de limpeza também possuem uma pequena 
-escova rotativa, um rolo como cerdas em espiral, que aumenta a eficiência do 
-mecanismo de aspiração ao varrer a poeira e partículas diretamente para a 
-entrada da área de sucção.
+\paragraph{Vassoura rotativa}
+Outra forma de limpeza comumente empregada em robôs de limpeza é a vassoura rotativa. Alguns aspiradores e robôs de limpeza também possuem uma pequena escova rotativa, um rolo com cerdas em espiral, que aumenta a eficiência do mecanismo de aspiração ao varrer a poeira e partículas diretamente para a entrada da área de sucção.
 
 \begin{itemize}
  \item Vantagens:
@@ -713,11 +715,11 @@ entrada da área de sucção.
  \item Desvantagens:
   \begin{itemize}
    \item Não funciona muito bem com partículas pequenas e com poeira.
-   \item Pode espalhar a sujeira se for composta de partículas muito pequenas.
+   \item Pode espalhar a sujeira se esta for composta de partículas muito pequenas.
   \end{itemize}
 \end{itemize}
 
-\paragraph{}
+\paragraph{Limpeza úmida}
 Em um sistema de limpeza úmido existe um tecido, normalmente uma microfibra, 
 que é umedecido usando água proveniente de um tanque de água. Esse tecido fica 
 diretamente em contato com o chão, coletando partículas que são muito pequenas 
@@ -746,35 +748,35 @@ uma combinação deles. Devido ao tempo reduzido para a implementação do projeto
 foi decidido que apenas dois procedimentos de limpeza serão implementados, suas
 combinações são:
 \begin{itemize}
- \item Alternativa 1: Aspirador + Limpeza úmida
- \item Alternativa 2: Limpeza úmida + vassoura rotativa
- \item Alternativa 3: Aspirador + vassoura rotativa
+ \item \textbf{Alternativa 1}: Aspirador + Limpeza úmida
+ \item \textbf{Alternativa 2}: Limpeza úmida + vassoura rotativa
+ \item \textbf{Alternativa 3}: Aspirador + vassoura rotativa
 \end{itemize}
 
 \paragraph{}
 Para a escolha de quais seriam os mecanismos que seriam implementados foi 
-criada uma tabela de pontuação. Cada critério possui um peso, e cada mecanismo 
+criada uma tabela de pontuação, tendo como base os seguintes critérios:
+simplicidade de manufatura, eficiência de limpeza, tempo de limpeza, facilidade
+de uso e facilidade de manutenção. Cada critério possui um peso, e cada mecanismo 
 possui uma nota para cada critério. A pontuação em cada critério é o 
 produto entre o peso e sua nota. A nota final é a soma das pontuações em cada 
-critério. A Tabela \ref{} ilustra o resultado da pontuação de cada combinação.
+critério. A Tabela \ref{table:pontos} ilustra o resultado da pontuação de cada combinação.
 
-%TODO: Por questão de tempo eu deixei a tabela pela metade, arrumar isto!
-
-\begin{center}
-  \begin{table}
-  \begin{tabular}{lllllp{8cm}}
-      \textbf{item} & \textbf{Peso} & \textbf{Alternativa 1} &
-      \textbf{Alternativa 2} & \textbf{Alternativa 3}\\
-      
-      Simplicidade de manufatura  & 25 & 3, 75 & 5, 125 & 8, 200 \\
-      Eficiência de limpeza & 25 & 8, 200 & 6, 150 & 7, 175 \\
-      Tempo de limpeza & 10 & 6, 60 & 6, 60 & 7, 70 \\
-      Facilidade de uso & 20 & 4, 80 & 6, 120 & 8, 160 \\
-      Facilidade de manutenção & 20 & 4, 80 & 6, 120 & 8, 160 \\
-      Total & 100 & 25, 495 & 29, 575 & 38, 765 \\
-  \end{tabular}
-  \end{table}
-\end{center}
+\begin{table}[h]
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
+\hline
+\multirow{2}{*}{\textbf{Item}}      & \multirow{2}{*}{\textbf{Peso}} & \multicolumn{2}{l|}{\textbf{Alternativa 1}} & \multicolumn{2}{l|}{\textbf{Alternativa 2}} & \multicolumn{2}{l|}{\textbf{Alternativa 3}} \\ \cline{3-8} 
+                                    &                                & \textbf{Nota}       & \textbf{Pontos}       & \textbf{Nota}       & \textbf{Pontos}       & \textbf{Nota}       & \textbf{Pontos}       \\ \hline
+\textbf{Simplicidade de Manufatura} & 25                             & 3                   & 75                    & 5                   & 125                   & 8                   & 200                   \\ \hline
+\textbf{Eficiência de Limpeza}      & 25                             & 8                   & 200                   & 6                   & 150                   & 7                   & 175                   \\ \hline
+\textbf{Tempo de Limpeza}           & 10                             & 6                   & 60                    & 6                   & 60                    & 7                   & 70                    \\ \hline
+\textbf{Facilidade de Uso}          & 20                             & 4                   & 80                    & 6                   & 120                   & 8                   & 160                   \\ \hline
+\textbf{Facilidade de Manutenção}   & 20                             & 4                   & 80                    & 6                   & 120                   & 8                   & 160                   \\ \hline
+\textbf{Total}                      & \textbf{100}                   & \textbf{25}         & \textbf{495}          & \textbf{29}         & \textbf{575}          & \textbf{38}         & \textbf{765}          \\ \hline
+\end{tabular}
+\caption{Pontuação obtida por cada alternativa em cada item.}
+\label{table:pontos}
+\end{table}
 
 A nota obtida em cada critério foi escolhida tendo como base a análise de 
 produtos já existentes, a dificuldade em encontrar peças em tempo hábil e o 
@@ -782,11 +784,11 @@ conhecimento da equipe acerca das tecnologias envolvidas. A alternativa
 escolhida foi a Alternativa 3, onde o mecanismo de limpeza será composto por 
 um aspirador e uma vassoura rotativa.
 
-\paragraph{}
-Devido às restrições de tempo e escopo da disciplina foi decidido que o 
-mecanismo escolhido é aquele que apresentaria melhor relação entre eficiência 
-de limpeza por complexidade de manufatura. Utilizando esses parâmetros foi 
-escolhida a Alternativa 3.
+%\paragraph{}
+%Devido às restrições de tempo e escopo da disciplina foi decidido que o 
+%mecanismo escolhido é aquele que apresentaria melhor relação entre eficiência 
+%de limpeza por complexidade de manufatura. Utilizando esses parâmetros foi 
+%escolhida a Alternativa 3.
 
 %-----------------------------------------------------------------------------
 % Resultados parciais
@@ -859,6 +861,16 @@ a seguir.
     \end{itemize}
 \end{itemize}
 
+\paragraph{}
+O resultado obtido no protótipo da vassoura giratória foi satisfatório. A Figura \ref{fig:vass_proto} mostra o momento em que o protótipo está sendo executado.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=.4\textwidth]{images/vass_proto.png}
+\caption{Protótipo da vassoura giratória}
+\label{fig:vass_proto}
+\end{figure}
+
 %-----------------------------------------------------------------------------
 % Resultados parciais - Aspirador
 %-----------------------------------------------------------------------------
@@ -899,6 +911,21 @@ a seguir.
   \end{itemize}
  \end{itemize}
 
+\paragraph{}
+O resultado obtido no protótipo do aspirador foi satisfatório. Em alguns testes
+foi verificado que além da estrutura montada, é essencial que a hélice seja 
+protegida por algum tipo de filtro, uma vez que em alguns testes ela foi danificada
+por partículas grandes. O eixo que liga o moto à hélice também tem que ser reforçado
+devido à alta velocidade de rotação. A Figura \ref{fig:asp_proto} mostra o momento em que
+o protótipo estásendo executado.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=.4\textwidth]{images/asp_proto.png}
+\caption{Protótipo do aspirador}
+\label{fig:asp_proto}
+\end{figure}
+
  %-----------------------------------------------------------------------------
 % Resultados parciais - Conclusão da validação
 %-----------------------------------------------------------------------------
@@ -908,10 +935,13 @@ Em ambos os experimentos foram obtidos resultados satisfatórios e, com isso,
 concluímos que a solução escolhida é válida e factível. Os experimentos 
 validaram a escolha do sistema de limpeza e gerou conhecimento a respeito de 
 como eles se comportam. Todavia, foram encontrados alguns problemas durante a 
-montagem dos experimentos, por exemplo: \\
+montagem dos experimentos, como por exemplo: \\
 \begin{itemize}
  \item Sob rotação muito alta, a vassoura giratória espalha a sujeira ao invés 
   de jogar para trás;
+ \item Sob rotação muito baixa, a vassoura giratória não empurra a sujeira;
+ \item O motor ligado à vassoura deve possuir alto torque, uma vez que motores
+ de torque baixo não mantém a rotação da vassoura giratória constante;
  \item Sem um filtro, a hélice do aspirador se torna vulnerável à partículas 
   sólidas grandes;
  \item O consumo de energia do motor do aspirador é alto.
