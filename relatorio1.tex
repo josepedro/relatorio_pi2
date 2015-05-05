@@ -29,11 +29,30 @@
 \maketitle
 
 \begin{abstract}
-  This
+One of the biggest problems of this generation is time management. Therefore, 
+there is a great market opportunity for services that optimize daily tasks. One 
+of the task that can be automated is the activity of cleaning floors. This can 
+be validated by the number of companies that already have autonomous robots to 
+deal with this kind of problem. However, there is no national company that is 
+currently exploiting this market opportunity. With that scenario in hands, this 
+is work will describe the project of an autonomous cleaning robot, focusing on 
+aspects such as the robot locomotion and cleaning parts and its software and 
+embedded electronics while also commenting on the project methodology used to 
+guide the project and the main results so far.
 \end{abstract}
      
 \begin{resumo} 
-  Este
+Um dos grandes problemas da geração atual está na questão de gestão de tempo. 
+Dessa forma, existe uma grande oportunidade de mercado para serviços que 
+otimizem tarefas do dia-a-dia. Uma das tarefas que pode ser automatizada é a 
+questão de limpeza, especialmente a parte de aspiração. Isso pode ser visto 
+pelas inúmeras impresas que já possuem soluções para esse tipo de problema, 
+usando robôs autônomos para tal tarefa. Contudo, nenhuma empresa nacional está 
+abordando hoje está problemática. Sendo assim, este trabalho irá tratar do 
+projeto de um robô autônomo de limpeza, visando deixar claro aspectos como o 
+projeto de locomoção e limpeza, a parte de software e eletrônica embarcada, além 
+de também explicitar a metodologia usada para guiar o projeto e os resultados 
+obtidos até o momento em que tal documento foi produzido
 \end{resumo}
 
 %-----------------------------------------------------------------------------
@@ -361,6 +380,68 @@ todas as áreas terá como resultado a criação do robô.
 %-----------------------------------------------------------------------------
 \subsubsection{Arquitetura do Software}
 
+\textbf{Sistema operacional e \textit{framework}} \\
+
+\paragraph{}
+O sistema operacional (SO) do robô é um dos princípais fatores que devem ser 
+levados em consideração. O projeto Pindí fará uso de um conjunto de 
+\textit{hardware} composto por um \textit{Raspberry Pi} e um Arduino. Tal 
+dispositivos tem como princípal características a sua vasta documentação e 
+estabilidade. Neste contexto foi feita uma pesquisa ampla sobre qual SO 
+utilizar, sempre tendo a facilidade como fator decisivo.
+
+\paragraph{}
+Para este projeto optou-se pelo \textit{Arch Linux} devido a três fatores: 
+desempenho, configuração e documentação. O fator desempenho é fundamental, pois 
+diversos algoritmos serão executados sobre o mesmo (para mais detalhes veja as 
+seções subsequentes). A opção de configuração permite um ajuste fino do SO as 
+necessidades do projeto Pindí. Por fim o fator documentação foi fundamental 
+devido a facilidade de se buscar ajudar, isto facilitará o desenvolvimento e 
+manutenção do projeto.
+
+\paragraph{}
+Vale observar que a simples adoção do \textit{Arch} não resolve os problemas do 
+robô, assim como não facilita o projeto de forma geral. Buscando soluções 
+que tornem o trabalho mais simples, adotou-se o \textit{framework} ROS 
+(\textit{Robot Operating System}) que nada mais é do que um conjunto 
+de bibliotecas com o objetivo de simplificar tarefas complexas. A adoção do ROS 
+foi feita após uma larga pesquisa sobre formas simples e confiáveis de 
+desenvolvimento em robótica. Por fim verificou-se o suporte do ROS junto ao Arch 
+e constatou-se a compatibilidade de ambos.
+
+\textbf{Máquina de estados} \\
+
+\paragraph{}
+A modelagem utilizando máquinas de estados é um recurso que facilita a 
+compreensão do sistema como um todo. Neste contexto, elaborou-se uma máquina de 
+estados prévia que pode ser adaptada ao algorítimo de tomadas de decisão para a 
+melhor cobertura do ambiente. A máquina parte do pressuposto de que o robô 
+andará em passos fixos de distância a se determinar e que ao final de cada passo 
+o algorítmo de tomada de decisão deve indicar para que direção o robô deve 
+seguir, se deve continuar andando para frente, virar para algum lado ou para 
+trás. Veja a Figura \ref{fig:fsm} ilustrando a máquina de estados.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=.8\textwidth]{images/fsm.png}
+  \caption{Máquina de estados}
+  \label{fig:fsm}
+\end{figure}
+
+\paragraph{}
+O diagrama é composta basicamente de 3 tipos de estado: os que forçam o inicio 
+e a parada de movimentos, os que redirecionam o robô e os estados em que o 
+controlador do carro conversa com o dispositivo responsável pela tomada de 
+decisão. Os estados de início e parada de movimentos são o Mov FW(\textit{Move 
+Foward}), que forçam o carro a se mover para frente e o \textit{Stop} força a 
+parada do carro em caso de detecção de obstaculos que possam ou estejam 
+obstruindo o movimento. Os estados TR TB e TL são resposáveis por redirecionar o 
+carro para a esquerda direita ou para trás antes do início do novo passo. Os 
+estados \textit{Check 0}  e \textit{Check 1} são encarregados  pela comunicação 
+com o dispositivo principal de tomadas de decisão, o estado Check 1 procura 
+garantir que a posição adotada é de fato a ótima para o seguimento do algoritmo 
+antes do inicio do novo passo.
+
 \textbf{Veiculo automato} \\
 
 De acordo com  Vaussard \cite{vaussard}, quando se projeta um robô aspirador 
@@ -521,17 +602,13 @@ Para isso, o grupo pensou em deixar a bateria do robô facilmente encaixável e
 desencaxável, permitindo assim que o usuário posso ter o maior controle de onde 
 carregar a bateria, sem se preocupar com as dimensões do carrinho.
 
-%-----------------------------------------------------------------------------
-% O projeto - Proposta - Comunicação
-%-----------------------------------------------------------------------------
-\subsubsection{Comunicação}
 
 %-----------------------------------------------------------------------------
 % O projeto - Proposta - Locomoção
 %-----------------------------------------------------------------------------
+\newpage
 \subsubsection{Locomoção}
 
-\newpage
 \subsubsection{Locomoção e estrutura}
 
 \paragraph{}
@@ -730,6 +807,77 @@ A estrutura apresentou um deslocamento máximo de 3,6 milímetros, como
 apresentado na Figura \ref{fig:boudary}, o que demostra que o dispositivo de 
 limpeza resistiu complemente ao impacto gerado, validando o primeiro protótipo 
 apresentado.
+
+%-----------------------------------------------------------------------------
+% O projeto - Proposta - Arquitetura de hardware
+%-----------------------------------------------------------------------------
+\newpage
+\subsubsection{Arquitetura de hardware}
+
+\paragraph{}
+Uma tabela comparativa entre diferentes tipos de microcontroladores digitais é 
+pode ser vista na Tabela \ref{tab:microComp}. Para a criação de um primeiro 
+protótipo, características como preço, disponibilidade e memória foram 
+consideradas. Além disso, a facilidade de prototipação é um fator desejável para 
+a antecipação de problemas e validações. Dessa forma, o Arduino Uno foi 
+escolhido para essa primeira essa etapa.
+
+\begin{table}[htbp]
+ \label{tab:microComp}
+ \caption{\ref{tab:microComp} Tabela comparativa de microcontroladores}
+\begin{center}
+\resizebox{\textwidth}{!}{\begin{tabular}{|l|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+\multicolumn{1}{|c|}{\textbf{Name }} & \textbf{Processor } & \textbf{CPU Speed } 
+& \textbf{Analógico In/Out } & \textbf{Digital IO/PWM } & \textbf{SRAM [KB] } & 
+\textbf{Flash [KB] }  & \multicolumn{1}{c|}{\textbf{Preço (R\$)}} & 
+\multicolumn{1}{c|}{\textbf{Peso(g)}} & \textbf{Consumo} \\ \hline
+\textbf{Uno}  & ATmega328  & 16MHz  & 6/0  & 14/6  & 2 & 32  & 54,90 & 25 & 
+\begin{tabular}{@{}c@{}}DC Current per I/O Pin 40 mADC \\ DC Current for 3.3V 
+Pin50 mA\end{tabular} \\ \hline
+\textbf{Due}  & AT91SAM3X8E  & 84 MHz  & 12/2  & 54/12  & 96 & 512 & 199,51 & 36 
+& \begin{tabular}{@{}c@{}}DC Current on I/O lines 130 mA \\ DC Current for 3.3V 
+Pin 800 mA \\ DC Current for 5V Pin 800 mA \end{tabular} \\ \hline
+\textbf{Leonardo}  & ATmega32u4  & 16MHz  & 12/0  & 20/7  & 2.5 & 32 & 55,90 & 
+20 & \begin{tabular}{@{}c@{}}DC Current per I/O Pin40 mA \\ DC Current for 3.3V 
+Pin 50 mA \end{tabular} \\ \hline
+\textbf{Mega} 2560  & ATmega2560  & 16MHz  & 16/0  & 54/15  & 8 & 256 & 84,90 & 
+35 & \begin{tabular}{@{}c@{}}DC Current per I/O Pin40 mA \\ DC Current for 3.3V 
+Pin 50 mA \end{tabular} \\ \hline
+\textbf{Micro}  & ATmega32u4  & 16MHz  & 12/0  & 20/7  & 2.5 & 32 & 121,02 & 13 
+& \begin{tabular}{@{}c@{}}DC Current per I/O Pin40 mA \\ DC Current for 3.3V Pin 
+50 mA \end{tabular} \\ \hline
+\textbf{Mini}  & ATmega328  & 16MHz  & 8/0  & 14/6  & 2 & 32 & 105.01 & - & DC 
+Current per I/O Pin 40 mA \\ \hline
+\textbf{Nano } & ATmega168 ATmega328  & 16MHz  & 8/0  & 14/6  & 12  & 16 32  & 
+41,90 & 5 & DC Current per I/O Pin 40 mA \\ \hline
+\textbf{Pro Mini}  & ATmega168  & 8MHz 16MHz  & 6/0  & 14/6  & 1 & 16 & 22,90 & 
+1 & DC Current per I/O Pin 40 mA \\ \hline
+\end{tabular}}
+\end{center}
+\end{table}
+
+\paragraph{}
+O Arduino é uma plataforma eletronica aberta que se foca em uma maneira simples 
+de se utilizar hardware e software. É capaz de interagir com o mundo exterior 
+recebendo entradas (como de sensores) e controlando luzes, motores ou atuadores. 
+Utiliza uma linguagem de programação padrão que é praticamente C/C++ 
+\cite{arduino}.
+
+\paragraph{}
+Entretanto, deve-se salientar que, para os próximos estágios do projeto, esse 
+microcontrolador pode não ser o suficiente, pois a complexidade do algoritmo 
+embarcado no robô pode demandar mais recursos do mesmo. Sendo assim, com o 
+objetivo de se conseguir mais poder de processamento e ainda levando em conta as 
+caracteristicas levantadas anteriormente, a utilização de uma Raspberry Pi se 
+torna viável.
+
+\paragraph{}
+A Raspberry Pi é um computador do tamanho reduzido desenvolvido pela Raspberry 
+Pi Foundation e inicialmente criado para promover o ensino em ciência da 
+computação básica em escolas \cite{rpi}. Usando uma distribuição Debian como 
+sistema operacional, a placa seria capaz de gerir os processos envolvidos no 
+funcionamento do robô.
 
 %-----------------------------------------------------------------------------
 % O projeto - Proposta - Elementos físicos
@@ -1357,8 +1505,17 @@ problemas que deverão ser soluciados na próxima versão do protótipo:
 % Gerenciamento - Planejamento
 %-----------------------------------------------------------------------------
 \subsection{Planejamento}
-Para o desenvolvimento do projeto, de maneira a integrar todas as engenharias envolvidas e não individualizar o trabalho de cada integrante dentro de sua especialidade, foi feita uma divisão em três frentes de trabalho: uma responsável pela estrutura física do protótipo, outra para trabalhar com os algoritmos e programação envolvidos no sistema, e por último, uma voltada para desenvolver o sistema de limpeza. De tal forma que haja integrantes de mais de uma engenharia em cada frente, mas que ao mesmo tempo não haja exclusão de ocupação, ou seja, um mesmo integrante pode trabalhar em mais de uma frente, para que o desenvolvimento do trabalho seja feito sempre em equipe.
-Assim, a divisão geral para a evolução do trabalho nesta primeira etapa se deu da seguinte forma:
+Para o desenvolvimento do projeto, de maneira a integrar todas as 
+engenharias envolvidas e não individualizar o trabalho de cada integrante 
+dentro de sua especialidade, foi feita uma divisão em três frentes de trabalho: 
+uma responsável pela estrutura física do protótipo, outra para trabalhar com os 
+algoritmos e programação envolvidos no sistema, e por último, uma voltada para 
+desenvolver o sistema de limpeza. De tal forma que haja integrantes de mais de 
+uma engenharia em cada frente, mas que ao mesmo tempo não haja exclusão de 
+ocupação, ou seja, um mesmo integrante pode trabalhar em mais de uma frente, 
+para que o desenvolvimento do trabalho seja feito sempre em equipe. Assim, a 
+divisão geral para a evolução do trabalho nesta primeira etapa se deu da 
+seguinte forma:
 
 \begin{table}[h!]
   \begin{center}
