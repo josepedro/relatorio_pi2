@@ -298,7 +298,7 @@ faz a limpeza do chão de forma automatizada. O projeto busca inspiração em
 projetos já existentes, como os descritos na Seção \ref{sec:mercado}. Contudo 
 dois objetivos são os alvos centrais do projeto, são eles:
 \begin{itemize}
- \item Criar um robô de baixo custo.
+ \item Criar um robô de baixo custo;
  \item Dominar parte da tecnologia para a construção de robôs de limpeza.
 \end{itemize}
 Contudo, devido às restrições de tempo, recursos e conhecimento o escopo do 
@@ -309,7 +309,7 @@ execução;
 % O projeto - Escopo
 %-----------------------------------------------------------------------------
 \paragraph{}
-Está seção constituí a parte central deste trabalho, pois nela é apresentada a 
+Esta seção constitui a parte central deste trabalho, pois nela é apresentada a 
 descrição do projeto, a funcionalidade, restrições e por fim é apresenta um 
 estudo detalhado sobre cada área necessária para a realização do projeto. O 
 estudo de cada área apresenta as diferentes opções para resolver cada problema, 
@@ -318,22 +318,6 @@ assim como a decisão de qual solução foi escolhida para o projeto (Seção
 feitos para validar cada uma das propostas aqui apresentadas. Veja a Seção 
 \ref{sec:exp} para uma descrição completa dos testes realizados.
 
-\subsection{Descrição}
-
-\paragraph{}
-O projeto em questão tem por objetivo realizar a contrução de um robô que 
-faz limpeza de chão de forma automatizada. O projeto busca inspiração em 
-projetos já existentes, como os descritos na Seção \ref{sec:mercado}. Contudo 
-dois objetivos são os alvos centrais do projeto, são eles:
-
-\begin{itemize}
- \item Criar um robô de baixo custo.
- \item Dominar parte da técnologia para a contrução de robôs de limpeza.
-\end{itemize}
-
-Contudo devido as restrições de tempo, recurso e conhecimentos o escopo do 
-projeto foi reduzido de tal forma a se obter um bom resultado em dois meses. 
-
 %-----------------------------------------------------------------------------
 % O projeto - Escopo
 %-----------------------------------------------------------------------------
@@ -341,7 +325,7 @@ projeto foi reduzido de tal forma a se obter um bom resultado em dois meses.
 
 \paragraph{}
 Após uma extensa pesquisa sobre os robôs aspiradores existentes no mercado e as 
-suas características, definiu-se um conjunte de funcionalidades para serem 
+suas características, definiu-se um conjunto de funcionalidades para serem 
 atingidas nos próximos dois meses de projeto. Tal escopo possui reduções de 
 funcionalidades baseadas no ambiente. Seguem as funcionalidade e as restrições.
 
@@ -349,10 +333,10 @@ funcionalidades baseadas no ambiente. Seguem as funcionalidade e as restrições.
 
 \begin{itemize}
  \item O robô deve ser capaz de movimentar-se pelo ambiente sem intervenção 
-  humana.
- \item O robô deve ser capaz de limpar particulas inferiores a 0,5 cm.
- \item O robô deve detectar obstaculos com espessura superior a 15 cm.
- \item O robô deve ter dimensões entre 50x50 cm.
+  humana;
+ \item O robô deve ser capaz de limpar particulas inferiores a 0,5 cm;
+ \item O robô deve detectar obstáculos com espessura superior a 15 cm;
+ \item O robô deve ter dimensões entre 50x50 cm;
  \item O robô deve ser capaz de passar por baixo de móveis com mais de 40 cm de 
   altura.
 \end{itemize}
@@ -360,12 +344,13 @@ funcionalidades baseadas no ambiente. Seguem as funcionalidade e as restrições.
 \subsubsection{Restrições}
 \begin{itemize}
  \item O comôdo deve ter um formato retangular. Essa restrição foi imposta para 
-  facilitar os testes relacionados e reduzir a complexidade do algoritmo.
- \item O chão não pode ter quedas subtas, tais quais escadas.
- \item O ambiente não deve ter carpete.
+  facilitar os testes relacionados e reduzir a complexidade do algoritmo;
+ \item O chão não pode ter quedas súbitas, tais como escadas;
+ \item O ambiente não dever ter carpete ou qualquer outro tipo de obstáculo de 
+  mesmo gênero;
  \item Obstaculos muito finos, tal como pernas de cadeiras, podem não ser 
-  detectados e ocorrendo assim a colisão.
- \item Não deve haver fios sobre o chão.
+  detectados e ocorrendo assim a colisão;
+ \item Não deve haver fios sobre o chão;
  \item O robô não limpará ambientes molhados.
 \end{itemize}
 
@@ -385,10 +370,10 @@ todas as áreas terá como resultado a criação do robô.
 \textbf{Sistema operacional e \textit{framework}} \\
 
 \paragraph{}
-O sistema operacional (SO) do robô é um dos princípais fatores que devem ser 
+O sistema operacional (SO) do robô é um dos principais fatores que devem ser 
 levados em consideração. O projeto Pindí fará uso de um conjunto de 
 \textit{hardware} composto por um \textit{Raspberry Pi} e um Arduino. Tal 
-dispositivos tem como princípal características a sua vasta documentação e 
+dispositivos tem como principal características a sua vasta documentação e 
 estabilidade. Neste contexto foi feita uma pesquisa ampla sobre qual SO 
 utilizar, sempre tendo a facilidade como fator decisivo.
 
@@ -396,8 +381,8 @@ utilizar, sempre tendo a facilidade como fator decisivo.
 Para este projeto optou-se pelo \textit{Arch Linux} devido a três fatores: 
 desempenho, configuração e documentação. O fator desempenho é fundamental, pois 
 diversos algoritmos serão executados sobre o mesmo (para mais detalhes veja as 
-seções subsequentes). A opção de configuração permite um ajuste fino do SO as 
-necessidades do projeto Pindí. Por fim o fator documentação foi fundamental 
+seções subsequentes). A opção de configuração permite um ajuste fino do SO para 
+as necessidades do projeto Pindí. Por fim o fator documentação foi fundamental 
 devido a facilidade de se buscar ajudar, isto facilitará o desenvolvimento e 
 manutenção do projeto.
 
@@ -416,10 +401,10 @@ e constatou-se a compatibilidade de ambos.
 \paragraph{}
 A modelagem utilizando máquinas de estados é um recurso que facilita a 
 compreensão do sistema como um todo. Neste contexto, elaborou-se uma máquina de 
-estados prévia que pode ser adaptada ao algorítimo de tomadas de decisão para a 
+estados prévia que pode ser adaptada ao algoritimo de tomadas de decisão para a 
 melhor cobertura do ambiente. A máquina parte do pressuposto de que o robô 
 andará em passos fixos de distância a se determinar e que ao final de cada passo 
-o algorítmo de tomada de decisão deve indicar para que direção o robô deve 
+o algoritmo de tomada de decisão deve indicar para que direção o robô deve 
 seguir, se deve continuar andando para frente, virar para algum lado ou para 
 trás. Veja a Figura \ref{fig:fsm} ilustrando a máquina de estados.
 
@@ -431,18 +416,18 @@ trás. Veja a Figura \ref{fig:fsm} ilustrando a máquina de estados.
 \end{figure}
 
 \paragraph{}
-O diagrama é composta basicamente de 3 tipos de estado: os que forçam o inicio 
-e a parada de movimentos, os que redirecionam o robô e os estados em que o 
-controlador do carro conversa com o dispositivo responsável pela tomada de 
+O diagrama é composta basicamente de três tipos de estado: os que forçam o 
+início e a parada de movimentos, os que redirecionam o robô e os estados em que 
+o controlador do Pindí conversa com o dispositivo responsável pela tomada de 
 decisão. Os estados de início e parada de movimentos são o Mov FW(\textit{Move 
 Foward}), que forçam o carro a se mover para frente e o \textit{Stop} força a 
-parada do carro em caso de detecção de obstaculos que possam ou estejam 
-obstruindo o movimento. Os estados TR TB e TL são resposáveis por redirecionar o 
-carro para a esquerda direita ou para trás antes do início do novo passo. Os 
+parada do carro em caso de detecção de obstáculos que possam ou estejam 
+obstruindo o movimento. Os estados TR TB e TL são responsáveis por redirecionar 
+o Pindí para a esquerda, direita ou para trás antes do início do novo passo. Os 
 estados \textit{Check 0}  e \textit{Check 1} são encarregados  pela comunicação 
 com o dispositivo principal de tomadas de decisão, o estado Check 1 procura 
 garantir que a posição adotada é de fato a ótima para o seguimento do algoritmo 
-antes do inicio do novo passo.
+antes do início do novo passo.
 
 \textbf{Veículo Autômato} \\
 
@@ -821,9 +806,10 @@ apresentado.
 
 \paragraph{}
 Uma tabela comparativa entre diferentes tipos de microcontroladores digitais é 
-pode ser vista na Tabela \ref{tab:microComp}. Para a criação de um primeiro 
+explicitada em \ref{tab:microComp}. Para a criação de um primeiro 
 protótipo, características como preço, disponibilidade e memória foram 
-consideradas. Além disso, a facilidade de prototipação é um fator desejável para 
+consideradas. Além disso, a facilidade de prototipação é um fator desejável 
+para 
 a antecipação de problemas e validações. Dessa forma, o Arduino Uno foi 
 escolhido para essa primeira essa etapa.
 
@@ -833,14 +819,16 @@ escolhido para essa primeira essa etapa.
 \begin{center}
 \resizebox{\textwidth}{!}{\begin{tabular}{|l|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
 \hline
-\multicolumn{1}{|c|}{\textbf{Name }} & \textbf{Processor } & \textbf{CPU Speed } 
+\multicolumn{1}{|c|}{\textbf{Name }} & \textbf{Processor } & \textbf{CPU Speed 
+} 
 & \textbf{Analógico In/Out } & \textbf{Digital IO/PWM } & \textbf{SRAM [KB] } & 
 \textbf{Flash [KB] }  & \multicolumn{1}{c|}{\textbf{Preço (R\$)}} & 
 \multicolumn{1}{c|}{\textbf{Peso(g)}} & \textbf{Consumo} \\ \hline
 \textbf{Uno}  & ATmega328  & 16MHz  & 6/0  & 14/6  & 2 & 32  & 54,90 & 25 & 
 \begin{tabular}{@{}c@{}}DC Current per I/O Pin 40 mADC \\ DC Current for 3.3V 
 Pin50 mA\end{tabular} \\ \hline
-\textbf{Due}  & AT91SAM3X8E  & 84 MHz  & 12/2  & 54/12  & 96 & 512 & 199,51 & 36 
+\textbf{Due}  & AT91SAM3X8E  & 84 MHz  & 12/2  & 54/12  & 96 & 512 & 199,51 & 
+36 
 & \begin{tabular}{@{}c@{}}DC Current on I/O lines 130 mA \\ DC Current for 3.3V 
 Pin 800 mA \\ DC Current for 5V Pin 800 mA \end{tabular} \\ \hline
 \textbf{Leonardo}  & ATmega32u4  & 16MHz  & 12/0  & 20/7  & 2.5 & 32 & 55,90 & 
@@ -850,7 +838,8 @@ Pin 50 mA \end{tabular} \\ \hline
 35 & \begin{tabular}{@{}c@{}}DC Current per I/O Pin40 mA \\ DC Current for 3.3V 
 Pin 50 mA \end{tabular} \\ \hline
 \textbf{Micro}  & ATmega32u4  & 16MHz  & 12/0  & 20/7  & 2.5 & 32 & 121,02 & 13 
-& \begin{tabular}{@{}c@{}}DC Current per I/O Pin40 mA \\ DC Current for 3.3V Pin 
+& \begin{tabular}{@{}c@{}}DC Current per I/O Pin40 mA \\ DC Current for 3.3V 
+Pin 
 50 mA \end{tabular} \\ \hline
 \textbf{Mini}  & ATmega328  & 16MHz  & 8/0  & 14/6  & 2 & 32 & 105.01 & - & DC 
 Current per I/O Pin 40 mA \\ \hline
@@ -865,17 +854,19 @@ Current per I/O Pin 40 mA \\ \hline
 \paragraph{}
 O Arduino é uma plataforma eletronica aberta que se foca em uma maneira simples 
 de se utilizar hardware e software. É capaz de interagir com o mundo exterior 
-recebendo entradas (como de sensores) e controlando luzes, motores ou atuadores. 
-Utiliza uma linguagem de programação padrão que é praticamente C/C++ 
+recebendo entradas (como de sensores) com intuito de controlar, por exemplo, 
+luzes, motores ou atuadores. 
+Utiliza uma linguagem de programação padrão que é baseada em C/C++. 
 \cite{arduino}.
 
 \paragraph{}
 Entretanto, deve-se salientar que, para os próximos estágios do projeto, esse 
 microcontrolador pode não ser o suficiente, pois a complexidade do algoritmo 
 embarcado no robô pode demandar mais recursos do mesmo. Sendo assim, com o 
-objetivo de se conseguir mais poder de processamento e ainda levando em conta as 
+objetivo de se conseguir mais capacidade de processamento e, ainda levando em 
+conta as 
 caracteristicas levantadas anteriormente, a utilização de uma Raspberry Pi se 
-torna viável.
+torna favorável.
 
 \paragraph{}
 A Raspberry Pi é um computador do tamanho reduzido desenvolvido pela Raspberry 
@@ -892,16 +883,17 @@ funcionamento do robô.
 \paragraph{}
 Durante o processo de pesquisa, nos deparamos com a necessidade de utilizar
 alguns componentes para o sensoriamento do ambiente e para o controle dos
-motores. Para o sensoriamento do ambiente levantamos requisites de sensores
-Ultrasonicos e Infravermelhos para a decisão de qual utilizar, podemos ver na
-tabela \ref{tab:ultraInfra}, algumas características de ambos.
+motores. Para o sensoriamento do ambiente, levantamos requisitos de sensores
+Ultrassônicos e Infravermelhos para embasar a escolha do sensor. Na tabela 
+\ref{tab:ultraInfra}, podem ser observadas algumas características de suas 
+características.
 
 \begin{table}[h]
 \label{tab:ultraInfra}
 \caption{Tabela compartiva}
 \begin{tabular}{ccc}
 \hline
-  & Ultrassonico(HC-SR04) & Infra Vermelho(GP2Y0A02YK0F) \\
+  & Ultrassônico(HC-SR04) & Infra Vermelho(GP2Y0A02YK0F) \\
   Tensão de alimentação & 5 V & 5 V \\
   Corrente de alimentação & 15 mA & 33 mA \\
   Range & 4cm a 500cm & 20cm a 150cm \\
@@ -913,18 +905,19 @@ tabela \ref{tab:ultraInfra}, algumas características de ambos.
 \end{table}
 
 \paragraph{}
-O Sensor ultrassonico apresenta algumas vantagens com relação ao sensor infra
-vermelho. A maior vantagem a se destacar é o fato de que o mesmo é linear para o
-range de operação, enquanto os sensores infravermelhos encontrados, todos da
-Sharp, possuem uma saída não linear. Essa faixa de linearidade é importante pois
-pois indica um grau de proporcionalidade o sinal gerado e a grandeza física.
-Este fato, aliado com o menor consumo e a maior facilidade de aquisição(mais
-fácil de se encontrar em lojas próximas) nos motivou a utilizar os sensores
-Ultrassonicos para a detecção de obstaculos.
+O Sensor ultrassônico apresenta algumas vantagens com relação ao sensor infra
+vermelho. A que mais se destaca é o fato de que seu comportamento é linear para 
+o \textit{range} de operação, enquanto os sensores infravermelhos encontrados, 
+todos da \textit{Sharp} possuem uma saída não linear. Essa faixa de 
+linearidade é importante pois indica um grau de proporcionalidade entre o sinal 
+gerado e a grandeza física.
+Esse fator, aliado com o menor consumo e a maior facilidade de 
+aquisição(disponibilidade em lojas próximas) nos motivou a utilizar os sensores
+Ultrassônicos para a detecção de obstáculos.
 
 \paragraph{}
-A ideia inicial se baseia em utilizar alguns sensores Ultrassonicos à frente do
-robô para um bom reconhecimento de obstaculos e um possível melhor mapeamento do
+A ideia inicial se baseia em utilizar alguns sensores Ultrassônicos à frente do
+robô para um bom reconhecimento de obstáculos e um possível melhor mapeamento do
 ambiente em que está inserido, e um sensor apontando alguns centímetros a frente
 para o reconhecimento de desníveis no chão e evitar quedas do mesmo.
 Um dispositivo importante quando desejamos controlar direção e velocidade de
@@ -1400,15 +1393,15 @@ chumbo-ácido selada será realizada em etapas futuras do projeto.
 %-----------------------------------------------------------------------------
 \subsection{Movimentação}
 \paragraph{}
-Para validar o conjunto em funcionamento foram desenvolvidos dois protótipos:
+Para validar o conjunto em funcionamento, foram desenvolvidos dois protótipos:
 o primeiro para validar se as rodas teriam tração o suficiente para movimentar
 o chassi e os componentes; e o segundo para validar o sistema de movimentação.
 
-\textbf{Primeiro protótipo} \\
-\paragraph{}
+\subsubsection{Primeiro protótipo}
 O primeiro protótipo foi desenvolvido usando uma tampa de notebook onde foram
 anexadas as rodas de movimentação, uma roda de apoio, o circuito de alimentação
-e um recipiente como vários objetos pesados para simular o peso final do conjunto.
+e um recipiente como vários objetos pesados para simular o peso final do 
+conjunto.
 A Figura \ref{fig:carro_proto_1} mostra o primeiro protótipo montado.
 
 \begin{figure}[ht]
@@ -1428,14 +1421,15 @@ A Figura \ref{fig:carro_proto_1} mostra o primeiro protótipo montado.
     \end{itemize}
   \item Procedimento:
     \begin{itemize}
-     \item Rodas de tração e a roda de apoio foram fixadas ao chassi usando abraçadeiras de nylon;
+     \item Rodas de tração e a roda de apoio foram fixadas ao chassi usando 
+abraçadeiras de nylon;
      \item Os circuito foi alimentado usando 4 pilhas AA;
      \item Os motores foram ligados à ponte H;
     \end{itemize}
   \item Caso de teste:
     \begin{itemize}
      \item Colocar um recipiente de 4kg em cima do chassi;
-     \item Ligar o motor;.
+     \item Ligar o motor;
      \item Verificar se o conjunto se movimentou em uma velocidade satisfatória.
     \end{itemize}
   \item Resultado:
@@ -1444,12 +1438,15 @@ A Figura \ref{fig:carro_proto_1} mostra o primeiro protótipo montado.
     \end{itemize}
 \end{itemize}
 
-\textbf{Segundo protótipo} \\
-\paragraph{}
+\subsubsection{Segundo protótipo}
 O segundo protótipo foi desenvolvido usando uma base de um aspirador de pó, uma
-vez que na primeira versão o material deformava-se com muita facilidade. As rodas
-foram fixadas com parafusos e um sensor ultrasônico foi adicionado na frente do chassi.
-O objetivo desse protótipo foi o de verificar se o conjunto consegue se desviar de um obstáculo a sua frente. A Figura \ref{fig:carro_proto_2} mostra o segundo protótipo montado.
+vez que na primeira versão o material deformava-se com muita facilidade. As 
+rodas
+foram fixadas com parafusos e um sensor ultrasônico foi adicionado na frente do 
+chassi.
+O objetivo desse protótipo foi o de verificar se o conjunto consegue se desviar 
+de um obstáculo a sua frente. A Figura \ref{fig:carro_proto_2} mostra o segundo 
+protótipo montado.
 
 \begin{figure}[ht]
 \centering
@@ -1479,28 +1476,33 @@ O objetivo desse protótipo foi o de verificar se o conjunto consegue se desviar 
   \item Caso de teste:
     \begin{itemize}
      \item Ligar a fonte;
-	 \item Soltar o conjunto no chão e deixar que se mova livremente;
-	 \item Posicionar um obstáculo à frente do conjunto;
-	 \item Verificar se o conjunto se desvia do obstáculo.
+   \item Soltar o conjunto no chão e deixar que se mova livremente;
+   \item Posicionar um obstáculo à frente do conjunto;
+   \item Verificar se o conjunto se desvia do obstáculo.
     \end{itemize}
   \item Resultado:
     \begin{itemize}
-     \item O conjunto se movimentou e se desviou dos obstáculos de forma razoável.
+     \item O conjunto se movimentou e se desviou dos obstáculos de forma 
+razoável.
     \end{itemize}
 \end{itemize}
 
+
 \subsubsection{Conclusão da validação do sistema de movimentação}
-O sistema de movimentação funcionou conforme o esperado, carregando todo o conjunto
-em velocidade constante e se desviando dos obstáculos. Todavia foram encontrados alguns
+O sistema de movimentação funcionou conforme o esperado, carregando todo o 
+conjunto
+em velocidade constante e se desviando dos obstáculos. Todavia, foram 
+encontrados alguns
 problemas que deverão ser soluciados na próxima versão do protótipo:
 \begin{itemize}
-	\item A ponte H utilizada precisa ser constantemente alimentada com uma tensão alta;
-	\item Os motores de tração precisam de \textit{encoders} para garantir que girem na
-	mesma rotação, impedindo que o conjunto se desvie de forma inesperada;
-	\item O algoritmo de deve ser refinado para contornar melhor os obstáculos;
-	\item O conjunto de baterias utilizado deve fornecer mais energia.
+  \item A ponte H utilizada precisa ser constantemente alimentada com uma tensão 
+alta;
+  \item Os motores de tração precisam de \textit{encoders} para garantir que 
+girem na
+  mesma velocidade, impedindo que o conjunto se desvie de forma inesperada;
+  \item O algoritmo de deve ser refinado para contornar melhor os obstáculos;
+  \item O conjunto de baterias utilizado deve fornecer mais energia.
 \end{itemize}
-
 %-----------------------------------------------------------------------------
 % Gerenciamento
 %-----------------------------------------------------------------------------
@@ -1517,7 +1519,7 @@ uma responsável pela estrutura física do protótipo, outra para trabalhar com os
 algoritmos e programação envolvidos no sistema, e por último, uma voltada para 
 desenvolver o sistema de limpeza. De tal forma que haja integrantes de mais de 
 uma engenharia em cada frente, mas que ao mesmo tempo não haja exclusão de 
-ocupação, ou seja, um mesmo integrante pode trabalhar em mais de uma frente, 
+ocupação, um mesmo integrante pode trabalhar em mais de uma frente 
 para que o desenvolvimento do trabalho seja feito sempre em equipe. Assim, a 
 divisão geral para a evolução do trabalho nesta primeira etapa se deu da 
 seguinte forma:
@@ -1537,11 +1539,12 @@ seguinte forma:
   \end{center}
 \end{table}
 
+
 %-----------------------------------------------------------------------------
 % Resultados parciais - Fases, atividades e responsáveis
 %-----------------------------------------------------------------------------
 \subsubsection{Fases, Atividades e Responsáveis}
-No que diz respeito as fases do projeto foram destacadas tais fases com as 
+No que diz respeito às fases do projeto, estas foram destacadas com as 
 seguintes atividades:
 
 \begin{itemize}
@@ -1549,27 +1552,27 @@ seguintes atividades:
   \begin{itemize}
     \item Apresentação da disciplina (Responsáveis: todo o grupo).
     \item Definição de Grupo (Responsáveis: todo o grupo). Tal atividade será 
-      concluida até que haja elementos de todas as engenharias no 
+      realizada até que haja elementos de todas as engenharias no 
       grupo. Entradas: número de pessoas possíveis de cada engenharia e total. 
       Saída: membros da equipe;
     \item Discussão do Tema (Responsáveis: todo o grupo). Tal atividade
-      seráconcluida até que haja várias opções de perspectivas do tema. 
+      será realizada até que haja várias opções de perspectivas do tema. 
       Entradas: contextos envolvidos por escopo, custo e prazo. Saídas: 
       sugestões de temas refinados;
     \item Definição do Tema (Responsáveis: todo o grupo). Tal atividade 
-      seráconcluida até que haja a consolidação do tema e aceitação do mesmo 
+      será realizada até que haja a consolidação do tema e aceitação do mesmo 
       pelos membros do grupo e professores. Entradas: sugestões de temas. 
       Saída: tema consolidado.
   \end{itemize}
   \item Planejamento:
   \begin{itemize}
     \item Pesquisas bibliográficas e estudos de viabilidade (Responsáveis: todo 
-      o grupo). Tal atividade será concluida até que haja referências teóricas 
+      o grupo). Tal atividade será realizada até que haja referências teóricas 
       e metodológicas o suficiente para a viabilidade do projeto. Entradas: 
       referências teóricas e bibliográficas. Saída: tema refinado com análise 
       de viabilidade;
     \item Divisão das frentes de trabalho (Responsáveis: todo o grupo). 
-      Tal atividade será concluida até que haja que todos os integrantes do 
+      Tal atividade será realizada até que todos os integrantes do 
       grupo sejam alocados em suas respectivas tarefas de modo que haja 
       integração harmônica com todas as partes do projeto. Entradas: membros do 
       projeto e áreas técnicas. Saída: tarefas alocadas com seus respectivos 
@@ -1578,26 +1581,29 @@ seguintes atividades:
   \item Execução:
   \begin{itemize}
     \item Desenvolvimento do primeiro protótipo (Responsáveis: todo o grupo). 
-      Tal atividade será concluida até que o protótipo faça as funções básicas 
+      Tal atividade será realizada até que o protótipo faça as funções básicas 
       como limpar e se locomover. Entradas: membros do projeto e materiais. 
       Saída: primeiro protótipo;
     \item Testes de bateria (Responsáveis: Maria, Vanessa, Tuane e Thaynara). 
-      Tal atividade será concluida até que a fonte de energia via baterias 
+      Tal atividade será realizada até que a fonte de energia via baterias 
       funcione regularmente. Entradas: membros do projeto, baterias e 
       protótipo. Saída: resultados dos testes;
     \item Testes de estrutura e locomoção (Responsáveis: José Pedro, José 
-      Armando e Marcos Ramos). Tal atividade será concluida até que a estrutura 
+      Armando e Marcos Ramos). Tal atividade será realizada até que a estrutura 
       e locomoção fique funcional. Entradas: membros do projeto e protótipo. 
       Saída: resultados dos testes;
     \item Testes de algoritmos e sistema de controle eletrônico 
       (Responsáveis: Matheus, Pablo e Lucas Moura).  Tal atividade será 
-      concluida até que os algoritmos e sistemas de controle eletrônico sejam 
+      realizada até que os algoritmos e sistemas de controle eletrônico sejam 
       integrados e funcionais. Entradas: membros do projeto e protótipo. Saída: 
       resultados dos testes.
   \end{itemize}
 \end{itemize}
 
 \newpage
+%-----------------------------------------------------------------------------
+% Cronograma
+%-----------------------------------------------------------------------------
 %-----------------------------------------------------------------------------
 % Cronograma
 %-----------------------------------------------------------------------------
