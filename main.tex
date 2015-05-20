@@ -86,7 +86,8 @@
 %	TITLE PAGE
 %----------------------------------------------------------------------------------------
 
-\title[Estudo de caso de BDD]{Aplicação de BDD em aplicações web Python/Django} % The short title appears at the bottom of every slide, the full title is only on the title page
+\title[Aplicação de BDD em Python/Django]{Verificação e Validação de Software \\
+Aplicação de BDD em Python/Django} % The short title appears at the bottom of every slide, the full title is only on the title page
 
 \author{José Pedro, Lucas Moura, Macário Soares e Parley} % Your name
 \institute[UnB] % Your institution as it will appear on the bottom of every slide, may be shorthand to save space
@@ -117,86 +118,109 @@ Universidade de Brasília \\ % Your institution for the title page
 %------------------------------------------------
 %------------------------------------------------
 
-\section{Contexto}
-\subsection{Contexto}
+\section{Introdução}
+\subsection{Resumo da Proposta}
 \begin{frame}
   \begin{itemize}
-      \item Verificação e Validação;    
+      \item Verificação e Validação;
       \item $Behavior$ $Driven$ $Development$ (BDD);
-      \item Aplicações web Python/Django.
+      \item Aplicações web Python/Django;
+      \item Ferramenta de aplicação de BDD em Python/Django: Lettuce;
+      \item Há poucas fontes de documentação e tutoriais de uso abrangente, além
+das mesmas serem fragmentadas e dispersas;
+      \item Testes BDD no software Busine.me.
   \end{itemize}
 \end{frame}
 
-\section{Objetivos}
 \subsection{Objetivos}
 \begin{frame}
   \begin{itemize}
-    \item Principal: desenvolver um estudo de caso usando Behavior Driven Development (BDD) no contexto de aplicação web em python/Django;
+    \item Principal: desenvolver um guia de implementação BDD em português para Python/Django
+usando a ferramenta Lettuce, focando contribuir na consolidação de fontes de informações
+de uso.
     \item Objetivos Específicos:
         \begin{itemize}
-            \item selecionar e analisar ferramentas disponíveis de BDD para Python/Django;
-            \item implementar testes de BDD num software em desenvolvimento;
-            \item desenvolver um guia de boas práticas de BDD no contexto Python/Django.
+            \item apresentar uma breve fundamentação teórica sobre Behavior Driven Development
+(BDD);
+            \item apresentar de forma geral o funcionamento da ferramenta Lettuce no contexto
+Python/Django;
+            \item desenvolver tutorial de uso da ferramenta Lettuce;
+            \item apresentar a implementação de testes BDD num software em evolução Python/Django;
+            \item oferecer como suporte ao guia de implementação de BDD vídeo tutorial sobre
+configurações e uso da ferramenta Lettuce.
         \end{itemize}
   \end{itemize}
 \end{frame}
 
-\section{Fundamentação Teórica} % Sections can be created in order to organize your presentation into discrete blocks, all sections and subsections are automatically printed in the table of contents as an overview of the talk
-%------------------------------------------------
-\subsection{Fundamentação Teórica}
+\subsection{Dificuldades Encontradas}
 \begin{frame}
   \begin{itemize}
-      \item História;  
-      \item Conceitos;
-      \item Definição.
+    \item Quanto a tecnologia:
+        \begin{itemize}
+            \item alta curva de aprendizado sobre o framework Django;
+            \item alta curva de aprendizado sobre o framework de BDD Lettuce;
+            \item vários pacotes de dependências para instalação e uso do Lettuce e Django;
+            \item configuração do framework Django;
+            \item configuração da ferramenta Lettuce no framework Django;
+            \item configuração de um browser default para o splinter.
+        \end{itemize}
+    \item Quanto ao processo de desenvolvimento e pesquisa:
+        \begin{itemize}
+            \item atrasos no cronograma;
+            \item bloqueio de tarefas de cada integrante por uma depender da outra;
+            \item escopo do trabalho parcialmente definido;
+            \item inconsistências no relatório anterior.
+        \end{itemize}
   \end{itemize}
 \end{frame}
 
-\section{Objetos de Estudo}
-\subsection{Objetos de Estudo}
+\section{Riscos Técnicos} % Sections can be created in order to organize your presentation into discrete blocks, all sections and subsections are automatically printed in the table of contents as an overview of the talk
+%------------------------------------------------
+\subsection{Riscos Técnicos}
+\begin{frame}
+  \begin{itemize}
+      \item Escopo indefinido;
+      \item Equipe de desenvolvimento de MDS;
+      \item Inviabilidade do grupo de desenvolver aplicação em Python/Django;
+      \item Inviabilidade do uso da ferramenta Lettuce para o projeto.
+  \end{itemize}
+\end{frame}
+
+\section{Produto}
+\subsection{Produto}
 \begin{frame}
     \begin{itemize}
-        \item Técnica;
-        \item Ferramenta;
-        \item Boas práticas.
+        \item Historias de usuário;
+        \item Criterios de aceitação;
+        \item Teste na ferramenta lettuce;
+        \item Guia.
     \end{itemize}
 \end{frame}
 
-\section{Caso Selecionado} % Sections can be created in order to organize your presentation into discrete blocks, all sections and subsections are automatically printed in the table of contents as an overview of the talk
+\section{Resultados Alcançados} % Sections can be created in order to organize your presentation into discrete blocks, all sections and subsections are automatically printed in the table of contents as an overview of the talk
 %------------------------------------------------
-\subsection{Caso Selecionado}
+\subsection{Resultados Alcançados}
 \begin{frame}
   \begin{itemize}
-      \item Busine.me;  
-      \item GPP e MDS;
-      \item Lei de Acesso a Informação Pública.
+      \item Testes com Letucce;
+        \begin{itemize}
+          \item Com e sem Splinter;
+          \item Test browser.
+        \end{itemize}
+      \item Guia prévio de uso/instalação da Ferramenta;
+      \item Motivação da equipe de MDS a utilizar BDD.
   \end{itemize}
 \end{frame}
 
-\section{Restrições} % Sections can be created in order to organize your presentation into discrete blocks, all sections and subsections are automatically printed in the table of contents as an overview of the talk
+\section{Perspectivas Futuras} % Sections can be created in order to organize your presentation into discrete blocks, all sections and subsections are automatically printed in the table of contents as an overview of the talk
 %------------------------------------------------
-\subsection{Restrições}
+\subsection{Perspectivas Futuras}
 \begin{frame}
   \begin{itemize}
-      \item Estudo realizado para plataforma específica;  
-      \item Consistência dos dados;
-      \item Pouca população amostral.
+      \item Finalização do guia de desenvolvimento BDD para Python/Django;
+      \item Desenvolvimento do suporte de implementação com um tutorial em vídeo.
   \end{itemize}
 \end{frame}
-
-\section{Critérios} % Sections can be created in order to organize your presentation into discrete blocks, all sections and subsections are automatically printed in the table of contents as an overview of the talk
-%------------------------------------------------
-\subsection{Critérios}
-\begin{frame}
-  \begin{itemize}
-      \item Quantidade de erros;  
-      \item Padrão dos erros;
-      \item Eficiência da ferramenta.
-  \end{itemize}
-\end{frame}
-
-
-
 
 
 
