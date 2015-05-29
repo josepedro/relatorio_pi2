@@ -72,29 +72,35 @@
 \headcommand {\sectionentry {5}{Energia}{21}{Energia}{0}}
 \headcommand {\beamer@sectionpages {18}{20}}
 \headcommand {\beamer@subsectionpages {20}{20}}
-\headcommand {\beamer@subsectionentry {0}{5}{1}{21}{Teste em Bateria de L\IeC {\'\i }tio}}\headcommand {\beamer@subsectionpages {21}{20}}
-\headcommand {\slideentry {5}{1}{1}{21/21}{Teste em Bateria de L\IeC {\'\i }tio}{0}}
+\headcommand {\beamer@subsectionentry {0}{5}{1}{21}{Teste em Bateria de L\IeC {\'\i }tio - Tens\IeC {\~a}o}}\headcommand {\beamer@subsectionpages {21}{20}}
+\headcommand {\slideentry {5}{1}{1}{21/21}{Teste em Bateria de L\IeC {\'\i }tio - Tens\IeC {\~a}o}{0}}
 \headcommand {\beamer@framepages {21}{21}}
-\headcommand {\beamer@subsectionentry {0}{5}{2}{22}{Teste em Bateria de Chumbo}}\headcommand {\beamer@subsectionpages {21}{21}}
-\headcommand {\slideentry {5}{2}{1}{22/22}{Teste em Bateria de Chumbo}{0}}
+\headcommand {\beamer@subsectionentry {0}{5}{2}{22}{Teste em Bateria de L\IeC {\'\i }tio - Corrente}}\headcommand {\beamer@subsectionpages {21}{21}}
+\headcommand {\slideentry {5}{2}{1}{22/22}{Teste em Bateria de L\IeC {\'\i }tio - Corrente}{0}}
 \headcommand {\beamer@framepages {22}{22}}
-\headcommand {\sectionentry {6}{Limpeza}{23}{Limpeza}{0}}
-\headcommand {\beamer@sectionpages {21}{22}}
-\headcommand {\beamer@subsectionpages {22}{22}}
-\headcommand {\beamer@subsectionentry {0}{6}{1}{23}{Sistema de Varri\IeC {\c c}\IeC {\~a}o}}\headcommand {\beamer@subsectionpages {23}{22}}
-\headcommand {\slideentry {6}{1}{1}{23/23}{Sistema de Varri\IeC {\c c}\IeC {\~a}o}{0}}
+\headcommand {\beamer@subsectionentry {0}{5}{3}{23}{Teste em Bateria de Chumbo - Tens\IeC {\~a}o}}\headcommand {\beamer@subsectionpages {22}{22}}
+\headcommand {\slideentry {5}{3}{1}{23/23}{Teste em Bateria de Chumbo - Tens\IeC {\~a}o}{0}}
 \headcommand {\beamer@framepages {23}{23}}
-\headcommand {\beamer@subsectionentry {0}{6}{2}{24}{Sistema de Suc\IeC {\c c}\IeC {\~a}o}}\headcommand {\beamer@subsectionpages {23}{23}}
-\headcommand {\slideentry {6}{2}{1}{24/24}{Sistema de Suc\IeC {\c c}\IeC {\~a}o}{0}}
+\headcommand {\beamer@subsectionentry {0}{5}{4}{24}{Teste em Bateria de Chumbo - Corrente}}\headcommand {\beamer@subsectionpages {23}{23}}
+\headcommand {\slideentry {5}{4}{1}{24/24}{Teste em Bateria de Chumbo - Corrente}{0}}
 \headcommand {\beamer@framepages {24}{24}}
-\headcommand {\sectionentry {7}{Fim}{25}{Fim}{0}}
-\headcommand {\beamer@sectionpages {23}{24}}
+\headcommand {\sectionentry {6}{Limpeza}{25}{Limpeza}{0}}
+\headcommand {\beamer@sectionpages {21}{24}}
 \headcommand {\beamer@subsectionpages {24}{24}}
-\headcommand {\beamer@subsectionentry {0}{7}{1}{25}{Fim}}\headcommand {\beamer@subsectionpages {25}{24}}
-\headcommand {\slideentry {7}{1}{1}{25/25}{Fim}{0}}
+\headcommand {\beamer@subsectionentry {0}{6}{1}{25}{Sistema de Varri\IeC {\c c}\IeC {\~a}o}}\headcommand {\beamer@subsectionpages {25}{24}}
+\headcommand {\slideentry {6}{1}{1}{25/25}{Sistema de Varri\IeC {\c c}\IeC {\~a}o}{0}}
 \headcommand {\beamer@framepages {25}{25}}
-\headcommand {\beamer@partpages {1}{25}}
-\headcommand {\beamer@subsectionpages {25}{25}}
-\headcommand {\beamer@sectionpages {25}{25}}
-\headcommand {\beamer@documentpages {25}}
-\headcommand {\def \inserttotalframenumber {25}}
+\headcommand {\beamer@subsectionentry {0}{6}{2}{26}{Sistema de Suc\IeC {\c c}\IeC {\~a}o}}\headcommand {\beamer@subsectionpages {25}{25}}
+\headcommand {\slideentry {6}{2}{1}{26/26}{Sistema de Suc\IeC {\c c}\IeC {\~a}o}{0}}
+\headcommand {\beamer@framepages {26}{26}}
+\headcommand {\sectionentry {7}{Fim}{27}{Fim}{0}}
+\headcommand {\beamer@sectionpages {25}{26}}
+\headcommand {\beamer@subsectionpages {26}{26}}
+\headcommand {\beamer@subsectionentry {0}{7}{1}{27}{Fim}}\headcommand {\beamer@subsectionpages {27}{26}}
+\headcommand {\slideentry {7}{1}{1}{27/27}{Fim}{0}}
+\headcommand {\beamer@framepages {27}{27}}
+\headcommand {\beamer@partpages {1}{27}}
+\headcommand {\beamer@subsectionpages {27}{27}}
+\headcommand {\beamer@sectionpages {27}{27}}
+\headcommand {\beamer@documentpages {27}}
+\headcommand {\def \inserttotalframenumber {27}}
