@@ -86,10 +86,10 @@
 %	TITLE PAGE
 %----------------------------------------------------------------------------------------
 
-\title[Aplicação de BDD em Python/Django]{Verificação e Validação de Software \\
-Aplicação de BDD em Python/Django} % The short title appears at the bottom of every slide, the full title is only on the title page
+\title[Projeto Pindí]{Projeto Pindí} % The short title appears at the bottom of every slide, the full title is only on the title page
 
-\author{José Pedro, Lucas Moura, Macário Soares e Parley} % Your name
+\author{João Machado, José Armando Neto, José Pedro Neto, Lucas Moura, 
+Marcos Ramos, Maria Santos, Matheus Pimenta, Pablo Urbizagastegui1, Rodrigo Melo, Thaynara Santana, Tuane Fonseca, Vanessa Ribeiro} % Your name
 \institute[UnB] % Your institution as it will appear on the bottom of every slide, may be shorthand to save space
 {
 Universidade de Brasília \\ % Your institution for the title page
@@ -122,107 +122,254 @@ Universidade de Brasília \\ % Your institution for the title page
 \subsection{Resumo da Proposta}
 \begin{frame}
   \begin{itemize}
-      \item Verificação e Validação;
-      \item $Behavior$ $Driven$ $Development$ (BDD);
-      \item Aplicações web Python/Django;
-      \item Ferramenta de aplicação de BDD em Python/Django: Lettuce;
-      \item Há poucas fontes de documentação e tutoriais de uso abrangente, além
-das mesmas serem fragmentadas e dispersas;
-      \item Testes BDD no software Busine.me.
+      \item Gestão do tempo;
+      \item Atividades de limpeza;
+      \item Pindí: sistema autônomo de limpeza.
   \end{itemize}
 \end{frame}
 
-\subsection{Objetivos}
+\section{Eletrônica}
+\subsection{Motores de Passo}
 \begin{frame}
-  \begin{itemize}
-    \item Principal: desenvolver um guia de implementação BDD em português para Python/Django
-usando a ferramenta Lettuce, focando contribuir na consolidação de fontes de informações
-de uso.
-    \item Objetivos Específicos:
+  Motores de Passo:
         \begin{itemize}
-            \item apresentar uma breve fundamentação teórica sobre Behavior Driven Development
-(BDD);
-            \item apresentar de forma geral o funcionamento da ferramenta Lettuce no contexto
-Python/Django;
-            \item desenvolver tutorial de uso da ferramenta Lettuce;
-            \item apresentar a implementação de testes BDD num software em evolução Python/Django;
-            \item oferecer como suporte ao guia de implementação de BDD vídeo tutorial sobre
-configurações e uso da ferramenta Lettuce.
+            \item Sustituição dos Motores DC devido imprecisão;
+            \item Mais torque;
+            \item Melhor controle de velocidade;
+            \item Rotação precisa com malha aberta;
+            \item Não há necessidade de alta velocidade.
         \end{itemize}
-  \end{itemize}
+    \begin{figure}
+    \centering
+    \includegraphics[width=0.4\linewidth]{eletronica_1}
+  \end{figure}
 \end{frame}
 
-\subsection{Dificuldades Encontradas}
+\subsection{Máquina de Estados}
 \begin{frame}
-  \begin{itemize}
-    \item Quanto a tecnologia:
+  Máquina de Estados:
         \begin{itemize}
-            \item alta curva de aprendizado sobre o framework Django;
-            \item alta curva de aprendizado sobre o framework de BDD Lettuce;
-            \item vários pacotes de dependências para instalação e uso do Lettuce e Django;
-            \item configuração do framework Django;
-            \item configuração da ferramenta Lettuce no framework Django;
-            \item configuração de um browser default para o splinter.
+            \item Abordagem do controle de movimentação por Máquina de estados.
         \end{itemize}
-    \item Quanto ao processo de desenvolvimento e pesquisa:
-        \begin{itemize}
-            \item atrasos no cronograma;
-            \item bloqueio de tarefas de cada integrante por uma depender da outra;
-            \item escopo do trabalho parcialmente definido;
-            \item inconsistências no relatório anterior.
-        \end{itemize}
-  \end{itemize}
+    \begin{figure}
+    \centering
+    \includegraphics[width=0.63\linewidth]{eletronica_2}
+  \end{figure}
 \end{frame}
 
-\section{Riscos Técnicos} % Sections can be created in order to organize your presentation into discrete blocks, all sections and subsections are automatically printed in the table of contents as an overview of the talk
+\subsection{Modelo de Circuito Utilizado}
+\begin{frame}
+  Modelo de Circuito Utilizado
+    \begin{figure}
+    \centering
+    \includegraphics[width=0.9\linewidth]{eletronica_3}
+  \end{figure}
+\end{frame}
+
+
 %------------------------------------------------
-\subsection{Riscos Técnicos}
+\section{Software}
+\subsection{Software}
 \begin{frame}
-  \begin{itemize}
-      \item Escopo indefinido;
-      \item Equipe de desenvolvimento de MDS;
-      \item Inviabilidade do grupo de desenvolver aplicação em Python/Django;
-      \item Inviabilidade do uso da ferramenta Lettuce para o projeto.
-  \end{itemize}
-\end{frame}
-
-\section{Produto}
-\subsection{Produto}
-\begin{frame}
+  \centering
+  Focos de atuação em software:
     \begin{itemize}
-        \item Historias de usuário;
-        \item Criterios de aceitação;
-        \item Teste na ferramenta lettuce;
-        \item Guia.
+    \centering
+        \item Movimentação: determinação de como o robô se movimentará;
+        \centering
+        \item Comunicação: determinação de como o centro de controle se comunicará com os periféricos;
     \end{itemize}
 \end{frame}
 
-\section{Resultados Alcançados} % Sections can be created in order to organize your presentation into discrete blocks, all sections and subsections are automatically printed in the table of contents as an overview of the talk
-%------------------------------------------------
-\subsection{Resultados Alcançados}
+\subsection{Movimentação}
 \begin{frame}
-  \begin{itemize}
-      \item Testes com Letucce;
+  Movimentação:
+    \begin{itemize}
+        \item Criar mapa usando matrix 2X2;
+        \item Estrutura de grafo para garantir movimentação;
+        \item Explorar vizinhos usando busca em largura;
+        \item Determinar caminhos usando A*.
+    \end{itemize}
+\end{frame}
+
+\subsection{Exemplo Movimentação}
+\begin{frame}
+  Exemplo Movimentação
+    \begin{figure}
+    \centering
+    \includegraphics[width=0.9\linewidth]{software_1}
+  \end{figure}
+\end{frame}
+
+%------------------------------------------------
+\subsection{Comunicação}
+\begin{frame}
+  \centering
+  Comunicar mestre e servo através de comunicação serial. Para tal deve-se:
+    \begin{itemize}
+        \item Definir regras de comunicação entre mestre e escravo;
+        \item Garantir a ausência de espera eterna;
+        \item Garantir a entrega da mensagem.
+    \end{itemize}
+    \begin{figure}
+    \centering
+    \includegraphics[width=0.4\linewidth]{arduinopi}
+  \end{figure}
+\end{frame}
+
+\subsection{Visão Geral da Comunicação}
+\begin{frame}
+  Visão Geral da Comunicação:
+    \begin{figure}
+    \centering
+    \includegraphics[width=0.6\linewidth]{visao-geral}
+  \end{figure}
+\end{frame}
+
+\subsection{Handshake}
+\begin{frame}
+  \centering
+  Handshake
+    \begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{handshake}
+  \end{figure}
+   \begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{legenda}
+  \end{figure}
+\end{frame}
+
+\subsection{Empacotamento dos dados - pacotes TLV}
+\begin{frame}
+  \centering
+  Empacotamento dos dados - pacotes TLV:
+    \begin{itemize}
+        \item Cabeçalho fixo;
+        \item Payload variável;
+        \item Possibilita a inserção de novos tipos de dados sem alterar o código de leitura/escrita.
+    \end{itemize}
+    \begin{figure}
+    \centering
+    \includegraphics[width=0.9\linewidth]{tlv}
+  \end{figure}
+\end{frame}
+
+\subsection{Empacotamento dos dados - pacotes TLV}
+\begin{frame}
+  \centering
+  Empacotamento dos dados - pacotes TLV:
+    \begin{figure}
+    \includegraphics[width=0.35\linewidth]{def_a}
+    \includegraphics[width=0.35\linewidth]{def_b}
+  \end{figure}
+\end{frame}
+
+%------------------------------------------------
+\section{Automotiva}
+\subsection{Projeto da Estrutura - Material e Arranjo}
+\begin{frame}
+  Escolha do material:
+    \begin{itemize}
+        \item Peso suportado;
+        \item Propriedades físicas.
+    \end{itemize}
+    Determinação do arranjo:
+    \begin{itemize}
+        \item Equipe à equipe;
+        \item Definidos dimensões e requisitos de localização;
+        \item Cálculo de CG por elemento;
+        \item Distribuição de peso.
+    \end{itemize}
+\end{frame}
+
+\subsection{Projeto da Estrutura - Peças e Estruturas}
+\begin{frame}
+Definição das peças:
+    \begin{itemize}
+        \item Modelo em CATIA;
+        \item Definição exata da geometria;
+        \item Testes de resistência.
+    \end{itemize}
+    Confecção da estrutura:
+    \begin{itemize}
+        \item Corte da madeira;
+        \item Inserção dos suportes;
+        \item Acoplamento dos elementos físicos.
+    \end{itemize}
+\end{frame}
+
+\subsection{Estrutura}
+\begin{frame}
+    \centering
+    Estrutura    
+    \begin{figure}
+    \centering
+    \includegraphics[width=0.8\linewidth]{automotiva_1}
+  \end{figure}
+\end{frame}
+%------------------------------------------------
+\section{Energia}
+\subsection{Teste em Bateria de Lítio}
+\begin{frame}
+  Teste em Bateria de Lítio:
+        \begin{figure}
+          \centering
+          \includegraphics[width=1\linewidth]{energia_1}
+          %\caption{Gráfico de Teste em Bateria de Lítio}
+        \end{figure}
+\end{frame}
+
+\subsection{Teste em Bateria de Chumbo}
+\begin{frame}
+  Teste em Bateria de Chumbo:
+        \begin{figure}
+          \centering
+          \includegraphics[width=1\linewidth]{energia_2}
+          %\caption{Gráfico de Teste em Bateria de Lítio}
+        \end{figure}
+\end{frame}
+
+%------------------------------------------------
+\section{Limpeza}
+\subsection{Sistema de Varrição}
+\begin{frame}
+  Sistema de Varrição:
+    \begin{itemize}
+        \item Primeiro estágio - protótipo de teste;
+        \begin{figure}
+          \centering
+          \includegraphics[width=0.8\linewidth]{limpeza_1}
+          \caption{Protótipo com motor DC: 9V/0.1A - 300 RPM}
+        \end{figure}
+        \item Segundo estágio:
         \begin{itemize}
-          \item Com e sem Splinter;
-          \item Test browser.
+          \item Elaboração do sistema com encaixes;
+          \item Desenho CAD;
+          \item Simulação no software Ansys CFX.
         \end{itemize}
-      \item Guia prévio de uso/instalação da Ferramenta;
-      \item Motivação da equipe de MDS a utilizar BDD.
-  \end{itemize}
+    \end{itemize}
 \end{frame}
 
-\section{Perspectivas Futuras} % Sections can be created in order to organize your presentation into discrete blocks, all sections and subsections are automatically printed in the table of contents as an overview of the talk
-%------------------------------------------------
-\subsection{Perspectivas Futuras}
+\subsection{Sistema de Sucção}
 \begin{frame}
-  \begin{itemize}
-      \item Finalização do guia de desenvolvimento BDD para Python/Django;
-      \item Desenvolvimento do suporte de implementação com um tutorial em vídeo.
-  \end{itemize}
+  Sistema de Varrição:
+    \begin{itemize}
+        \item Primeiro estágio:;
+        \begin{itemize}
+          \item Motor DC 12V/2A - 3600 RPM;
+          \item Garrafas PET 500 ml;
+          \item Hélice de ventoinha de dissipador de calor.
+        \end{itemize}
+        \item Segundo estágio:
+        \begin{itemize}
+          \item Idealização de um novo sistema;
+          \item Desenho CAD;
+          \item Simulação do fluxo de ar no software Ansys CFX;
+          \item Teoria.
+        \end{itemize}
+    \end{itemize}
 \end{frame}
-
-
 
 %------------------------------------------------
 \section{Fim}
